@@ -3,22 +3,22 @@ package cn.edu.tju.rico.test;
 import cn.edu.tju.rico.heap.MinHeap;
 
 public class MinHeapTest {
-	public static void main(String[] args) {
-		
-		int[] arr = {53, 17, 78, 9, 45, 65, 87, 23};
-		MinHeap heap = new MinHeap(arr,20);
-		System.out.println("¶Ñ£º");
-		heap.printMinHeap(0);
-		System.out.println("\n---------------------------\n");
-		System.out.println("Ïò¶ÑÖĞ²åÈëÔªËØ7ºó£¬¶Ñ±äÎª£º");
-		heap.insert(7);
-		heap.printMinHeap(0);
-		System.out.println("\n---------------------------\n");
-		System.out.println("É¾³ı¶ÑÖĞÄ©Î²ÔªËØ£¬¶Ñ±äÎª£º");
-		heap.remove();
-		heap.printMinHeap(0);
-		System.out.println("\n---------------------------\n");
-		System.out.println("¶ÑÅÅĞò½á¹ûÎª£º");
-		heap.sort();
-	}
+    public static void main(String[] args) {
+
+        int[] arr = {53, 17, 78, 9, 45, 65, 87, 23};
+        MinHeap heap = new MinHeap(arr, 20);
+        System.out.println("å †ï¼š");
+        heap.printMinHeap(0);
+        System.out.println("\n---------------------------\n");
+        System.out.println("å‘å †ä¸­æ’å…¥å…ƒç´ 7åï¼Œå †å˜ä¸ºï¼š");
+        heap.insert(7);
+        heap.printMinHeap(0);
+        System.out.println("\n---------------------------\n");
+        System.out.println("åˆ é™¤å †ä¸­æœ«å°¾å…ƒç´ ï¼Œå †å˜ä¸ºï¼š");
+        heap.remove();
+        heap.printMinHeap(0);
+        System.out.println("\n---------------------------\n");
+        System.out.println("å †æ’åºç»“æœä¸ºï¼š");
+        heap.sort();
+    }
 }

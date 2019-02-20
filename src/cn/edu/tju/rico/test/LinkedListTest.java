@@ -3,68 +3,68 @@ package cn.edu.tju.rico.test;
 import cn.edu.tju.rico.list.LinkedList;
 
 public class LinkedListTest {
-	public static void main(String[] args) throws Exception {
-		
-		LinkedList<String> list1 = new LinkedList<String>();
-		list1.add("Rico");
-		list1.add("Rico");
-		list1.add("Livia");
-		list1.add("TJU");
-		list1.add("Livia");
-		list1.add("NEU");
-		list1.add("NEU");
-		list1.add("Rico");
-		list1.add("NEU");
-		
-		System.out.println("Ô­Á´±í£º");
-		list1.print();
-		System.out.println();
-		
-		list1.remove();
-		System.out.println("É¾³ıÎ²½ÚµãºóµÄÁ´±í£º");
-		list1.print();
-		
-		System.out.println();
-		
-		list1.removeDuplicateNodes();
-		System.out.println("É¾³ıÖØ¸´µãºóµÄÁ´±í£º");
-		list1.print();
-		System.out.println();
-		
-		System.out.println("´òÓ¡µ¹ÊıµÚK¸ö½Úµã£º");
-		System.out.println(list1.getEndK(2));
-		System.out.println();
-		
-		list1.reverseLinkedList();
-		System.out.println("·´×ªÁ´±í£º");
-		list1.print();
-		list1.reverseLinkedList();
-		list1.print();
-		System.out.println();
-		
-		System.out.println("µ¹Ğò´òÓ¡Á´±í£º");
-		list1.reversePrint(list1.getHead());
-		System.out.println();
-		System.out.println();
-		
-		System.out.println("´òÓ¡Á´±íÖĞ¼ä½Úµã£º");
-		list1.printMiddleNodes();
-		System.out.println();
-		
-		
-		LinkedList<String> list2 = new LinkedList<String>();
-		list2.add("Êé´ô×Ó");
-		list2.add(list1.getEndK(2));
-		System.out.println("ÅĞ¶ÏÁ½Á´±íÊÇ·ñÏà½»£º");
-		list1.print();
-		list2.print();
-		System.out.println(list1.size() + " : " + list2.size());
-		System.out.println("ÊÇ·ñÏà½» : " + list1.isIntersect(list2));
-		System.out.println("½»µãÊÇ £º " + list1.getIntersectionPoint(list2));
-		System.out.println();
-		
-		list1.deleteNodeWithoutHead(list1.getEndK(2));
-		System.out.println("´òÓ¡É¾³ıÌØ¶¨½ÚµãºóµÄÁ´±í£º");
-		list1.print();
-	}
+    public static void main(String[] args) throws Exception {
+
+        LinkedList<String> list1 = new LinkedList<String>();
+        list1.add("Rico");
+        list1.add("Rico");
+        list1.add("Livia");
+        list1.add("TJU");
+        list1.add("Livia");
+        list1.add("NEU");
+        list1.add("NEU");
+        list1.add("Rico");
+        list1.add("NEU");
+
+        System.out.println("åŸé“¾è¡¨ï¼š");
+        list1.print();
+        System.out.println();
+
+        list1.remove();
+        System.out.println("åˆ é™¤å°¾èŠ‚ç‚¹åçš„é“¾è¡¨ï¼š");
+        list1.print();
+
+        System.out.println();
+
+        list1.removeDuplicateNodes();
+        System.out.println("åˆ é™¤é‡å¤ç‚¹åçš„é“¾è¡¨ï¼š");
+        list1.print();
+        System.out.println();
+
+        System.out.println("æ‰“å°å€’æ•°ç¬¬Kä¸ªèŠ‚ç‚¹ï¼š");
+        System.out.println(list1.getEndK(2));
+        System.out.println();
+
+        list1.reverseLinkedList();
+        System.out.println("åè½¬é“¾è¡¨ï¼š");
+        list1.print();
+        list1.reverseLinkedList();
+        list1.print();
+        System.out.println();
+
+        System.out.println("å€’åºæ‰“å°é“¾è¡¨ï¼š");
+        list1.reversePrint(list1.getHead());
+        System.out.println();
+        System.out.println();
+
+        System.out.println("æ‰“å°é“¾è¡¨ä¸­é—´èŠ‚ç‚¹ï¼š");
+        list1.printMiddleNodes();
+        System.out.println();
+
+
+        LinkedList<String> list2 = new LinkedList<String>();
+        list2.add("ä¹¦å‘†å­");
+        list2.add(list1.getEndK(2));
+        System.out.println("åˆ¤æ–­ä¸¤é“¾è¡¨æ˜¯å¦ç›¸äº¤ï¼š");
+        list1.print();
+        list2.print();
+        System.out.println(list1.size() + " : " + list2.size());
+        System.out.println("æ˜¯å¦ç›¸äº¤ : " + list1.isIntersect(list2));
+        System.out.println("äº¤ç‚¹æ˜¯ ï¼š " + list1.getIntersectionPoint(list2));
+        System.out.println();
+
+        list1.deleteNodeWithoutHead(list1.getEndK(2));
+        System.out.println("æ‰“å°åˆ é™¤ç‰¹å®šèŠ‚ç‚¹åçš„é“¾è¡¨ï¼š");
+        list1.print();
+    }
 }

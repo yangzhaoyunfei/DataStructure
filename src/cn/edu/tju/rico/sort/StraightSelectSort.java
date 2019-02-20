@@ -1,34 +1,35 @@
 package cn.edu.tju.rico.sort;
 
-/**        
- * Title: Ñ¡ÔñÅÅĞòÖĞµÄÖ±½ÓÑ¡ÔñÅÅĞò   
- * Description: Ã¿´ÎÕÒµ½Êı×éÖĞµ±Ç°ÅÅĞò·¶Î§ÖĞµÄ×îĞ¡Öµ²¢Óë¸Ã·¶Î§ÖĞµÄµÚÒ»¸öÊı×Ö½»»»£¬Í¬Ê±ËõĞ¡´ıÅÅĞòÊı×éµÄÅÅĞò·¶Î§
- * 				Ê±¼ä¸´ÔÓ¶È£º×îºÃÇéĞÎO(n^2)£¬Æ½¾ùÇéĞÎO(n^2)£¬×î²îÇéĞÎO(n^2)
- * 				¿Õ¼ä¸´ÔÓ¶È£ºO(1)
- * 				ÎÈ    ¶¨   ĞÔ£º²»ÎÈ¶¨
- * 				ÄÚ²¿ÅÅĞò(ÔÚÅÅĞò¹ı³ÌÖĞÊı¾İÔªËØÍêÈ«ÔÚÄÚ´æ)
- * @author rico       
- * @created 2017Äê5ÔÂ20ÈÕ ÉÏÎç10:40:00    
- */      
+/**
+ * Title: é€‰æ‹©æ’åºä¸­çš„ç›´æ¥é€‰æ‹©æ’åº
+ * Description: æ¯æ¬¡æ‰¾åˆ°æ•°ç»„ä¸­å½“å‰æ’åºèŒƒå›´ä¸­çš„æœ€å°å€¼å¹¶ä¸è¯¥èŒƒå›´ä¸­çš„ç¬¬ä¸€ä¸ªæ•°å­—äº¤æ¢ï¼ŒåŒæ—¶ç¼©å°å¾…æ’åºæ•°ç»„çš„æ’åºèŒƒå›´
+ * æ—¶é—´å¤æ‚åº¦ï¼šæœ€å¥½æƒ…å½¢O(n^2)ï¼Œå¹³å‡æƒ…å½¢O(n^2)ï¼Œæœ€å·®æƒ…å½¢O(n^2)
+ * ç©ºé—´å¤æ‚åº¦ï¼šO(1)
+ * ç¨³    å®š   æ€§ï¼šä¸ç¨³å®š
+ * å†…éƒ¨æ’åº(åœ¨æ’åºè¿‡ç¨‹ä¸­æ•°æ®å…ƒç´ å®Œå…¨åœ¨å†…å­˜)
+ *
+ * @author rico
+ * @created 2017å¹´5æœˆ20æ—¥ ä¸Šåˆ10:40:00
+ */
 public class StraightSelectSort {
-	
-	public static int[] selectSort(int[] target){
-		
-		if(target != null && target.length != 1){
-			for (int i = 0; i < target.length; i++) {
-				int min_index = i;
-				for (int j = i + 1; j < target.length; j++) {
-					if(target[min_index] > target[j]){
-						min_index = j;
-					}
-				}
-				if(target[min_index] != target[i]){  // µ¼ÖÂ²»ÎÈ¶¨µÄÒòËØ£º½»»»
-					int min = target[min_index];
-					target[min_index] = target[i];
-					target[i] = min;
-				}
-			}
-		}
-		return target;
-	}
+
+    public static int[] selectSort(int[] target) {
+
+        if (target != null && target.length != 1) {
+            for (int i = 0; i < target.length; i++) {
+                int min_index = i;
+                for (int j = i + 1; j < target.length; j++) {
+                    if (target[min_index] > target[j]) {
+                        min_index = j;
+                    }
+                }
+                if (target[min_index] != target[i]) {  // å¯¼è‡´ä¸ç¨³å®šçš„å› ç´ ï¼šäº¤æ¢
+                    int min = target[min_index];
+                    target[min_index] = target[i];
+                    target[i] = min;
+                }
+            }
+        }
+        return target;
+    }
 }

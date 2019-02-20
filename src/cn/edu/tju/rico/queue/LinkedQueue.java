@@ -1,101 +1,102 @@
 package cn.edu.tju.rico.queue;
 
-  
-/**        
- * Title: »ùÓÚÁ´±íµÄ¶ÓÁĞÊµÏÖ  
- * Description: º¬Í·½áµã(Í·½áµã²»´æ´¢Öµ,Ìí¼Ó²Ù×÷O(1))£¬Î²Ö¸Õë(É¾³ı²Ù×÷O(1))
- * @author rico       
- * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:49:34    
- */      
-    
+
+/**
+ * Title: åŸºäºé“¾è¡¨çš„é˜Ÿåˆ—å®ç°
+ * Description: å«å¤´ç»“ç‚¹(å¤´ç»“ç‚¹ä¸å­˜å‚¨å€¼,æ·»åŠ æ“ä½œO(1))ï¼Œå°¾æŒ‡é’ˆ(åˆ é™¤æ“ä½œO(1))
+ *
+ * @author rico
+ * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:49:34
+ */
+
 public class LinkedQueue<E> {
 
-	private Node<E> head;  // Í·½áµã
-	private Node<E> rear;   // Î²Ö¸Õë
-	private int size;   // ¶ÓÁĞ´óĞ¡
-	
-	public LinkedQueue(){
-		head = rear = new Node<E>(null);
-	}
-	  
-	/**     
-	 * @description Ìí¼ÓÔªËØµ½¶ÓÎ²
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:52:20     
-	 * @param data     
-	 */
-	public void put(E data){
-		Node<E> node = new Node<E>(data);
-		rear.next = node;
-		rear = node;
-		size ++;
-	}
-	  
-	/**     
-	 * @description É¾³ı¶ÓÍ·²¢·µ»Ø¶ÓÍ·ÔªËØµÄÖµ
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:52:24     
-	 * @return     
-	 */
-	public E pop(){
-		if(!isEmpty()){
-			E e = null;
-			Node<E> temp = head.next;
-			head.next = temp.next;
-			e = temp.data;
-			
-			temp.data = null;
-			temp.next = null;
-			size--;
-			return e;		
-		}
-		return null;
-	}
-	  
-	/**     
-	 * @description ·µ»Ø¶ÓÍ·ÔªËØµÄÖµ
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:52:28     
-	 * @return     
-	 */
-	public E peek() {
-		if (!isEmpty()) {
-			return head.next.data;
-		}
-		return null;
-	}
-	
-	  
-	/**     
-	 * @description ¶ÓÁĞÊÇ·ñÎª¿Õ
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:52:33     
-	 * @return     
-	 */
-	public boolean isEmpty(){
-		return size == 0;
-	}
-	
-	  
-	/**     
-	 * @description ¶ÓÁĞ´óĞ¡
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:52:35     
-	 * @return     
-	 */
-	public int size() {
-		return size;
-	}
+    private Node<E> head;  // å¤´ç»“ç‚¹
+    private Node<E> rear;   // å°¾æŒ‡é’ˆ
+    private int size;   // é˜Ÿåˆ—å¤§å°
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		Node<E> cur = head.next;
-		StringBuilder sb = new StringBuilder();
-		while(cur != null){
-			sb.append(cur.data).append(" ");
-			cur = cur.next;
-		}
-		return sb.toString();
-	}
+    public LinkedQueue() {
+        head = rear = new Node<E>(null);
+    }
+
+    /**
+     * @param data
+     * @description æ·»åŠ å…ƒç´ åˆ°é˜Ÿå°¾
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:52:20
+     */
+    public void put(E data) {
+        Node<E> node = new Node<E>(data);
+        rear.next = node;
+        rear = node;
+        size++;
+    }
+
+    /**
+     * @return
+     * @description åˆ é™¤é˜Ÿå¤´å¹¶è¿”å›é˜Ÿå¤´å…ƒç´ çš„å€¼
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:52:24
+     */
+    public E pop() {
+        if (!isEmpty()) {
+            E e = null;
+            Node<E> temp = head.next;
+            head.next = temp.next;
+            e = temp.data;
+
+            temp.data = null;
+            temp.next = null;
+            size--;
+            return e;
+        }
+        return null;
+    }
+
+    /**
+     * @return
+     * @description è¿”å›é˜Ÿå¤´å…ƒç´ çš„å€¼
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:52:28
+     */
+    public E peek() {
+        if (!isEmpty()) {
+            return head.next.data;
+        }
+        return null;
+    }
+
+
+    /**
+     * @return
+     * @description é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:52:33
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+
+    /**
+     * @return
+     * @description é˜Ÿåˆ—å¤§å°
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:52:35
+     */
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        Node<E> cur = head.next;
+        StringBuilder sb = new StringBuilder();
+        while (cur != null) {
+            sb.append(cur.data).append(" ");
+            cur = cur.next;
+        }
+        return sb.toString();
+    }
 }

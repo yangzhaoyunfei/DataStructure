@@ -1,64 +1,65 @@
 package cn.edu.tju.rico.sort;
-  
-/**        
- * Title: ¶ÑÅÅĞò(Ñ¡ÔñÅÅĞò)£¬ÉıĞòÅÅĞò(×î´ó¶Ñ)   
- * Description: ÏÖ½«¸ø¶¨ĞòÁĞµ÷ÕûÎª×î´ó¶Ñ£¬È»ºóÃ¿´Î½«¶Ñ¶¥ÔªËØÓë¶ÑÎ²ÔªËØ½»»»²¢ËõĞ¡¶ÑµÄ·¶Î§£¬Ö±µ½½«¶ÑËõĞ¡ÖÁ1
- * Ê±¼ä¸´ÔÓ¶È£ºO(nlgn)
- * ¿Õ¼ä¸´ÔÓ¶È£ºO(1) 
- * ÎÈ ¶¨ ĞÔ£º²»ÎÈ¶¨
- * ÄÚ²¿ÅÅĞò(ÔÚÅÅĞò¹ı³ÌÖĞÊı¾İÔªËØÍêÈ«ÔÚÄÚ´æ)
- * @author rico       
- * @created 2017Äê5ÔÂ25ÈÕ ÉÏÎç9:48:06    
- */      
+
+/**
+ * Title: å †æ’åº(é€‰æ‹©æ’åº)ï¼Œå‡åºæ’åº(æœ€å¤§å †)
+ * Description: ç°å°†ç»™å®šåºåˆ—è°ƒæ•´ä¸ºæœ€å¤§å †ï¼Œç„¶åæ¯æ¬¡å°†å †é¡¶å…ƒç´ ä¸å †å°¾å…ƒç´ äº¤æ¢å¹¶ç¼©å°å †çš„èŒƒå›´ï¼Œç›´åˆ°å°†å †ç¼©å°è‡³1
+ * æ—¶é—´å¤æ‚åº¦ï¼šO(nlgn)
+ * ç©ºé—´å¤æ‚åº¦ï¼šO(1)
+ * ç¨³ å®š æ€§ï¼šä¸ç¨³å®š
+ * å†…éƒ¨æ’åº(åœ¨æ’åºè¿‡ç¨‹ä¸­æ•°æ®å…ƒç´ å®Œå…¨åœ¨å†…å­˜)
+ *
+ * @author rico
+ * @created 2017å¹´5æœˆ25æ—¥ ä¸Šåˆ9:48:06
+ */
 public class HeapSort {
 
-	public static int[] heapSort(int[] target) {
-		if (target != null && target.length > 1) {
-			
-			// µ÷ÕûÎª×î´ó¶Ñ
-			int pos = (target.length - 2) / 2;
-			while (pos >= 0) {
-				shiftDown(target, pos, target.length - 1);
-				pos--;
-			}
+    public static int[] heapSort(int[] target) {
+        if (target != null && target.length > 1) {
 
-			// ¶ÑÅÅĞò
-			for (int i = target.length-1; i > 0; i--) {
-				int temp = target[i];
-				target[i] = target[0];
-				target[0] = temp;
-				shiftDown(target, 0, i-1);
-			}
-			return target;
-		}
-		return target;
-	}
+            // è°ƒæ•´ä¸ºæœ€å¤§å †
+            int pos = (target.length - 2) / 2;
+            while (pos >= 0) {
+                shiftDown(target, pos, target.length - 1);
+                pos--;
+            }
 
-	  
-	/**     
-	 * @description ×ÔÉÏ¶øÏÂµ÷ÕûÎª×î´ó¶Ñ
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ25ÈÕ ÉÏÎç9:45:40     
-	 * @param target
-	 * @param start
-	 * @param end     
-	 */
-	private static void shiftDown(int[] target, int start, int end) {
-		int i = start;
-		int j = 2 * start + 1;
-		int temp = target[i];
-		while (j <= end) {   // µü´úÌõ¼ş
-			if (j < end && target[j + 1] > target[j]) {  //ÕÒ³ö½Ï´ó×ÓÅ®
-				j = j + 1;
-			}
-			if (target[j] <= temp) {  // ¸¸Ç×´óÓÚ×ÓÅ®
-				break;
-			} else {
-				target[i] = target[j];
-				i = j;
-				j = 2 * j + 1;
-			}
-		}
-		target[i] = temp;
-	}
+            // å †æ’åº
+            for (int i = target.length - 1; i > 0; i--) {
+                int temp = target[i];
+                target[i] = target[0];
+                target[0] = temp;
+                shiftDown(target, 0, i - 1);
+            }
+            return target;
+        }
+        return target;
+    }
+
+
+    /**
+     * @param target
+     * @param start
+     * @param end
+     * @description è‡ªä¸Šè€Œä¸‹è°ƒæ•´ä¸ºæœ€å¤§å †
+     * @author rico
+     * @created 2017å¹´5æœˆ25æ—¥ ä¸Šåˆ9:45:40
+     */
+    private static void shiftDown(int[] target, int start, int end) {
+        int i = start;
+        int j = 2 * start + 1;
+        int temp = target[i];
+        while (j <= end) {   // è¿­ä»£æ¡ä»¶
+            if (j < end && target[j + 1] > target[j]) {  //æ‰¾å‡ºè¾ƒå¤§å­å¥³
+                j = j + 1;
+            }
+            if (target[j] <= temp) {  // çˆ¶äº²å¤§äºå­å¥³
+                break;
+            } else {
+                target[i] = target[j];
+                i = j;
+                j = 2 * j + 1;
+            }
+        }
+        target[i] = temp;
+    }
 }

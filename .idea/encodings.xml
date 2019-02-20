@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/BinarySearchTree/BinarySearchTree.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/backtrack/EightQueen.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/heap/MinHeap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/list/LinkedList.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/list/Node.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/queue/LinkedQueue.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/queue/Node.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/queue/OptimizationStackQueue.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/queue/SeqQueue.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/queue/StackQueue.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/sort/BinaryInsertSort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/sort/BubbleSort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/sort/HeapSort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/sort/MergeSort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/sort/QuickSort_PartitionOnly.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/sort/RadixSort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/sort/ShellSort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/sort/StraightInsertionSort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/sort/StraightSelectSort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/stack/LinkedListStack.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/stack/LinkedStack.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/stack/Node.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/stack/SeqStack.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/test/BinarySearchTreeTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/test/BinaryTreeTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/test/LinkedListTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/test/LinkedStackTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/test/MinHeapTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/test/SortTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/tree/BinaryTree.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/edu/tju/rico/tree/Node.java" charset="UTF-8" />
+  </component>
+</project>

@@ -2,57 +2,58 @@ package cn.edu.tju.rico.stack;
 
 import java.util.LinkedList;
 
-  
-/**        
- * Title: ½èÖúÓÚLinkedListÊµÏÖÕ»   
- * Description: 
- * @author rico       
- * @created 2017Äê4ÔÂ6ÈÕ ÏÂÎç8:25:21    
- */      
+
+/**
+ * Title: å€ŸåŠ©äºLinkedListå®ç°æ ˆ
+ * Description:
+ *
+ * @author rico
+ * @created 2017å¹´4æœˆ6æ—¥ ä¸‹åˆ8:25:21
+ */
 public class LinkedListStack<E> {
-	
-	// Ö§³ÅList
-	private LinkedList<E> stack;
-	
-	// ¹¹Ôìº¯Êı
-	public LinkedListStack(){
-		stack = new LinkedList<E>();
-	}
-	
-	// ÊÇ·ñÎª¿Õ
-	public boolean isEmpty(){
-		return stack.isEmpty();
-	}
-	
-	// Ñ¹Õ»
-	public void push(E data){
-		stack.addFirst(data);
-	}
-	
-	//µ¯Õ»
-	public E pop() throws Exception{
-		if(stack.isEmpty()){
-			throw new Exception("Õ»ÒÑÂú...");
-		}
-		
-		return stack.pop();
-	}
-	
-	@Override
-	public String toString() {
-		return stack.toString();
-	}
 
-	public static void main(String[] args) throws Exception {
-		LinkedListStack<String> stack = new LinkedListStack<String>();
-		stack.push("Rico");
-		stack.push("TJU");
-		stack.push("Livia");
-		stack.push("NEU");
+    // æ”¯æ’‘List
+    private LinkedList<E> stack;
 
-		System.out.println(stack);
+    // æ„é€ å‡½æ•°
+    public LinkedListStack() {
+        stack = new LinkedList<E>();
+    }
 
-		stack.pop();
-		System.out.println(stack);
-	}
+    public static void main(String[] args) throws Exception {
+        LinkedListStack<String> stack = new LinkedListStack<String>();
+        stack.push("Rico");
+        stack.push("TJU");
+        stack.push("Livia");
+        stack.push("NEU");
+
+        System.out.println(stack);
+
+        stack.pop();
+        System.out.println(stack);
+    }
+
+    // æ˜¯å¦ä¸ºç©º
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
+
+    // å‹æ ˆ
+    public void push(E data) {
+        stack.addFirst(data);
+    }
+
+    //å¼¹æ ˆ
+    public E pop() throws Exception {
+        if (stack.isEmpty()) {
+            throw new Exception("æ ˆå·²æ»¡...");
+        }
+
+        return stack.pop();
+    }
+
+    @Override
+    public String toString() {
+        return stack.toString();
+    }
 }

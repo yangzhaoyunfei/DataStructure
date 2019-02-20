@@ -1,47 +1,48 @@
 package cn.edu.tju.rico.sort;
-  
-/**        
- * Title: ²åÈëÅÅĞòÖĞµÄÏ£¶ûÅÅĞò  
- * Description: ·Ö±ğ¶Ô¼ä¸ôÎªgapµÄgap¸ö×ÓĞòÁĞ½øĞĞÖ±½Ó²åÈëÅÅĞò£¬²»¶ÏËõĞ¡gap,Ö±ÖÁÎª 1 
- * 
- * 				¸Õ¿ªÊ¼Ê±£¬gap½Ï´ó£¬Ã¿¸ö×ÓĞòÁĞÔªËØ½ÏÉÙ£¬ÅÅĞòËÙ¶È½Ï¿ì£»
- * 				´ıµ½ÅÅĞòºóÆÚ£¬gap±äĞ¡£¬Ã¿¸ö×ÓĞòÁĞÔªËØ½Ï¶à£¬µ«´ó²¿·ÖÔªËØ»ù±¾ÓĞĞò£¬ËùÒÔÅÅĞòËÙ¶ÈÈÔ½Ï¿ì¡£				
- * 
- * 				Ê±¼ä¸´ÔÓ¶È£ºO(n) ~ O(n^2)
- * 				¿Õ¼ä¸´ÔÓ¶È£ºO(1)
- * 				ÎÈ    ¶¨   ĞÔ£º²»ÎÈ¶¨
- * 				ÄÚ²¿ÅÅĞò(ÔÚÅÅĞò¹ı³ÌÖĞÊı¾İÔªËØÍêÈ«ÔÚÄÚ´æ)
- * @author rico       
- * @created 2017Äê5ÔÂ20ÈÕ ÉÏÎç10:40:00    
- */      
+
+/**
+ * Title: æ’å…¥æ’åºä¸­çš„å¸Œå°”æ’åº
+ * Description: åˆ†åˆ«å¯¹é—´éš”ä¸ºgapçš„gapä¸ªå­åºåˆ—è¿›è¡Œç›´æ¥æ’å…¥æ’åºï¼Œä¸æ–­ç¼©å°gap,ç›´è‡³ä¸º 1
+ * <p>
+ * åˆšå¼€å§‹æ—¶ï¼Œgapè¾ƒå¤§ï¼Œæ¯ä¸ªå­åºåˆ—å…ƒç´ è¾ƒå°‘ï¼Œæ’åºé€Ÿåº¦è¾ƒå¿«ï¼›
+ * å¾…åˆ°æ’åºåæœŸï¼Œgapå˜å°ï¼Œæ¯ä¸ªå­åºåˆ—å…ƒç´ è¾ƒå¤šï¼Œä½†å¤§éƒ¨åˆ†å…ƒç´ åŸºæœ¬æœ‰åºï¼Œæ‰€ä»¥æ’åºé€Ÿåº¦ä»è¾ƒå¿«ã€‚
+ * <p>
+ * æ—¶é—´å¤æ‚åº¦ï¼šO(n) ~ O(n^2)
+ * ç©ºé—´å¤æ‚åº¦ï¼šO(1)
+ * ç¨³    å®š   æ€§ï¼šä¸ç¨³å®š
+ * å†…éƒ¨æ’åº(åœ¨æ’åºè¿‡ç¨‹ä¸­æ•°æ®å…ƒç´ å®Œå…¨åœ¨å†…å­˜)
+ *
+ * @author rico
+ * @created 2017å¹´5æœˆ20æ—¥ ä¸Šåˆ10:40:00
+ */
 public class ShellSort {
-	
-	  
-	/**     
-	 * @description 
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ21ÈÕ ÏÂÎç7:56:03     
-	 * @param target
-	 * @return     
-	 */
-	public static int[] shellSort(int[] target){
-		if(target != null && target.length != 1){
-			int gap = target.length;       // gap¸ö´óĞ¡ÎªgapµÄ×ÓĞòÁĞ
-			do{
-				gap = gap/3 + 1;     // ²»¶ÏËõĞ¡gapÖ±ÖÁÎª1
-				for (int i = 0 + gap; i < target.length; i++) {   // ¶ÔÃ¿¸ö×ÓĞòÁĞ½øĞĞÖ±½Ó²åÈëÅÅĞò
-					if(target[i] < target[i-gap]){
-						int j = i - gap;
-						int temp = target[i];         // ´ı²åÈëÖµ
-						do{
-							target[j + gap] = target[j];         // ºóÒÆÔªËØ
-							j = j - gap;          // ÔÙ±È½ÏÇ°Ò»¸öÔªËØ
-						}while(j >= 0 && target[j] > temp);  // ÏòÇ°±È½ÏµÄÖÕÖ¹Ìõ¼ş
-						target[j + gap] = temp;         // ½«´ı²åÈëÖµ²åÈëºÏÊÊµÄÎ»ÖÃ
-					}
-				}
-			}while(gap > 1);
-		}
-		return target;
-	}
+
+
+    /**
+     * @param target
+     * @return
+     * @description
+     * @author rico
+     * @created 2017å¹´5æœˆ21æ—¥ ä¸‹åˆ7:56:03
+     */
+    public static int[] shellSort(int[] target) {
+        if (target != null && target.length != 1) {
+            int gap = target.length;       // gapä¸ªå¤§å°ä¸ºgapçš„å­åºåˆ—
+            do {
+                gap = gap / 3 + 1;     // ä¸æ–­ç¼©å°gapç›´è‡³ä¸º1
+                for (int i = 0 + gap; i < target.length; i++) {   // å¯¹æ¯ä¸ªå­åºåˆ—è¿›è¡Œç›´æ¥æ’å…¥æ’åº
+                    if (target[i] < target[i - gap]) {
+                        int j = i - gap;
+                        int temp = target[i];         // å¾…æ’å…¥å€¼
+                        do {
+                            target[j + gap] = target[j];         // åç§»å…ƒç´ 
+                            j = j - gap;          // å†æ¯”è¾ƒå‰ä¸€ä¸ªå…ƒç´ 
+                        } while (j >= 0 && target[j] > temp);  // å‘å‰æ¯”è¾ƒçš„ç»ˆæ­¢æ¡ä»¶
+                        target[j + gap] = temp;         // å°†å¾…æ’å…¥å€¼æ’å…¥åˆé€‚çš„ä½ç½®
+                    }
+                }
+            } while (gap > 1);
+        }
+        return target;
+    }
 }

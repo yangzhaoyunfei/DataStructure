@@ -3,548 +3,549 @@ package cn.edu.tju.rico.tree;
 import java.util.LinkedList;
 
 /**
- * Title: ¶ş²æÊ÷(·ÇÏßĞÔ½á¹¹)µÄ¹¹½¨¼°Ïà¹Ø²Ù×÷  
+ * Title: äºŒå‰æ ‘(éçº¿æ€§ç»“æ„)çš„æ„å»ºåŠç›¸å…³æ“ä½œ
  * Description:
- * ÒÔ¹ãÒå±íĞÎÊ½µÄ×Ö·û´®¹¹½¨¶ş²æÊ÷£º'()'Ç°±íÊ¾¸ù½áµã£¬À¨ºÅÖĞ×óÓÒ×ÓÊ÷ÓÃ¶ººÅ¸ô¿ª£¬¶ººÅ²»ÄÜÊ¡ÂÔ 
- * ¶ş²æÊ÷µÄ²ã´Î/¹ãĞò±éÀúËã·¨
- * ¶ş²æÊ÷µÄÇ°Ğò¡¢ÖĞĞò¡¢ºóĞò±éÀúµÄµİ¹éºÍ·Çµİ¹éËã·¨(¶ÔÃ¿¸ö½Úµã¶øÑÔ£¬ÈıÖÖ±éÀú·½Ê½¶¼ĞèÒª±éÀú¸Ã½áµãÈı´Î£¬ÈıÕßÎ¨Ò»Çø±ğÔÚÓÚ¸Ã½áµãµÄ·ÃÎÊÊ±»ú)
- * ¸ù¾İ¶ş²æÊ÷µÄÇ°Ğò¡¢ÖĞĞò»òÖĞĞò¡¢ºóĞò±éÀú½á¹û¹¹½¨¶ş²æÊ÷
- * ¶ş²æÊ÷µÄ¸ß¶È
- * ¶ş²æÊ÷µÄ½áµã×ÜÊı
- * ¸ù¾İÊ÷µÄ¸ù½áµã¸´ÖÆÒ»¿Å¶ş²æÊ÷
- * »ñÈ¡¶ş²æÊ÷µÄ¸ù½áµã£¬º¢×Ó½Úµã
- * ´òÓ¡¶ş²æÊ÷
- * ÅĞ¶ÏÁ½¿Å¶ş²æÊ÷ÊÇ·ñÏàµÈ
- * 
+ * ä»¥å¹¿ä¹‰è¡¨å½¢å¼çš„å­—ç¬¦ä¸²æ„å»ºäºŒå‰æ ‘ï¼š'()'å‰è¡¨ç¤ºæ ¹ç»“ç‚¹ï¼Œæ‹¬å·ä¸­å·¦å³å­æ ‘ç”¨é€—å·éš”å¼€ï¼Œé€—å·ä¸èƒ½çœç•¥
+ * äºŒå‰æ ‘çš„å±‚æ¬¡/å¹¿åºéå†ç®—æ³•
+ * äºŒå‰æ ‘çš„å‰åºã€ä¸­åºã€ååºéå†çš„é€’å½’å’Œéé€’å½’ç®—æ³•(å¯¹æ¯ä¸ªèŠ‚ç‚¹è€Œè¨€ï¼Œä¸‰ç§éå†æ–¹å¼éƒ½éœ€è¦éå†è¯¥ç»“ç‚¹ä¸‰æ¬¡ï¼Œä¸‰è€…å”¯ä¸€åŒºåˆ«åœ¨äºè¯¥ç»“ç‚¹çš„è®¿é—®æ—¶æœº)
+ * æ ¹æ®äºŒå‰æ ‘çš„å‰åºã€ä¸­åºæˆ–ä¸­åºã€ååºéå†ç»“æœæ„å»ºäºŒå‰æ ‘
+ * äºŒå‰æ ‘çš„é«˜åº¦
+ * äºŒå‰æ ‘çš„ç»“ç‚¹æ€»æ•°
+ * æ ¹æ®æ ‘çš„æ ¹ç»“ç‚¹å¤åˆ¶ä¸€é¢—äºŒå‰æ ‘
+ * è·å–äºŒå‰æ ‘çš„æ ¹ç»“ç‚¹ï¼Œå­©å­èŠ‚ç‚¹
+ * æ‰“å°äºŒå‰æ ‘
+ * åˆ¤æ–­ä¸¤é¢—äºŒå‰æ ‘æ˜¯å¦ç›¸ç­‰
+ *
  * @author rico
- * @created 2017Äê5ÔÂ23ÈÕ ÉÏÎç11:16:12
+ * @created 2017å¹´5æœˆ23æ—¥ ä¸Šåˆ11:16:12
  */
 public class BinaryTree<E> {
 
-	
-	/**  ¶ş²æÊ÷µÄ¸ù½áµã   (@author: rico) */      
-	private Node<E> root;
 
-	  
-	/** 
-	 * ÎŞ²Î¹¹Ôìº¯Êı 
-	 * @description Ä¬ÈÏÎŞ²Î¹¹Ôìº¯Êı 
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç3:36:35           
-	 */ 
-	public BinaryTree() {
-		super();
-	}
+    /**
+     * äºŒå‰æ ‘çš„æ ¹ç»“ç‚¹   (@author: rico)
+     */
+    private Node<E> root;
+    /**
+     * æ–¹æ³•createTreeByPreOrederStréœ€è¦ç”¨åˆ°çš„æŒ‡é’ˆ (@author: rico)
+     */
+    private int index = 0;
 
-	/**
-	 * ¹¹Ôìº¯Êı
-	 * 
-	 * @description ¸ù¾İÒ»¸öÊ÷µÄ¸ù½áµã¸´ÖÆ¹¹ÔìÊ÷
-	 * @author rico
-	 * @created 2017Äê5ÔÂ23ÈÕ ÏÂÎç2:17:06
-	 * @param node
-	 *            Ô­Ê÷µÄ¸ù½áµã
-	 */
-	public BinaryTree(Node<E> node) {
-		// TODO Auto-generated constructor stub
-		this.root = copy(node);
-	}
+    /**
+     * æ— å‚æ„é€ å‡½æ•°
+     *
+     * @description é»˜è®¤æ— å‚æ„é€ å‡½æ•°
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ3:36:35
+     */
+    public BinaryTree() {
+        super();
+    }
 
-	  
-	/** 
-	 * ¹¹Ôìº¯Êı 
-	 * @description ¸ù¾İÒ»¸öÊ÷µÄÇ°Ğò±éÀú½á¹û¸´ÖÆ¹¹ÔìÊ÷
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç3:38:02      
-	 * @param preOrderStr     
-	 */ 
-	public BinaryTree(char[] preOrderStr) {
-		root = createTreeByPreOrederStr(preOrderStr, null);
-	}
 
-	  
-	/** 
-	 * ¹¹Ôìº¯Êı 
-	 * @description ¸ù¾İÒ»¸öÊ÷µÄÇ°Ğò±éÀú+ÖĞĞò±éÀú(»òÖĞĞò±éÀú+ºóĞò±éÀú)¸´ÖÆ¹¹ÔìÊ÷
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç3:38:33      
-	 * @param s1
-	 * @param s2
-	 * @param isPreIn     
-	 */ 
-	public BinaryTree(String s1, String s2, boolean isPreIn) {
-		if (isPreIn) {
-			root = createBinaryTreeByPreAndIn(s1, s2);
-		}else{
-			root = createBinaryTreeByInAndPost(s1, s2);
-		}
-	}
+    /**
+     * æ„é€ å‡½æ•°
+     *
+     * @param node åŸæ ‘çš„æ ¹ç»“ç‚¹
+     * @description æ ¹æ®ä¸€ä¸ªæ ‘çš„æ ¹ç»“ç‚¹å¤åˆ¶æ„é€ æ ‘
+     * @author rico
+     * @created 2017å¹´5æœˆ23æ—¥ ä¸‹åˆ2:17:06
+     */
+    public BinaryTree(Node<E> node) {
+        // TODO Auto-generated constructor stub
+        this.root = copy(node);
+    }
 
-	/**
-	 * @description ¸ù¾İ¹ãÒå±í±í´ïÊ½´´½¨Ê÷
-	 * @author rico
-	 * @created 2017Äê5ÔÂ22ÈÕ ÏÂÎç3:16:01
-	 * @param exp ¹ãÒå±í
-	 */
-	public void createBinaryTree(String exp) {
-		LinkedList<Node<E>> stack = new LinkedList<Node<E>>(); // ¸¨ÖúÕ»
-		Node<E> node = null; // ĞÂ½áµã
-		Node<E> temp = null; // ÓÃÓÚÈëÕ»
-		Node<E> parent = null; // ¸¸Ç×½áµã
-		boolean flag = false; // true ±íÊ¾Á´Èëµ½¸¸½áµãµÄ×óº¢×ÓÎ»ÖÃ£¬false±íÊ¾Á´Èë¸¸½áµãµÄÓÒº¢×ÓÎ»ÖÃ
 
-		for (int i = 0; i < exp.length(); i++) { // Öğ¸ö¶ÁÈë±í´ïÊ½µÄ¸÷¸ö×Ö·û
-			char c = exp.charAt(i);
-			switch (c) {
-			case '(': // µ±Ç°½ÚµãÓĞº¢×Ó½Úµã£¬ÈëÕ»ÒÔ±ãÉèÖÃÆäº¢×Ó
-				stack.push(temp);
-				flag = true;
-				break;
-			case ')': // ÉèÖÃºÃÁËÕ»¶¥½ÚµãµÄº¢×Ó£¬³öÕ»
-				stack.pop();
-				break;
-			case ',': // µ±Ç°½ÚµãÎŞº¢×Ó£¬²»ĞèÒªÉèÖÃÆäº¢×Ó½Úµã£¬Òò´Ë²»ĞèÒªÈëÕ»
-				flag = false;
-				break;
-			default: // ´´½¨¸ù¾İÄÚÈİ´´½¨½Úµã
-				node = new Node(c);
-				break;
-			}
+    /**
+     * æ„é€ å‡½æ•°
+     *
+     * @param preOrderStr
+     * @description æ ¹æ®ä¸€ä¸ªæ ‘çš„å‰åºéå†ç»“æœå¤åˆ¶æ„é€ æ ‘
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ3:38:02
+     */
+    public BinaryTree(char[] preOrderStr) {
+        root = createTreeByPreOrederStr(preOrderStr, null);
+    }
 
-			// ÈôÊ÷²»´æÔÚ£¬Ôò´´½¨Ê÷µÄ¸ù½áµã
-			if (root == null) {
-				root = node;
-			}
+    /**
+     * æ„é€ å‡½æ•°
+     *
+     * @param s1
+     * @param s2
+     * @param isPreIn
+     * @description æ ¹æ®ä¸€ä¸ªæ ‘çš„å‰åºéå†+ä¸­åºéå†(æˆ–ä¸­åºéå†+ååºéå†)å¤åˆ¶æ„é€ æ ‘
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ3:38:33
+     */
+    public BinaryTree(String s1, String s2, boolean isPreIn) {
+        if (isPreIn) {
+            root = createBinaryTreeByPreAndIn(s1, s2);
+        } else {
+            root = createBinaryTreeByInAndPost(s1, s2);
+        }
+    }
 
-			// ÎªÕ»¶¥½ÚµãÁ´Èë×ÓÅ®
-			if (!stack.isEmpty()) {
-				if (node != null) { // µ±¶ÁÈëµÄÊÇ'('¡¢')'¡¢','×Ö·ûÊ±£¬ÂÔ¹ı
-					parent = stack.peek();
-					if (flag) {
-						parent.left = node;
-					} else {
-						parent.right = node;
-					}
-				}
-			}
+    /**
+     * @param exp å¹¿ä¹‰è¡¨
+     * @description æ ¹æ®å¹¿ä¹‰è¡¨è¡¨è¾¾å¼åˆ›å»ºæ ‘
+     * @author rico
+     * @created 2017å¹´5æœˆ22æ—¥ ä¸‹åˆ3:16:01
+     */
+    public static Node createBinaryTree(String exp, Node root) {
+        LinkedList<Node> stack = new LinkedList<Node>(); // è¾…åŠ©æ ˆ
+        Node node = null; // æ–°ç»“ç‚¹
+        Node temp = null; // ç”¨äºå…¥æ ˆ
+        Node parent = null; // çˆ¶äº²ç»“ç‚¹
+        boolean flag = false; // true è¡¨ç¤ºé“¾å…¥åˆ°çˆ¶ç»“ç‚¹çš„å·¦å­©å­ä½ç½®ï¼Œfalseè¡¨ç¤ºé“¾å…¥çˆ¶ç»“ç‚¹çš„å³å­©å­ä½ç½®
 
-			temp = node; // ÓÃÓÚÈëÕ»
-			node = null; // nodeÁ´Èëºó£¬ÖÃ¿Õ
-		}
-	}
-	
-	/**
-	 * @description ¸ù¾İ¹ãÒå±í±í´ïÊ½´´½¨Ê÷
-	 * @author rico
-	 * @created 2017Äê5ÔÂ22ÈÕ ÏÂÎç3:16:01
-	 * @param exp ¹ãÒå±í
-	 */
-	public static Node createBinaryTree(String exp, Node root) {
-		LinkedList<Node> stack = new LinkedList<Node>(); // ¸¨ÖúÕ»
-		Node node = null; // ĞÂ½áµã
-		Node temp = null; // ÓÃÓÚÈëÕ»
-		Node parent = null; // ¸¸Ç×½áµã
-		boolean flag = false; // true ±íÊ¾Á´Èëµ½¸¸½áµãµÄ×óº¢×ÓÎ»ÖÃ£¬false±íÊ¾Á´Èë¸¸½áµãµÄÓÒº¢×ÓÎ»ÖÃ
+        for (int i = 0; i < exp.length(); i++) { // é€ä¸ªè¯»å…¥è¡¨è¾¾å¼çš„å„ä¸ªå­—ç¬¦
+            char c = exp.charAt(i);
+            switch (c) {
+                case '(': // å½“å‰èŠ‚ç‚¹æœ‰å­©å­èŠ‚ç‚¹ï¼Œå…¥æ ˆä»¥ä¾¿è®¾ç½®å…¶å­©å­
+                    stack.push(temp);
+                    flag = true;
+                    break;
+                case ')': // è®¾ç½®å¥½äº†æ ˆé¡¶èŠ‚ç‚¹çš„å­©å­ï¼Œå‡ºæ ˆ
+                    stack.pop();
+                    break;
+                case ',': // å½“å‰èŠ‚ç‚¹æ— å­©å­ï¼Œä¸éœ€è¦è®¾ç½®å…¶å­©å­èŠ‚ç‚¹ï¼Œå› æ­¤ä¸éœ€è¦å…¥æ ˆ
+                    flag = false;
+                    break;
+                default: // åˆ›å»ºæ ¹æ®å†…å®¹åˆ›å»ºèŠ‚ç‚¹
+                    node = new Node(c);
+                    break;
+            }
 
-		for (int i = 0; i < exp.length(); i++) { // Öğ¸ö¶ÁÈë±í´ïÊ½µÄ¸÷¸ö×Ö·û
-			char c = exp.charAt(i);
-			switch (c) {
-			case '(': // µ±Ç°½ÚµãÓĞº¢×Ó½Úµã£¬ÈëÕ»ÒÔ±ãÉèÖÃÆäº¢×Ó
-				stack.push(temp);
-				flag = true;
-				break;
-			case ')': // ÉèÖÃºÃÁËÕ»¶¥½ÚµãµÄº¢×Ó£¬³öÕ»
-				stack.pop();
-				break;
-			case ',': // µ±Ç°½ÚµãÎŞº¢×Ó£¬²»ĞèÒªÉèÖÃÆäº¢×Ó½Úµã£¬Òò´Ë²»ĞèÒªÈëÕ»
-				flag = false;
-				break;
-			default: // ´´½¨¸ù¾İÄÚÈİ´´½¨½Úµã
-				node = new Node(c);
-				break;
-			}
+            // è‹¥æ ‘ä¸å­˜åœ¨ï¼Œåˆ™åˆ›å»ºæ ‘çš„æ ¹ç»“ç‚¹
+            if (root == null) {
+                root = node;
+            }
 
-			// ÈôÊ÷²»´æÔÚ£¬Ôò´´½¨Ê÷µÄ¸ù½áµã
-			if (root == null) {
-				root = node;
-			}
+            // ä¸ºæ ˆé¡¶èŠ‚ç‚¹é“¾å…¥å­å¥³
+            if (!stack.isEmpty()) {
+                if (node != null) { // å½“è¯»å…¥çš„æ˜¯'('ã€')'ã€','å­—ç¬¦æ—¶ï¼Œç•¥è¿‡
+                    parent = stack.peek();
+                    if (flag) {
+                        parent.left = node;
+                    } else {
+                        parent.right = node;
+                    }
+                }
+            }
 
-			// ÎªÕ»¶¥½ÚµãÁ´Èë×ÓÅ®
-			if (!stack.isEmpty()) {
-				if (node != null) { // µ±¶ÁÈëµÄÊÇ'('¡¢')'¡¢','×Ö·ûÊ±£¬ÂÔ¹ı
-					parent = stack.peek();
-					if (flag) {
-						parent.left = node;
-					} else {
-						parent.right = node;
-					}
-				}
-			}
+            temp = node; // ç”¨äºå…¥æ ˆ
+            node = null; // nodeé“¾å…¥åï¼Œç½®ç©º
+        }
+        return root;
+    }
 
-			temp = node; // ÓÃÓÚÈëÕ»
-			node = null; // nodeÁ´Èëºó£¬ÖÃ¿Õ
-		}
-		return root;
-	}
+    /**
+     * @param exp å¹¿ä¹‰è¡¨
+     * @description æ ¹æ®å¹¿ä¹‰è¡¨è¡¨è¾¾å¼åˆ›å»ºæ ‘
+     * @author rico
+     * @created 2017å¹´5æœˆ22æ—¥ ä¸‹åˆ3:16:01
+     */
+    public void createBinaryTree(String exp) {
+        LinkedList<Node<E>> stack = new LinkedList<Node<E>>(); // è¾…åŠ©æ ˆ
+        Node<E> node = null; // æ–°ç»“ç‚¹
+        Node<E> temp = null; // ç”¨äºå…¥æ ˆ
+        Node<E> parent = null; // çˆ¶äº²ç»“ç‚¹
+        boolean flag = false; // true è¡¨ç¤ºé“¾å…¥åˆ°çˆ¶ç»“ç‚¹çš„å·¦å­©å­ä½ç½®ï¼Œfalseè¡¨ç¤ºé“¾å…¥çˆ¶ç»“ç‚¹çš„å³å­©å­ä½ç½®
 
-	/**
-	 * @description ¹ãĞò/²ã´Î±éÀú£¬¹¤×÷¶ÓÁĞ
-	 * @author rico
-	 * @created 2017Äê5ÔÂ22ÈÕ ÏÂÎç3:05:57
-	 * @return
-	 */
-	public String levelOrder() {
-		StringBuilder sb = new StringBuilder();
-		LinkedList<Node<E>> queue = new LinkedList<Node<E>>(); // ¸¨Öú¶ÓÁĞ
-		if (root != null) {
-			queue.add(root);
-			while (!queue.isEmpty()) {
-				Node<E> temp = queue.pop();
-				sb.append(temp.data).append(" ");
+        for (int i = 0; i < exp.length(); i++) { // é€ä¸ªè¯»å…¥è¡¨è¾¾å¼çš„å„ä¸ªå­—ç¬¦
+            char c = exp.charAt(i);
+            switch (c) {
+                case '(': // å½“å‰èŠ‚ç‚¹æœ‰å­©å­èŠ‚ç‚¹ï¼Œå…¥æ ˆä»¥ä¾¿è®¾ç½®å…¶å­©å­
+                    stack.push(temp);
+                    flag = true;
+                    break;
+                case ')': // è®¾ç½®å¥½äº†æ ˆé¡¶èŠ‚ç‚¹çš„å­©å­ï¼Œå‡ºæ ˆ
+                    stack.pop();
+                    break;
+                case ',': // å½“å‰èŠ‚ç‚¹æ— å­©å­ï¼Œä¸éœ€è¦è®¾ç½®å…¶å­©å­èŠ‚ç‚¹ï¼Œå› æ­¤ä¸éœ€è¦å…¥æ ˆ
+                    flag = false;
+                    break;
+                default: // åˆ›å»ºæ ¹æ®å†…å®¹åˆ›å»ºèŠ‚ç‚¹
+                    node = new Node(c);
+                    break;
+            }
 
-				// ÔÚ±éÀúµ±Ç°½ÚµãÊ±£¬Í¬Ê±½«Æä×óÓÒº¢×ÓÈë¶Ó
-				if (temp.left != null)
-					queue.add(temp.left);
-				if (temp.right != null)
-					queue.add(temp.right);
-			}
-		}
-		return sb.toString().trim();
-	}
+            // è‹¥æ ‘ä¸å­˜åœ¨ï¼Œåˆ™åˆ›å»ºæ ‘çš„æ ¹ç»“ç‚¹
+            if (root == null) {
+                root = node;
+            }
 
-	/**
-	 * @description Ç°Ğò±éÀú(µİ¹é)
-	 * @author rico
-	 * @created 2017Äê5ÔÂ22ÈÕ ÏÂÎç3:06:11
-	 * @param root
-	 * @return
-	 */
-	public String preOrder(Node<E> root) {
-		StringBuilder sb = new StringBuilder(); // ´æµ½µİ¹éµ÷ÓÃÕ»
-		if (root != null) { // µİ¹éÖÕÖ¹Ìõ¼ş
-			sb.append(root.data + " "); // Ç°Ğò±éÀúµ±Ç°½áµã
-			sb.append(preOrder(root.left)); // Ç°Ğò±éÀú×ó×ÓÊ÷
-			sb.append(preOrder(root.right)); // Ç°Ğò±éÀúÓÒ×ÓÊ÷
-		}
-		return sb.toString();
-	}
+            // ä¸ºæ ˆé¡¶èŠ‚ç‚¹é“¾å…¥å­å¥³
+            if (!stack.isEmpty()) {
+                if (node != null) { // å½“è¯»å…¥çš„æ˜¯'('ã€')'ã€','å­—ç¬¦æ—¶ï¼Œç•¥è¿‡
+                    parent = stack.peek();
+                    if (flag) {
+                        parent.left = node;
+                    } else {
+                        parent.right = node;
+                    }
+                }
+            }
 
-	/**
-	 * @description Ç°Ğò±éÀú(µü´ú):·ÇÏßĞÔ½á¹¹(Ê÷)£¬¹¤×÷Õ»£ºµ±Ç°½ÚµãÈëÕ»
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÉÏÎç8:48:09
-	 * @return
-	 */
-	public String preOrder() {
+            temp = node; // ç”¨äºå…¥æ ˆ
+            node = null; // nodeé“¾å…¥åï¼Œç½®ç©º
+        }
+    }
 
-		StringBuilder sb = new StringBuilder();
-		LinkedList<Node<E>> stack = new LinkedList<Node<E>>(); // ¹¤×÷Õ»£º¼ÇÂ¼»ØÍËÂ·¾¶
-		Node<E> node = root;
+    /**
+     * @return
+     * @description å¹¿åº/å±‚æ¬¡éå†ï¼Œå·¥ä½œé˜Ÿåˆ—
+     * @author rico
+     * @created 2017å¹´5æœˆ22æ—¥ ä¸‹åˆ3:05:57
+     */
+    public String levelOrder() {
+        StringBuilder sb = new StringBuilder();
+        LinkedList<Node<E>> queue = new LinkedList<Node<E>>(); // è¾…åŠ©é˜Ÿåˆ—
+        if (root != null) {
+            queue.add(root);
+            while (!queue.isEmpty()) {
+                Node<E> temp = queue.pop();
+                sb.append(temp.data).append(" ");
 
-		while (node != null || !stack.isEmpty()) { // µü´úÌõ¼ş
-			if (node != null) { // µ±Ç°½Úµã²»Îª¿Õ
-				sb.append(node.data + " "); // ·ÃÎÊµ±Ç°½Úµã
-				stack.push(node); // µ±Ç°½ÚµãÈëÕ»
-				node = node.left; // ±éÀúÆä×ó×ÓÊ÷
-			} else {
-				node = stack.pop(); // µ¯³öÆä¸¸½Úµã
-				node = node.right; // ±éÀúÆäÓÒ×ÓÊ÷
-			}
-		}
-		return sb.toString();
-	}
+                // åœ¨éå†å½“å‰èŠ‚ç‚¹æ—¶ï¼ŒåŒæ—¶å°†å…¶å·¦å³å­©å­å…¥é˜Ÿ
+                if (temp.left != null)
+                    queue.add(temp.left);
+                if (temp.right != null)
+                    queue.add(temp.right);
+            }
+        }
+        return sb.toString().trim();
+    }
 
-	/**
-	 * @description ÖĞĞò±éÀú(µİ¹é)
-	 * @author rico
-	 * @created 2017Äê5ÔÂ22ÈÕ ÏÂÎç3:06:28
-	 * @param root
-	 * @return
-	 */
-	public String inOrder(Node<E> root) {
-		StringBuilder sb = new StringBuilder(); // ´æµ½µİ¹éµ÷ÓÃÕ»
-		if (root != null) { // µİ¹éÖÕÖ¹Ìõ¼ş
-			sb.append(inOrder(root.left)); // ÖĞĞò±éÀú×ó×ÓÊ÷
-			sb.append(root.data + " "); // ÖĞĞò±éÀúµ±Ç°½áµã
-			sb.append(inOrder(root.right)); // ÖĞĞò±éÀúÓÒ×ÓÊ÷
-		}
-		return sb.toString();
-	}
+    /**
+     * @param root
+     * @return
+     * @description å‰åºéå†(é€’å½’)
+     * @author rico
+     * @created 2017å¹´5æœˆ22æ—¥ ä¸‹åˆ3:06:11
+     */
+    public String preOrder(Node<E> root) {
+        StringBuilder sb = new StringBuilder(); // å­˜åˆ°é€’å½’è°ƒç”¨æ ˆ
+        if (root != null) { // é€’å½’ç»ˆæ­¢æ¡ä»¶
+            sb.append(root.data + " "); // å‰åºéå†å½“å‰ç»“ç‚¹
+            sb.append(preOrder(root.left)); // å‰åºéå†å·¦å­æ ‘
+            sb.append(preOrder(root.right)); // å‰åºéå†å³å­æ ‘
+        }
+        return sb.toString();
+    }
 
-	/**
-	 * @description ÖĞĞò±éÀú(µü´ú)£º·ÇÏßĞÔ½á¹¹(Ê÷)£¬¹¤×÷Õ»£ºµ±Ç°½ÚµãÈëÕ»
-	 * 
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÉÏÎç9:22:31
-	 * @return
-	 */
-	public String inOrder() {
-		StringBuilder sb = new StringBuilder();
-		LinkedList<Node<E>> stack = new LinkedList<Node<E>>(); // ¹¤×÷Õ»£º¼ÇÂ¼»ØÍËÂ·¾¶
-		Node<E> node = root;
+    /**
+     * @return
+     * @description å‰åºéå†(è¿­ä»£):éçº¿æ€§ç»“æ„(æ ‘)ï¼Œå·¥ä½œæ ˆï¼šå½“å‰èŠ‚ç‚¹å…¥æ ˆ
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸Šåˆ8:48:09
+     */
+    public String preOrder() {
 
-		while (node != null || !stack.isEmpty()) { // µü´úÌõ¼ş
-			if (node != null) { // µ±Ç°½Úµã²»Îª¿Õ
-				stack.push(node); // µ±Ç°½ÚµãÈëÕ»
-				node = node.left; // ±éÀúÆä×ó×ÓÊ÷
-			} else {
-				node = stack.pop(); // ¸¸½Úµãµ¯Õ»
-				sb.append(node.data + " "); // ·ÃÎÊ¸¸½Úµã
-				node = node.right; // ±éÀú·ÃÎÊÆäÓÒ×ÓÊ÷
-			}
-		}
-		return sb.toString();
-	}
+        StringBuilder sb = new StringBuilder();
+        LinkedList<Node<E>> stack = new LinkedList<Node<E>>(); // å·¥ä½œæ ˆï¼šè®°å½•å›é€€è·¯å¾„
+        Node<E> node = root;
 
-	/**
-	 * @description ºóĞò±éÀú(µİ¹é)
-	 * @author rico
-	 * @created 2017Äê5ÔÂ22ÈÕ ÏÂÎç3:06:44
-	 * @param root
-	 * @return
-	 */
-	public String postOrder(Node<E> root) {
-		StringBuilder sb = new StringBuilder(); // ´æµ½µİ¹éµ÷ÓÃÕ»
-		if (root != null) { // µİ¹éÖÕÖ¹Ìõ¼ş
-			sb.append(postOrder(root.left)); // ºóĞò±éÀú×ó×ÓÊ÷
-			sb.append(postOrder(root.right)); // ºóĞò±éÀúÓÒ×ÓÊ÷
-			sb.append(root.data + " "); // ºóĞò±éÀúµ±Ç°½áµã
-		}
-		return sb.toString();
-	}
+        while (node != null || !stack.isEmpty()) { // è¿­ä»£æ¡ä»¶
+            if (node != null) { // å½“å‰èŠ‚ç‚¹ä¸ä¸ºç©º
+                sb.append(node.data + " "); // è®¿é—®å½“å‰èŠ‚ç‚¹
+                stack.push(node); // å½“å‰èŠ‚ç‚¹å…¥æ ˆ
+                node = node.left; // éå†å…¶å·¦å­æ ‘
+            } else {
+                node = stack.pop(); // å¼¹å‡ºå…¶çˆ¶èŠ‚ç‚¹
+                node = node.right; // éå†å…¶å³å­æ ‘
+            }
+        }
+        return sb.toString();
+    }
 
-	/**
-	 * @description ºóĞò±éÀú(µü´ú):·ÇÏßĞÔ½á¹¹(Ê÷)£¬¹¤×÷Õ»£ºµ±Ç°½ÚµãÈëÕ»
-	 *              µÚÈı´Î±éÀúÒ»¸ö½ÚµãÊ±²Å·ÃÎÊ,Òò´ËĞèÒªÔÚ½ÚµãNodeÖĞĞÂÔöÒ»¸öbool×Ö¶Î£¬ÓÃÓÚ±ê¼ÇÊÇ·ñĞèÒªÔÚ±¾´Î·ÃÎÊ¸Ã½Úµã
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÉÏÎç9:34:48
-	 * @return
-	 */
-	public String postOrder() {
-		StringBuilder sb = new StringBuilder();
-		LinkedList<Node<E>> stack = new LinkedList<Node<E>>(); // ¼ÇÂ¼»ØÍËÂ·¾¶µÄ¹¤×÷Õ»
-		Node<E> node = root;
-		while (node != null || !stack.isEmpty()) { // µü´úÌõ¼ş
-			if (node != null) { // µ±Ç°½Úµã²»Îª¿Õ
-				node.isFirst = true; // Ê×´Î·ÃÎÊ¸Ã½Úµã£¬¼ÇÎªtrue
-				stack.push(node); // Ñ¹Õ»²Ù×÷
-				node = node.left; // ¼ÌĞø±éÀú×ó×ÓÊ÷
-			} else { // µ±Ç°½ÚµãÎª¿Õµ«¹¤×÷Õ»²»Îª¿Õ
-				node = stack.pop(); // µ±Ç°½Úµãµ¯Õ»
-				if (node.isFirst) {
-					node.isFirst = false; // µÚ¶ş´Î·ÃÎÊ¸Ã½Úµã,¸ÄÎªfalse
-					stack.push(node); // Ö»ÓĞÔÚµÚÈı´Î²Å·ÃÎÊ£¬Òò´Ë£¬Ç°½ÚµãÔÙ´ÎÑ¹Õ»
-					node = node.right; // ·ÃÎÊ¸Ã½ÚµãµÄÓÒ×ÓÊ÷
-				} else { // µÚÈı´Î·ÃÎÊ¸Ã½Úµã
-					sb.append(node.data + " "); // ·ÃÎÊ
-					node = null; // µ±Ç°½ÚµãµÄ×ó×ÓÊ÷¡¢ÓÒ×ÓÊ÷¼°±¾Éí¾ùÒÑ·ÃÎÊ,ĞèÒª·ÃÎÊ¹¤×÷Õ»ÖĞµÄ½Úµã
-				}
-			}
-		}
-		return sb.toString();
-	}
+    /**
+     * @param root
+     * @return
+     * @description ä¸­åºéå†(é€’å½’)
+     * @author rico
+     * @created 2017å¹´5æœˆ22æ—¥ ä¸‹åˆ3:06:28
+     */
+    public String inOrder(Node<E> root) {
+        StringBuilder sb = new StringBuilder(); // å­˜åˆ°é€’å½’è°ƒç”¨æ ˆ
+        if (root != null) { // é€’å½’ç»ˆæ­¢æ¡ä»¶
+            sb.append(inOrder(root.left)); // ä¸­åºéå†å·¦å­æ ‘
+            sb.append(root.data + " "); // ä¸­åºéå†å½“å‰ç»“ç‚¹
+            sb.append(inOrder(root.right)); // ä¸­åºéå†å³å­æ ‘
+        }
+        return sb.toString();
+    }
 
-	/**
-	 * @description ¸ù¾İÇ°Ğò¡¢ÖĞĞò±éÀú½á¹ûÖØ½¨¶ş²æÊ÷
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç12:24:41
-	 * @return
-	 */
-	public Node<E> createBinaryTreeByPreAndIn(String pre, String in) {
-		if (pre.length() > 0) {
-			Node<E> root = new Node(pre.charAt(0));
-			int index = in.indexOf(pre.charAt(0));
-			root.left = createBinaryTreeByPreAndIn(pre.substring(1, index + 1),
-					in.substring(0, index));
-			root.right = createBinaryTreeByPreAndIn(
-					pre.substring(index + 1, pre.length()),
-					in.substring(index + 1, in.length()));
-			return root;
-		}
-		return null;
-	}
+    /**
+     * @return
+     * @description ä¸­åºéå†(è¿­ä»£)ï¼šéçº¿æ€§ç»“æ„(æ ‘)ï¼Œå·¥ä½œæ ˆï¼šå½“å‰èŠ‚ç‚¹å…¥æ ˆ
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸Šåˆ9:22:31
+     */
+    public String inOrder() {
+        StringBuilder sb = new StringBuilder();
+        LinkedList<Node<E>> stack = new LinkedList<Node<E>>(); // å·¥ä½œæ ˆï¼šè®°å½•å›é€€è·¯å¾„
+        Node<E> node = root;
 
-	/**
-	 * @description ¸ù¾İÖĞĞò¡¢ºóĞò±éÀú½á¹ûÖØ½¨¶ş²æÊ÷
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç12:24:43
-	 * @return
-	 */
-	public Node<E> createBinaryTreeByInAndPost(String in, String post) {
-		if (post.length() > 0) {
-			Node<E> root = new Node(post.charAt(post.length() - 1));
-			int index = in.indexOf(post.charAt(post.length() - 1));
+        while (node != null || !stack.isEmpty()) { // è¿­ä»£æ¡ä»¶
+            if (node != null) { // å½“å‰èŠ‚ç‚¹ä¸ä¸ºç©º
+                stack.push(node); // å½“å‰èŠ‚ç‚¹å…¥æ ˆ
+                node = node.left; // éå†å…¶å·¦å­æ ‘
+            } else {
+                node = stack.pop(); // çˆ¶èŠ‚ç‚¹å¼¹æ ˆ
+                sb.append(node.data + " "); // è®¿é—®çˆ¶èŠ‚ç‚¹
+                node = node.right; // éå†è®¿é—®å…¶å³å­æ ‘
+            }
+        }
+        return sb.toString();
+    }
 
-			root.left = createBinaryTreeByInAndPost(in.substring(0, index),
-					post.substring(0, index));
-			root.right = createBinaryTreeByInAndPost(
-					in.substring(index + 1, in.length()),
-					post.substring(index, post.length() - 1));
-			return root;
-		}
-		return null;
-	}
+    /**
+     * @param root
+     * @return
+     * @description ååºéå†(é€’å½’)
+     * @author rico
+     * @created 2017å¹´5æœˆ22æ—¥ ä¸‹åˆ3:06:44
+     */
+    public String postOrder(Node<E> root) {
+        StringBuilder sb = new StringBuilder(); // å­˜åˆ°é€’å½’è°ƒç”¨æ ˆ
+        if (root != null) { // é€’å½’ç»ˆæ­¢æ¡ä»¶
+            sb.append(postOrder(root.left)); // ååºéå†å·¦å­æ ‘
+            sb.append(postOrder(root.right)); // ååºéå†å³å­æ ‘
+            sb.append(root.data + " "); // ååºéå†å½“å‰ç»“ç‚¹
+        }
+        return sb.toString();
+    }
 
-	/**
-	 * @description ¸ù¾İÔ­Ê÷µÄ¸ù½áµã¸´ÖÆ³öÒ»¿ÅÒ»Ä£Ò»ÑùµÄÊ÷
-	 * @author rico
-	 * @created 2017Äê5ÔÂ23ÈÕ ÏÂÎç2:21:08
-	 * @param root
-	 * @return
-	 */
-	public Node<E> copy(Node<E> root) {
-		if (root == null)
-			return null;
-		Node<E> node = new Node<E>(null);
-		node.data = root.data;
-		node.left = copy(root.left);
-		node.right = copy(root.right);
-		return node;
-	}
+    /**
+     * @return
+     * @description ååºéå†(è¿­ä»£):éçº¿æ€§ç»“æ„(æ ‘)ï¼Œå·¥ä½œæ ˆï¼šå½“å‰èŠ‚ç‚¹å…¥æ ˆ
+     * ç¬¬ä¸‰æ¬¡éå†ä¸€ä¸ªèŠ‚ç‚¹æ—¶æ‰è®¿é—®,å› æ­¤éœ€è¦åœ¨èŠ‚ç‚¹Nodeä¸­æ–°å¢ä¸€ä¸ªboolå­—æ®µï¼Œç”¨äºæ ‡è®°æ˜¯å¦éœ€è¦åœ¨æœ¬æ¬¡è®¿é—®è¯¥èŠ‚ç‚¹
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸Šåˆ9:34:48
+     */
+    public String postOrder() {
+        StringBuilder sb = new StringBuilder();
+        LinkedList<Node<E>> stack = new LinkedList<Node<E>>(); // è®°å½•å›é€€è·¯å¾„çš„å·¥ä½œæ ˆ
+        Node<E> node = root;
+        while (node != null || !stack.isEmpty()) { // è¿­ä»£æ¡ä»¶
+            if (node != null) { // å½“å‰èŠ‚ç‚¹ä¸ä¸ºç©º
+                node.isFirst = true; // é¦–æ¬¡è®¿é—®è¯¥èŠ‚ç‚¹ï¼Œè®°ä¸ºtrue
+                stack.push(node); // å‹æ ˆæ“ä½œ
+                node = node.left; // ç»§ç»­éå†å·¦å­æ ‘
+            } else { // å½“å‰èŠ‚ç‚¹ä¸ºç©ºä½†å·¥ä½œæ ˆä¸ä¸ºç©º
+                node = stack.pop(); // å½“å‰èŠ‚ç‚¹å¼¹æ ˆ
+                if (node.isFirst) {
+                    node.isFirst = false; // ç¬¬äºŒæ¬¡è®¿é—®è¯¥èŠ‚ç‚¹,æ”¹ä¸ºfalse
+                    stack.push(node); // åªæœ‰åœ¨ç¬¬ä¸‰æ¬¡æ‰è®¿é—®ï¼Œå› æ­¤ï¼Œå‰èŠ‚ç‚¹å†æ¬¡å‹æ ˆ
+                    node = node.right; // è®¿é—®è¯¥èŠ‚ç‚¹çš„å³å­æ ‘
+                } else { // ç¬¬ä¸‰æ¬¡è®¿é—®è¯¥èŠ‚ç‚¹
+                    sb.append(node.data + " "); // è®¿é—®
+                    node = null; // å½“å‰èŠ‚ç‚¹çš„å·¦å­æ ‘ã€å³å­æ ‘åŠæœ¬èº«å‡å·²è®¿é—®,éœ€è¦è®¿é—®å·¥ä½œæ ˆä¸­çš„èŠ‚ç‚¹
+                }
+            }
+        }
+        return sb.toString();
+    }
 
-	/** ·½·¨createTreeByPreOrederStrĞèÒªÓÃµ½µÄÖ¸Õë (@author: rico) */
-	private int index = 0;
+    /**
+     * @return
+     * @description æ ¹æ®å‰åºã€ä¸­åºéå†ç»“æœé‡å»ºäºŒå‰æ ‘
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ12:24:41
+     */
+    public Node<E> createBinaryTreeByPreAndIn(String pre, String in) {
+        if (pre.length() > 0) {
+            Node<E> root = new Node(pre.charAt(0));
+            int index = in.indexOf(pre.charAt(0));
+            root.left = createBinaryTreeByPreAndIn(pre.substring(1, index + 1),
+                    in.substring(0, index));
+            root.right = createBinaryTreeByPreAndIn(
+                    pre.substring(index + 1, pre.length()),
+                    in.substring(index + 1, in.length()));
+            return root;
+        }
+        return null;
+    }
 
-	/**
-	 * @description ¸ù¾İÇ°Ğò±éÀú½á¹ûÖØ½¨¶ş²æÊ÷£¬ËùÓĞµÄÒ¶×Ó½Úµã¶¼ÓÃ"#"±íÊ¾
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÉÏÎç7:51:54
-	 * @param preOrderStr
-	 * @param temp
-	 * @return
-	 */
-	public Node<E> createTreeByPreOrederStr(char[] preOrderStr, Node<E> temp) {
-		if (index < preOrderStr.length) {
-			char c = preOrderStr[index++];
-			if (c != '#') { // µİ¹éÖÕÖ¹Ìõ¼ş
-				Node<E> node = new Node(c);
-				node.left = createTreeByPreOrederStr(preOrderStr, node); // µİ¹éÎªµ±Ç°½Úµã´´½¨×ó×ÓÊ÷
-				node.right = createTreeByPreOrederStr(preOrderStr, node); // µİ¹éÎªµ±Ç°½Úµã´´½¨ÓÒ×ÓÊ÷
-				return node;
-			}
-			return null;
-		}
-		return null;
-	}
-	
-	/**
-	 * @description »ñÈ¡Ê÷µÄ¸ù½áµã
-	 * @author rico
-	 * @created 2017Äê5ÔÂ22ÈÕ ÏÂÎç3:09:18
-	 * @return
-	 */
-	public Node<E> getRoot() {
-		return root;
-	}
+    /**
+     * @return
+     * @description æ ¹æ®ä¸­åºã€ååºéå†ç»“æœé‡å»ºäºŒå‰æ ‘
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ12:24:43
+     */
+    public Node<E> createBinaryTreeByInAndPost(String in, String post) {
+        if (post.length() > 0) {
+            Node<E> root = new Node(post.charAt(post.length() - 1));
+            int index = in.indexOf(post.charAt(post.length() - 1));
 
-	/**
-	 * @description »ñµÃµ±Ç°½áµãµÄ×óº¢×Ó½áµã
-	 * @author rico
-	 * @created 2017Äê5ÔÂ23ÈÕ ÉÏÎç11:13:48
-	 * @param node
-	 * @return
-	 */
-	public Node<E> getLeftChild(Node<E> node) {
-		return node.left;
-	}
+            root.left = createBinaryTreeByInAndPost(in.substring(0, index),
+                    post.substring(0, index));
+            root.right = createBinaryTreeByInAndPost(
+                    in.substring(index + 1, in.length()),
+                    post.substring(index, post.length() - 1));
+            return root;
+        }
+        return null;
+    }
 
-	/**
-	 * @description »ñµÃµ±Ç°½áµãµÄÓÒº¢×Ó½áµã
-	 * @author rico
-	 * @created 2017Äê5ÔÂ23ÈÕ ÉÏÎç11:13:50
-	 * @param node
-	 * @return
-	 */
-	public Node<E> getRightChild(Node<E> node) {
-		return node.right;
-	}
+    /**
+     * @param root
+     * @return
+     * @description æ ¹æ®åŸæ ‘çš„æ ¹ç»“ç‚¹å¤åˆ¶å‡ºä¸€é¢—ä¸€æ¨¡ä¸€æ ·çš„æ ‘
+     * @author rico
+     * @created 2017å¹´5æœˆ23æ—¥ ä¸‹åˆ2:21:08
+     */
+    public Node<E> copy(Node<E> root) {
+        if (root == null)
+            return null;
+        Node<E> node = new Node<E>(null);
+        node.data = root.data;
+        node.left = copy(root.left);
+        node.right = copy(root.right);
+        return node;
+    }
 
-	/**
-	 * @description ºóĞò±éÀúµÄË¼Ïë£ºÊ÷ÖĞ½Úµã¸öÊı
-	 * @author rico
-	 * @created 2017Äê5ÔÂ23ÈÕ ÉÏÎç11:59:19
-	 * @param root
-	 * @return
-	 */
-	public int size(Node<E> root) {
-		if (root != null) { // µİ¹éÖÕÖ¹Ìõ¼ş
-			return size(root.left) + size(root.right) + 1;
-		}
-		return 0;
-	}
+    /**
+     * @param preOrderStr
+     * @param temp
+     * @return
+     * @description æ ¹æ®å‰åºéå†ç»“æœé‡å»ºäºŒå‰æ ‘ï¼Œæ‰€æœ‰çš„å¶å­èŠ‚ç‚¹éƒ½ç”¨"#"è¡¨ç¤º
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸Šåˆ7:51:54
+     */
+    public Node<E> createTreeByPreOrederStr(char[] preOrderStr, Node<E> temp) {
+        if (index < preOrderStr.length) {
+            char c = preOrderStr[index++];
+            if (c != '#') { // é€’å½’ç»ˆæ­¢æ¡ä»¶
+                Node<E> node = new Node(c);
+                node.left = createTreeByPreOrederStr(preOrderStr, node); // é€’å½’ä¸ºå½“å‰èŠ‚ç‚¹åˆ›å»ºå·¦å­æ ‘
+                node.right = createTreeByPreOrederStr(preOrderStr, node); // é€’å½’ä¸ºå½“å‰èŠ‚ç‚¹åˆ›å»ºå³å­æ ‘
+                return node;
+            }
+            return null;
+        }
+        return null;
+    }
 
-	/**
-	 * @description ºóĞò±éÀúµÄË¼Ïë£ºÊ÷µÄ¸ß¶È(¿ÕÊ÷Îª0)
-	 * @author rico
-	 * @created 2017Äê5ÔÂ23ÈÕ ÏÂÎç12:00:08
-	 * @param root
-	 * @return
-	 */
-	public int height(Node<E> root) {
-		if (root != null) { // µİ¹éÖÕÖ¹Ìõ¼ş
-			int h1 = height(root.left);
-			int h2 = height(root.right);
-			return h1 > h2 ? h1 + 1 : h2 + 1;
-		}
-		return 0;
-	}
+    /**
+     * @return
+     * @description è·å–æ ‘çš„æ ¹ç»“ç‚¹
+     * @author rico
+     * @created 2017å¹´5æœˆ22æ—¥ ä¸‹åˆ3:09:18
+     */
+    public Node<E> getRoot() {
+        return root;
+    }
 
-	/**
-	 * @description ÒÔ¹ãÒå±íµÄĞÎÊ½´òÓ¡¶ş²æÊ÷£ºÇ°Ğò±éÀúµÄÓ¦ÓÃ
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÉÏÎç8:13:08
-	 * @param root
-	 * @return
-	 */
-	public String printBinaryTree(Node<E> root) {
-		StringBuilder sb = new StringBuilder();
-		if (root != null) {
-			sb.append(root.data);
-			if (root.left != null || root.right != null) {
-				sb.append('(');
-				sb.append(printBinaryTree(root.left));
-				sb.append(',');
-				sb.append(printBinaryTree(root.right));
-				sb.append(')');
-			}
-		}
-		return sb.toString();
-	}
+    /**
+     * @param node
+     * @return
+     * @description è·å¾—å½“å‰ç»“ç‚¹çš„å·¦å­©å­ç»“ç‚¹
+     * @author rico
+     * @created 2017å¹´5æœˆ23æ—¥ ä¸Šåˆ11:13:48
+     */
+    public Node<E> getLeftChild(Node<E> node) {
+        return node.left;
+    }
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return levelOrder();
-	}
+    /**
+     * @param node
+     * @return
+     * @description è·å¾—å½“å‰ç»“ç‚¹çš„å³å­©å­ç»“ç‚¹
+     * @author rico
+     * @created 2017å¹´5æœˆ23æ—¥ ä¸Šåˆ11:13:50
+     */
+    public Node<E> getRightChild(Node<E> node) {
+        return node.right;
+    }
 
-	/**
-	 * @description ¸ù¾İÊ÷µÄ¸ù½áµãÅĞ¶ÏÁ½¿ÅÊ÷ÊÇ·ñÏàµÈ
-	 * @author rico
-	 * @created 2017Äê5ÔÂ23ÈÕ ÏÂÎç3:05:35
-	 * @param src
-	 *            Ô­Ê÷µÄ¸ù½áµã
-	 * @param des
-	 *            Ä¿±êÊ÷µÄ¸ù½áµã
-	 * @return
-	 */
-	private boolean equals0(Node<E> src, Node<E> des) {
-		if (src == null && des == null) { // ¿ÕÊ÷ÏàµÈ
-			return true;
-		} else if (src == null || des == null) { // ¿ÕÊ÷Óë·Ç¿ÕÊ÷²»ÏàµÈ
-			return false;
-		} else { // ·Ç¿ÕÊ÷Óë·Ç¿ÕÊ÷ÊÇ·ñÏàµÈ£ºµ±Ç°½ÚµãÊÇ·ñÏàµÈ && ×ó×ÓÊ÷ÊÇ·ñÏàµÈ && ÓÒ×ÓÊ÷ÊÇ·ñÏàµÈ
-			return src.equals(des) && equals0(src.left, des.left)
-					&& equals0(src.right, des.right);
-		}
-	}
+    /**
+     * @param root
+     * @return
+     * @description ååºéå†çš„æ€æƒ³ï¼šæ ‘ä¸­èŠ‚ç‚¹ä¸ªæ•°
+     * @author rico
+     * @created 2017å¹´5æœˆ23æ—¥ ä¸Šåˆ11:59:19
+     */
+    public int size(Node<E> root) {
+        if (root != null) { // é€’å½’ç»ˆæ­¢æ¡ä»¶
+            return size(root.left) + size(root.right) + 1;
+        }
+        return 0;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		if (obj instanceof BinaryTree) { // ¶Ô·½ÊÇ·ñÒ²ÊÇÒ»¿Å¶ş²æÊ÷
-			BinaryTree<E> tree = (BinaryTree<E>) obj;
-			return equals0(this.root, tree.root);
-		}
-		return false;
-	}
+    /**
+     * @param root
+     * @return
+     * @description ååºéå†çš„æ€æƒ³ï¼šæ ‘çš„é«˜åº¦(ç©ºæ ‘ä¸º0)
+     * @author rico
+     * @created 2017å¹´5æœˆ23æ—¥ ä¸‹åˆ12:00:08
+     */
+    public int height(Node<E> root) {
+        if (root != null) { // é€’å½’ç»ˆæ­¢æ¡ä»¶
+            int h1 = height(root.left);
+            int h2 = height(root.right);
+            return h1 > h2 ? h1 + 1 : h2 + 1;
+        }
+        return 0;
+    }
+
+    /**
+     * @param root
+     * @return
+     * @description ä»¥å¹¿ä¹‰è¡¨çš„å½¢å¼æ‰“å°äºŒå‰æ ‘ï¼šå‰åºéå†çš„åº”ç”¨
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸Šåˆ8:13:08
+     */
+    public String printBinaryTree(Node<E> root) {
+        StringBuilder sb = new StringBuilder();
+        if (root != null) {
+            sb.append(root.data);
+            if (root.left != null || root.right != null) {
+                sb.append('(');
+                sb.append(printBinaryTree(root.left));
+                sb.append(',');
+                sb.append(printBinaryTree(root.right));
+                sb.append(')');
+            }
+        }
+        return sb.toString();
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return levelOrder();
+    }
+
+    /**
+     * @param src åŸæ ‘çš„æ ¹ç»“ç‚¹
+     * @param des ç›®æ ‡æ ‘çš„æ ¹ç»“ç‚¹
+     * @return
+     * @description æ ¹æ®æ ‘çš„æ ¹ç»“ç‚¹åˆ¤æ–­ä¸¤é¢—æ ‘æ˜¯å¦ç›¸ç­‰
+     * @author rico
+     * @created 2017å¹´5æœˆ23æ—¥ ä¸‹åˆ3:05:35
+     */
+    private boolean equals0(Node<E> src, Node<E> des) {
+        if (src == null && des == null) { // ç©ºæ ‘ç›¸ç­‰
+            return true;
+        } else if (src == null || des == null) { // ç©ºæ ‘ä¸éç©ºæ ‘ä¸ç›¸ç­‰
+            return false;
+        } else { // éç©ºæ ‘ä¸éç©ºæ ‘æ˜¯å¦ç›¸ç­‰ï¼šå½“å‰èŠ‚ç‚¹æ˜¯å¦ç›¸ç­‰ && å·¦å­æ ‘æ˜¯å¦ç›¸ç­‰ && å³å­æ ‘æ˜¯å¦ç›¸ç­‰
+            return src.equals(des) && equals0(src.left, des.left)
+                    && equals0(src.right, des.right);
+        }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        // TODO Auto-generated method stub
+        if (obj instanceof BinaryTree) { // å¯¹æ–¹æ˜¯å¦ä¹Ÿæ˜¯ä¸€é¢—äºŒå‰æ ‘
+            BinaryTree<E> tree = (BinaryTree<E>) obj;
+            return equals0(this.root, tree.root);
+        }
+        return false;
+    }
 }

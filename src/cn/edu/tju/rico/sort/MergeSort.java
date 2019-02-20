@@ -3,83 +3,83 @@ package cn.edu.tju.rico.sort;
 import java.util.Arrays;
 
 /**
- * Title: ¹é²¢ÅÅĞò £¬¸ÅÄîÉÏ×îÎª¼òµ¥µÄÅÅĞòËã·¨£¬ÊÇÒ»¸öµİ¹éËã·¨
- * Description:¹é²¢ÅÅĞò°üÀ¨Á½¸ö¹ı³Ì£º¹é ºÍ ²¢
- * "¹é"ÊÇÖ¸½«Ô­ĞòÁĞ·Ö³É°ë×ÓĞòÁĞ£¬·Ö±ğ¶Ô×ÓĞòÁĞ½øĞĞµİ¹éÅÅĞò
- * "²¢"ÊÇÖ¸½«ÅÅºÃĞòµÄ¸÷×ÓĞòÁĞºÏ²¢³ÉÔ­ĞòÁĞ
- * 
- * ¹é²¢ÅÅĞòµÄÖ÷ÒªÎÊÌâÊÇ£ºĞèÒªÒ»¸öÓëÔ­´ıÅÅĞòÊı×éÒ»Ñù´óµÄ¸¨ÖúÊı×é¿Õ¼ä
- * 
- * ¹é²¢ÅÅĞò²»ÒÀÀµÓÚÔ­Ê¼ĞòÁĞ£¬Òò´ËÆä×îºÃÇéĞÎ¡¢Æ½¾ùÇéĞÎºÍ×î²îÇéĞÎÊ±¼ä¸´ÔÓ¶È¶¼Ò»Ñù
- * Ê±¼ä¸´ÔÓ¶È£º×îºÃÇéĞÎO(n)£¬Æ½¾ùÇéĞÎO(n^2)£¬×î²îÇéĞÎO(n^2) 
- * ¿Õ¼ä¸´ÔÓ¶È£ºO(n) 
- * ÎÈ ¶¨ ĞÔ£ºÎÈ¶¨
- * ÄÚ²¿ÅÅĞò(ÔÚÅÅĞò¹ı³ÌÖĞÊı¾İÔªËØÍêÈ«ÔÚÄÚ´æ)
- * 
+ * Title: å½’å¹¶æ’åº ï¼Œæ¦‚å¿µä¸Šæœ€ä¸ºç®€å•çš„æ’åºç®—æ³•ï¼Œæ˜¯ä¸€ä¸ªé€’å½’ç®—æ³•
+ * Description:å½’å¹¶æ’åºåŒ…æ‹¬ä¸¤ä¸ªè¿‡ç¨‹ï¼šå½’ å’Œ å¹¶
+ * "å½’"æ˜¯æŒ‡å°†åŸåºåˆ—åˆ†æˆåŠå­åºåˆ—ï¼Œåˆ†åˆ«å¯¹å­åºåˆ—è¿›è¡Œé€’å½’æ’åº
+ * "å¹¶"æ˜¯æŒ‡å°†æ’å¥½åºçš„å„å­åºåˆ—åˆå¹¶æˆåŸåºåˆ—
+ * <p>
+ * å½’å¹¶æ’åºçš„ä¸»è¦é—®é¢˜æ˜¯ï¼šéœ€è¦ä¸€ä¸ªä¸åŸå¾…æ’åºæ•°ç»„ä¸€æ ·å¤§çš„è¾…åŠ©æ•°ç»„ç©ºé—´
+ * <p>
+ * å½’å¹¶æ’åºä¸ä¾èµ–äºåŸå§‹åºåˆ—ï¼Œå› æ­¤å…¶æœ€å¥½æƒ…å½¢ã€å¹³å‡æƒ…å½¢å’Œæœ€å·®æƒ…å½¢æ—¶é—´å¤æ‚åº¦éƒ½ä¸€æ ·
+ * æ—¶é—´å¤æ‚åº¦ï¼šæœ€å¥½æƒ…å½¢O(n)ï¼Œå¹³å‡æƒ…å½¢O(n^2)ï¼Œæœ€å·®æƒ…å½¢O(n^2)
+ * ç©ºé—´å¤æ‚åº¦ï¼šO(n)
+ * ç¨³ å®š æ€§ï¼šç¨³å®š
+ * å†…éƒ¨æ’åº(åœ¨æ’åºè¿‡ç¨‹ä¸­æ•°æ®å…ƒç´ å®Œå…¨åœ¨å†…å­˜)
+ *
  * @author rico
- * @created 2017Äê5ÔÂ20ÈÕ ÉÏÎç10:40:00
+ * @created 2017å¹´5æœˆ20æ—¥ ä¸Šåˆ10:40:00
  */
 public class MergeSort {
 
-	/**     
-	 * @description ¹é²¢ÅÅĞòËã·¨(µİ¹éËã·¨)£ºµİÈ¥·Ö½â£¬¹éÀ´ºÏ²¢
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ20ÈÕ ÏÂÎç4:04:52     
-	 * @param target ´ıÅÅĞòĞòÁĞ
-	 * @param left  ´ıÅÅĞòĞòÁĞÆğÊ¼Î»ÖÃ
-	 * @param right  ´ıÅÅĞòĞòÁĞÖÕÖ¹Î»ÖÃ
-	 * @return     
-	 */
-	public static int[] mergeSort(int[] target, int left, int right) {
-		
-		if(right > left){           // µİ¹éÖÕÖ¹Ìõ¼ş
-			int mid = (left + right)/2;
-			mergeSort(target, left, mid);   // ¹é²¢ÅÅĞòµÚÒ»¸ö×ÓĞòÁĞ
-			mergeSort(target, mid+1, right);   // ¹é²¢ÅÅĞòµÚ¶ş¸ö×ÓĞòÁĞ
-			return merge(target,left,mid,right);  // ºÏ²¢×ÓĞòÁĞ³ÉÔ­ĞòÁĞ
-		}
-		return target;
-	}
-	
-	  
-	/**     
-	 * @description Á½Â·¹é²¢Ëã·¨
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ20ÈÕ ÏÂÎç3:59:16     
-	 * @param target ÓÃÓÚ´æ´¢¹é²¢½á¹û
-	 * @param left µÚÒ»¸öÓĞĞò±íµÄµÚÒ»¸öÔªËØËùÔÚÎ»ÖÃ
-	 * @param mid  µÚÒ»¸öÓĞĞò±íµÄ×îºóÒ»¸öÔªËØËùÔÚÎ»ÖÃ
-	 * @param right  µÚ¶ş¸öÓĞĞò±íµÄ×îºóÒ»¸öÔªËØËùÔÚÎ»ÖÃ
-	 * @return     
-	 */
-	public static int[] merge(int[] target, int left, int mid, int right){
-		
-		// ĞèÒªÒ»¸öÓëÔ­´ıÅÅĞòÊı×éÒ»Ñù´óµÄ¸¨ÖúÊı×é¿Õ¼ä
-		int[] temp = Arrays.copyOf(target, target.length);
-		
-		// s1,s2ÊÇ¼ì²éÖ¸Õë£¬index ÊÇ´æ·ÅÖ¸Õë
-		int s1 = left;
-		int s2 = mid + 1;
-		int index = left;
-		
-		// Á½¸ö±í¶¼Î´¼ì²éÍê£¬Á½Á½±È½Ï
-		while(s1 <= mid && s2 <= right){
-			if(temp[s1] <= temp[s2]){   // ÎÈ¶¨ĞÔ
-				target[index++] = temp[s1++];
-			}else{
-				target[index++] = temp[s2++];
-			}
-		}
-		
-		//ÈôµÚÒ»¸ö±íÎ´¼ì²éÍê£¬¸´ÖÆ
-		while(s1 <= mid){
-			target[index++] = temp[s1++];
-		}
-		
-		//ÈôµÚ¶ş¸ö±íÎ´¼ì²éÍê£¬¸´ÖÆ
-		while(s2 <= right){
-			target[index++] = temp[s2++];
-		}
-		return target;
-	}
+    /**
+     * @param target å¾…æ’åºåºåˆ—
+     * @param left   å¾…æ’åºåºåˆ—èµ·å§‹ä½ç½®
+     * @param right  å¾…æ’åºåºåˆ—ç»ˆæ­¢ä½ç½®
+     * @return
+     * @description å½’å¹¶æ’åºç®—æ³•(é€’å½’ç®—æ³•)ï¼šé€’å»åˆ†è§£ï¼Œå½’æ¥åˆå¹¶
+     * @author rico
+     * @created 2017å¹´5æœˆ20æ—¥ ä¸‹åˆ4:04:52
+     */
+    public static int[] mergeSort(int[] target, int left, int right) {
+
+        if (right > left) {           // é€’å½’ç»ˆæ­¢æ¡ä»¶
+            int mid = (left + right) / 2;
+            mergeSort(target, left, mid);   // å½’å¹¶æ’åºç¬¬ä¸€ä¸ªå­åºåˆ—
+            mergeSort(target, mid + 1, right);   // å½’å¹¶æ’åºç¬¬äºŒä¸ªå­åºåˆ—
+            return merge(target, left, mid, right);  // åˆå¹¶å­åºåˆ—æˆåŸåºåˆ—
+        }
+        return target;
+    }
+
+
+    /**
+     * @param target ç”¨äºå­˜å‚¨å½’å¹¶ç»“æœ
+     * @param left   ç¬¬ä¸€ä¸ªæœ‰åºè¡¨çš„ç¬¬ä¸€ä¸ªå…ƒç´ æ‰€åœ¨ä½ç½®
+     * @param mid    ç¬¬ä¸€ä¸ªæœ‰åºè¡¨çš„æœ€åä¸€ä¸ªå…ƒç´ æ‰€åœ¨ä½ç½®
+     * @param right  ç¬¬äºŒä¸ªæœ‰åºè¡¨çš„æœ€åä¸€ä¸ªå…ƒç´ æ‰€åœ¨ä½ç½®
+     * @return
+     * @description ä¸¤è·¯å½’å¹¶ç®—æ³•
+     * @author rico
+     * @created 2017å¹´5æœˆ20æ—¥ ä¸‹åˆ3:59:16
+     */
+    public static int[] merge(int[] target, int left, int mid, int right) {
+
+        // éœ€è¦ä¸€ä¸ªä¸åŸå¾…æ’åºæ•°ç»„ä¸€æ ·å¤§çš„è¾…åŠ©æ•°ç»„ç©ºé—´
+        int[] temp = Arrays.copyOf(target, target.length);
+
+        // s1,s2æ˜¯æ£€æŸ¥æŒ‡é’ˆï¼Œindex æ˜¯å­˜æ”¾æŒ‡é’ˆ
+        int s1 = left;
+        int s2 = mid + 1;
+        int index = left;
+
+        // ä¸¤ä¸ªè¡¨éƒ½æœªæ£€æŸ¥å®Œï¼Œä¸¤ä¸¤æ¯”è¾ƒ
+        while (s1 <= mid && s2 <= right) {
+            if (temp[s1] <= temp[s2]) {   // ç¨³å®šæ€§
+                target[index++] = temp[s1++];
+            } else {
+                target[index++] = temp[s2++];
+            }
+        }
+
+        //è‹¥ç¬¬ä¸€ä¸ªè¡¨æœªæ£€æŸ¥å®Œï¼Œå¤åˆ¶
+        while (s1 <= mid) {
+            target[index++] = temp[s1++];
+        }
+
+        //è‹¥ç¬¬äºŒä¸ªè¡¨æœªæ£€æŸ¥å®Œï¼Œå¤åˆ¶
+        while (s2 <= right) {
+            target[index++] = temp[s2++];
+        }
+        return target;
+    }
 }

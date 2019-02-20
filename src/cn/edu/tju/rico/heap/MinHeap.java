@@ -1,164 +1,165 @@
 package cn.edu.tju.rico.heap;
 
-/**        
- * Title: ×îĞ¡¶Ñ £ºÍêÈ«¶ş²æÊ÷£¬ÄÜ·½±ãµØ´ÓÖĞÈ¡³ö×îĞ¡/´óÔªËØ   
- * Description: 
- * ¶ÑµÄ¹¹½¨
- * ¶ÑµÄ´òÓ¡(Ç°Ğò±éÀúµÄÓ¦ÓÃ)
- * ¶ÑµÄ²åÈë(²åÈëµ½¶ÑÎ²£¬ÔÙ×ÔÏÂÏòÉÏµ÷ÕûÎª×îĞ¡¶Ñ)
- * ¶ÑµÄÉ¾³ı(É¾³ı¶Ñ¶¥ÔªËØ²¢ÓÃ¶ÑÎ²ÔªËØÌí²¹£¬ÔÙ×ÔÉÏÏòÏÂµ÷ÕûÎª×îĞ¡¶Ñ)
- * ¶ÑÅÅĞò(Ê±¼ä¸´ÔÓ¶È£ºO(nlgn),¿Õ¼ä¸´ÔÓ¶ÈO(1),²»ÎÈ¶¨)£ºÉıĞòÅÅĞòÒ»°ãÓÃ×î´ó¶Ñ
- * @author rico       
- * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç9:23:22    
- */      
+/**
+ * Title: æœ€å°å † ï¼šå®Œå…¨äºŒå‰æ ‘ï¼Œèƒ½æ–¹ä¾¿åœ°ä»ä¸­å–å‡ºæœ€å°/å¤§å…ƒç´ 
+ * Description:
+ * å †çš„æ„å»º
+ * å †çš„æ‰“å°(å‰åºéå†çš„åº”ç”¨)
+ * å †çš„æ’å…¥(æ’å…¥åˆ°å †å°¾ï¼Œå†è‡ªä¸‹å‘ä¸Šè°ƒæ•´ä¸ºæœ€å°å †)
+ * å †çš„åˆ é™¤(åˆ é™¤å †é¡¶å…ƒç´ å¹¶ç”¨å †å°¾å…ƒç´ æ·»è¡¥ï¼Œå†è‡ªä¸Šå‘ä¸‹è°ƒæ•´ä¸ºæœ€å°å †)
+ * å †æ’åº(æ—¶é—´å¤æ‚åº¦ï¼šO(nlgn),ç©ºé—´å¤æ‚åº¦O(1),ä¸ç¨³å®š)ï¼šå‡åºæ’åºä¸€èˆ¬ç”¨æœ€å¤§å †
+ *
+ * @author rico
+ * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ9:23:22
+ */
 public class MinHeap {
-	
-	private int[] heap;  // ½«ËùÓĞÔªËØÒÔÍêÈ«¶ş²æÊ÷µÄĞÎÊ½´æÈëÊı×é
-	private int size;  // ¶ÑÖĞÔªËØµÄ¸öÊı
 
-	/**
-	 * ¹¹Ôìº¯Êı
-	 * 
-	 * @description ¹¹½¨Ò»¸ö´óĞ¡ÎªsizeµÄ×îĞ¡¶Ñ
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç8:19:46
-	 * @param size
-	 */
-	public MinHeap(int maxSize) {
-		heap = new int[maxSize];
-	}
+    private int[] heap;  // å°†æ‰€æœ‰å…ƒç´ ä»¥å®Œå…¨äºŒå‰æ ‘çš„å½¢å¼å­˜å…¥æ•°ç»„
+    private int size;  // å †ä¸­å…ƒç´ çš„ä¸ªæ•°
 
-	/**
-	 * ¹¹Ôìº¯Êı
-	 * 
-	 * @description »ùÓÚÊı×é¹¹Ôì×îĞ¡¶Ñ
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç8:18:56
-	 * @param arr
-	 */
-	public MinHeap(int[] arr, int maxSize) {
-		heap = new int[maxSize > arr.length ? maxSize : arr.length];
-		System.arraycopy(arr, 0, heap, 0, arr.length);
-		size = arr.length;
+    /**
+     * æ„é€ å‡½æ•°
+     *
+     * @param size
+     * @description æ„å»ºä¸€ä¸ªå¤§å°ä¸ºsizeçš„æœ€å°å †
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ8:19:46
+     */
+    public MinHeap(int maxSize) {
+        heap = new int[maxSize];
+    }
 
-		int pos = (size - 2) / 2; // ×î³õµ÷ÕûÎ»ÖÃ£º×îºóµÄ·ÖÖ§½Úµã(×îºóÒ¶½ÚµãµÄ¸¸Ç×)
-		while (pos >= 0) {    //ÒÀ´Îµ÷ÕûÃ¿¸ö·ÖÖ§½Úµã
-			shiftDown(pos, size - 1);
-			pos--;
-		}
-	}
+    /**
+     * æ„é€ å‡½æ•°
+     *
+     * @param arr
+     * @description åŸºäºæ•°ç»„æ„é€ æœ€å°å †
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ8:18:56
+     */
+    public MinHeap(int[] arr, int maxSize) {
+        heap = new int[maxSize > arr.length ? maxSize : arr.length];
+        System.arraycopy(arr, 0, heap, 0, arr.length);
+        size = arr.length;
 
-	/**
-	 * @description ×ÔÉÏÏòÏÂµ÷ÕûÎª×îĞ¡¶Ñ(´Ó²»ÊÇ×îĞ¡¶Ñµ÷ÕûÎª×îĞ¡¶Ñ)£¬µ÷ÕûµÄÇ°ÌáÊÇÆä×ó×ÓÊ÷ÓëÓÒ×ÓÊ÷¾ùÎª×îĞ¡¶Ñ
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç7:52:39
-	 * @param start
-	 * @param end
-	 */
-	private void shiftDown(int start, int end) {
-		int i = start;       // ÆğÊ¼µ÷ÕûÎ»ÖÃ£¬·ÖÖ§½Úµã
-		int j = 2 * start + 1;  // ¸Ã·ÖÖ§½ÚµãµÄ×Ó½Úµã
-		int temp = heap[i];   
-		while (j <= end) {  // µü´úÌõ¼ş£º×Ó½Úµã²»ÄÜ³¬³öend(·¶Î§)
-			if (j < end) { 
-				j = heap[j] > heap[j + 1] ? j + 1 : j; // Ñ¡ÔñÁ½º¢×ÓÖĞ½ÏĞ¡µÄÄÇ¸ö
-			}
-			if (temp < heap[j]) {   // ½ÏĞ¡µÄº¢×Ó´óÓÚ¸¸Ç×£¬²»×öÈÎºÎ´¦Àí
-				break;
-			} else {    // ·ñÔò£¬Ìæ»»¸¸½ÚµãµÄÖµ
-				heap[i] = heap[j];  
-				i = j;
-				j = 2 * j + 1;
-			}
-		}
-		heap[i] = temp;  // Ò»²½µ½Î»
-	}
-	
-	/**     
-	 * @description ×ÔÏÂÏòÉÏµ÷ÕûÎª×îĞ¡¶Ñ(Ô­À´ÒÑÊÇ×îĞ¡¶Ñ£¬Ìí¼ÓÔªËØºó£¬È·±£Æä»¹ÊÇ×îĞ¡¶Ñ)
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç9:09:37     
-	 * @param start     
-	 */
-	private void shiftUp(int start) {
-		int j = start;
-		int i = (j - 1) / 2;   // ÆğÊ¼µ÷ÕûÎ»ÖÃ£¬·ÖÖ§½Úµã
-		int temp = heap[j];
-		while (j > 0) {      // µü´úÌõ¼ş£º×Ó½Úµã±ØĞë²»Îª¸ù
-			if (temp >= heap[i]) {  //Ô­ÒÑÊÇ×îĞ¡¶Ñ£¬ËùÒÔÖ»Ğè±È½ÏÕâ¸ö×ÓÅ®Óë¸¸Ç×µÄ¹ØÏµ¼´¿É
-				break;
-			} else {
-				heap[j] = heap[i];
-				j = i;
-				i = (j - 1) / 2;
-			}
-		}
-		heap[j] = temp;   // Ò»²½µ½Î»
-	}
+        int pos = (size - 2) / 2; // æœ€åˆè°ƒæ•´ä½ç½®ï¼šæœ€åçš„åˆ†æ”¯èŠ‚ç‚¹(æœ€åå¶èŠ‚ç‚¹çš„çˆ¶äº²)
+        while (pos >= 0) {    //ä¾æ¬¡è°ƒæ•´æ¯ä¸ªåˆ†æ”¯èŠ‚ç‚¹
+            shiftDown(pos, size - 1);
+            pos--;
+        }
+    }
 
-	/**
-	 * @description Ïò×îĞ¡¶Ñ²åÈëÔªËØ(×ÜÊÇ²åÈëµ½×îĞ¡¶ÑµÄ×îºó)
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç8:22:58
-	 * @param data
-	 */
-	public void insert(int data){
-		if (size < heap.length) {
-			heap[size++] = data;   // ²åÈë¶ÑÎ²
-			shiftUp(size-1);   // ×ÔÏÂ¶øÉÏµ÷Õû
-		}
-	}
+    /**
+     * @param start
+     * @param end
+     * @description è‡ªä¸Šå‘ä¸‹è°ƒæ•´ä¸ºæœ€å°å †(ä»ä¸æ˜¯æœ€å°å †è°ƒæ•´ä¸ºæœ€å°å †)ï¼Œè°ƒæ•´çš„å‰ææ˜¯å…¶å·¦å­æ ‘ä¸å³å­æ ‘å‡ä¸ºæœ€å°å †
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ7:52:39
+     */
+    private void shiftDown(int start, int end) {
+        int i = start;       // èµ·å§‹è°ƒæ•´ä½ç½®ï¼Œåˆ†æ”¯èŠ‚ç‚¹
+        int j = 2 * start + 1;  // è¯¥åˆ†æ”¯èŠ‚ç‚¹çš„å­èŠ‚ç‚¹
+        int temp = heap[i];
+        while (j <= end) {  // è¿­ä»£æ¡ä»¶ï¼šå­èŠ‚ç‚¹ä¸èƒ½è¶…å‡ºend(èŒƒå›´)
+            if (j < end) {
+                j = heap[j] > heap[j + 1] ? j + 1 : j; // é€‰æ‹©ä¸¤å­©å­ä¸­è¾ƒå°çš„é‚£ä¸ª
+            }
+            if (temp < heap[j]) {   // è¾ƒå°çš„å­©å­å¤§äºçˆ¶äº²ï¼Œä¸åšä»»ä½•å¤„ç†
+                break;
+            } else {    // å¦åˆ™ï¼Œæ›¿æ¢çˆ¶èŠ‚ç‚¹çš„å€¼
+                heap[i] = heap[j];
+                i = j;
+                j = 2 * j + 1;
+            }
+        }
+        heap[i] = temp;  // ä¸€æ­¥åˆ°ä½
+    }
 
-	  
-	/**     
-	 * @description É¾³ı¶Ñ¶¥ÔªËØ£¬ÒÔ¶ÑµÄ×îºóÒ»¸öÔªËØÌî³ä
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç9:11:46          
-	 */
-	public void remove() {
-		if (size > 0) {
-			heap[0] = heap[size-1];   // É¾³ı¶Ñ¶¥ÔªËØ£¬²¢½«¶ÑÎ²ÔªËØ»ØÌîµ½¶Ñ¶¥
-			size --;   // ¶Ñ´óĞ¡¼õÒ»
-			shiftDown(0, size-1);   // ×ÔÉÏÏòÏÂµ÷ÕûÎª×îĞ¡¶Ñ
-		}
-	}
-	
-	  
-	/**     
-	 * @description ¶ÑÅÅĞò:Ã¿´Î½«×îĞ¡ÔªËØ½»»»µ½×îºó
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç9:42:31          
-	 */
-	public void sort(){
-		for (int i = size - 1; i >= 0; i--) {
-			int temp = heap[0];
-			heap[0] = heap[i];
-			heap[i] = temp;
-			
-			shiftDown(0, i-1);
-		}
-		
-		for (int i = size-1; i >= 0; i--) {
-			System.out.print(heap[i] + " ");
-		}
-	}
+    /**
+     * @param start
+     * @description è‡ªä¸‹å‘ä¸Šè°ƒæ•´ä¸ºæœ€å°å †(åŸæ¥å·²æ˜¯æœ€å°å † ï¼Œ æ·»åŠ å…ƒç´ å ï¼Œ ç¡®ä¿å…¶è¿˜æ˜¯æœ€å°å †)
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ9:09:37
+     */
+    private void shiftUp(int start) {
+        int j = start;
+        int i = (j - 1) / 2;   // èµ·å§‹è°ƒæ•´ä½ç½®ï¼Œåˆ†æ”¯èŠ‚ç‚¹
+        int temp = heap[j];
+        while (j > 0) {      // è¿­ä»£æ¡ä»¶ï¼šå­èŠ‚ç‚¹å¿…é¡»ä¸ä¸ºæ ¹
+            if (temp >= heap[i]) {  //åŸå·²æ˜¯æœ€å°å †ï¼Œæ‰€ä»¥åªéœ€æ¯”è¾ƒè¿™ä¸ªå­å¥³ä¸çˆ¶äº²çš„å…³ç³»å³å¯
+                break;
+            } else {
+                heap[j] = heap[i];
+                j = i;
+                i = (j - 1) / 2;
+            }
+        }
+        heap[j] = temp;   // ä¸€æ­¥åˆ°ä½
+    }
 
-	/**
-	 * @description ´òÓ¡¸ùÎª i µÄ×îĞ¡¶Ñ
-	 * @author rico
-	 * @created 2017Äê5ÔÂ24ÈÕ ÏÂÎç8:17:16
-	 * @param i
-	 */
-	public void printMinHeap(int i) {
-		if (size > i) {
-			System.out.print(heap[i]);
-			if (2 * i + 1 < size || 2 * i + 2 < size) {
-				System.out.print("(");
-				printMinHeap(2 * i + 1);
-				System.out.print(",");
-				printMinHeap(2 * i + 2);
-				System.out.print(")");
-			}
-		}
-	}
+    /**
+     * @param data
+     * @description å‘æœ€å°å †æ’å…¥å…ƒç´ (æ€»æ˜¯æ’å…¥åˆ°æœ€å°å †çš„æœ€å)
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ8:22:58
+     */
+    public void insert(int data) {
+        if (size < heap.length) {
+            heap[size++] = data;   // æ’å…¥å †å°¾
+            shiftUp(size - 1);   // è‡ªä¸‹è€Œä¸Šè°ƒæ•´
+        }
+    }
+
+
+    /**
+     * @description åˆ é™¤å †é¡¶å…ƒç´ ï¼Œä»¥å †çš„æœ€åä¸€ä¸ªå…ƒç´ å¡«å……
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ9:11:46
+     */
+    public void remove() {
+        if (size > 0) {
+            heap[0] = heap[size - 1];   // åˆ é™¤å †é¡¶å…ƒç´ ï¼Œå¹¶å°†å †å°¾å…ƒç´ å›å¡«åˆ°å †é¡¶
+            size--;   // å †å¤§å°å‡ä¸€
+            shiftDown(0, size - 1);   // è‡ªä¸Šå‘ä¸‹è°ƒæ•´ä¸ºæœ€å°å †
+        }
+    }
+
+
+    /**
+     * @description å †æ’åº:æ¯æ¬¡å°†æœ€å°å…ƒç´ äº¤æ¢åˆ°æœ€å
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ9:42:31
+     */
+    public void sort() {
+        for (int i = size - 1; i >= 0; i--) {
+            int temp = heap[0];
+            heap[0] = heap[i];
+            heap[i] = temp;
+
+            shiftDown(0, i - 1);
+        }
+
+        for (int i = size - 1; i >= 0; i--) {
+            System.out.print(heap[i] + " ");
+        }
+    }
+
+    /**
+     * @param i
+     * @description æ‰“å°æ ¹ä¸º i çš„æœ€å°å †
+     * @author rico
+     * @created 2017å¹´5æœˆ24æ—¥ ä¸‹åˆ8:17:16
+     */
+    public void printMinHeap(int i) {
+        if (size > i) {
+            System.out.print(heap[i]);
+            if (2 * i + 1 < size || 2 * i + 2 < size) {
+                System.out.print("(");
+                printMinHeap(2 * i + 1);
+                System.out.print(",");
+                printMinHeap(2 * i + 2);
+                System.out.print(")");
+            }
+        }
+    }
 }

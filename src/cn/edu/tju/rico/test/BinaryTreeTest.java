@@ -3,82 +3,82 @@ package cn.edu.tju.rico.test;
 import cn.edu.tju.rico.tree.BinaryTree;
 
 public class BinaryTreeTest {
-	public static void main(String[] args) {
-		BinaryTree<Character> tree = new BinaryTree<Character>();
-		tree.createBinaryTree("A(B(D,E(G(I,J),M)),C(F(,H(,K)),))");
+    public static void main(String[] args) {
+        BinaryTree<Character> tree = new BinaryTree<Character>();
+        tree.createBinaryTree("A(B(D,E(G(I,J),M)),C(F(,H(,K)),))");
 
-		System.out.println();
-		System.out.println("treeµÄ²ã´Î(¹ãĞò)±éÀú £º " + tree.levelOrder());
-		System.out.println("\n----------------------------------------------\n");
-		System.out.println("treeµÄÇ°Ğò±éÀú (µİ¹é)£º " + tree.preOrder(tree.getRoot()));
-		System.out.println("treeµÄÇ°Ğò±éÀú (µü´ú)£º " + tree.preOrder());
-		System.out.println("\n----------------------------------------------\n");
+        System.out.println();
+        System.out.println("treeçš„å±‚æ¬¡(å¹¿åº)éå† ï¼š " + tree.levelOrder());
+        System.out.println("\n----------------------------------------------\n");
+        System.out.println("treeçš„å‰åºéå† (é€’å½’)ï¼š " + tree.preOrder(tree.getRoot()));
+        System.out.println("treeçš„å‰åºéå† (è¿­ä»£)ï¼š " + tree.preOrder());
+        System.out.println("\n----------------------------------------------\n");
 
-		System.out.println("treeµÄÖĞĞò±éÀú (µİ¹é)£º " + tree.inOrder(tree.getRoot()));
-		System.out.println("treeµÄÖĞĞò±éÀú (µü´ú)£º " + tree.inOrder());
-		System.out.println("\n----------------------------------------------\n");
+        System.out.println("treeçš„ä¸­åºéå† (é€’å½’)ï¼š " + tree.inOrder(tree.getRoot()));
+        System.out.println("treeçš„ä¸­åºéå† (è¿­ä»£)ï¼š " + tree.inOrder());
+        System.out.println("\n----------------------------------------------\n");
 
-		System.out.println("treeµÄºóĞò±éÀú (µİ¹é)£º " + tree.postOrder(tree.getRoot()));
-		System.out.println("treeµÄºóĞò±éÀú (µü´ú)£º " + tree.postOrder());
-		System.out.println("\n----------------------------------------------\n");
+        System.out.println("treeçš„ååºéå† (é€’å½’)ï¼š " + tree.postOrder(tree.getRoot()));
+        System.out.println("treeçš„ååºéå† (è¿­ä»£)ï¼š " + tree.postOrder());
+        System.out.println("\n----------------------------------------------\n");
 
-		System.out.println("treeµÄ¸ù½áµã £º " + tree.getRoot());
-		System.out.println("\n----------------------------------------------\n");
+        System.out.println("treeçš„æ ¹ç»“ç‚¹ ï¼š " + tree.getRoot());
+        System.out.println("\n----------------------------------------------\n");
 
-		System.out.println("treeµÄ¸ß¶È £º " + tree.height(tree.getRoot()));
-		System.out.println("\n----------------------------------------------\n");
+        System.out.println("treeçš„é«˜åº¦ ï¼š " + tree.height(tree.getRoot()));
+        System.out.println("\n----------------------------------------------\n");
 
-		System.out.println("treeµÄ½áµãÊı £º " + tree.size(tree.getRoot()));
-		System.out.println("\n----------------------------------------------\n");
+        System.out.println("treeçš„ç»“ç‚¹æ•° ï¼š " + tree.size(tree.getRoot()));
+        System.out.println("\n----------------------------------------------\n");
 
-		// ¸´ÖÆ²¢¹¹ÔìÊ÷
-		BinaryTree<Character> tree2 = new BinaryTree<Character>(tree.getRoot());
-		System.out.println("treeÎª £º " + tree.printBinaryTree(tree.getRoot()));
-		System.out.println("¸´ÖÆtreeÎªtree2 £º " + tree2.printBinaryTree(tree2.getRoot()));
-		// ÅĞ¶Ï tree2 Óë tree ÊÇ·ñÏàµÈ
-		System.out.println("tree2 Óë tree ÊÇ·ñÏàµÈ: " + tree.equals(tree2));
-		System.out.println("\n----------------------------------------------\n");
+        // å¤åˆ¶å¹¶æ„é€ æ ‘
+        BinaryTree<Character> tree2 = new BinaryTree<Character>(tree.getRoot());
+        System.out.println("treeä¸º ï¼š " + tree.printBinaryTree(tree.getRoot()));
+        System.out.println("å¤åˆ¶treeä¸ºtree2 ï¼š " + tree2.printBinaryTree(tree2.getRoot()));
+        // åˆ¤æ–­ tree2 ä¸ tree æ˜¯å¦ç›¸ç­‰
+        System.out.println("tree2 ä¸ tree æ˜¯å¦ç›¸ç­‰: " + tree.equals(tree2));
+        System.out.println("\n----------------------------------------------\n");
 
-		// ¹¹½¨tree1
-		BinaryTree<Character> tree1 = new BinaryTree<Character>();
-		tree1.createBinaryTree("A(B(D,E(G(I,J),)),C(F(,H(,K)),))");
-		System.out.println("treeÎª £º " + tree.printBinaryTree(tree.getRoot()));
-		System.out.println("¹¹½¨tree1Îª £º " + tree1.printBinaryTree(tree1.getRoot()));
-		// ÅĞ¶Ï tree1 Óë tree ÊÇ·ñÏàµÈ
-		System.out.println("tree1 Óë tree ÊÇ·ñÏàµÈ: " + tree.equals(tree1));
-		System.out.println("\n----------------------------------------------\n");
+        // æ„å»ºtree1
+        BinaryTree<Character> tree1 = new BinaryTree<Character>();
+        tree1.createBinaryTree("A(B(D,E(G(I,J),)),C(F(,H(,K)),))");
+        System.out.println("treeä¸º ï¼š " + tree.printBinaryTree(tree.getRoot()));
+        System.out.println("æ„å»ºtree1ä¸º ï¼š " + tree1.printBinaryTree(tree1.getRoot()));
+        // åˆ¤æ–­ tree1 ä¸ tree æ˜¯å¦ç›¸ç­‰
+        System.out.println("tree1 ä¸ tree æ˜¯å¦ç›¸ç­‰: " + tree.equals(tree1));
+        System.out.println("\n----------------------------------------------\n");
 
-		// ¸ù¾İÇ°Ğò±éÀú´´½¨Ê÷
-		BinaryTree<Character> tree3 = new BinaryTree<Character>(
-				"ABC##DE#G##F###".toCharArray());
-		System.out.println("¸ù¾İÇ°Ğò±éÀú´´½¨¶ş²æÊ÷: " + tree3.printBinaryTree(tree3.getRoot()));
-		System.out.println("Ç°Ğò±éÀútree3£º " + tree.preOrder(tree3.getRoot()));
-		System.out.println("ÖĞĞò±éÀútree3£º " + tree.inOrder(tree3.getRoot()));
-		System.out.println("ºóĞò±éÀútree3£º " + tree.postOrder(tree3.getRoot()));
-		System.out.println("\n----------------------------------------------\n");
+        // æ ¹æ®å‰åºéå†åˆ›å»ºæ ‘
+        BinaryTree<Character> tree3 = new BinaryTree<Character>(
+                "ABC##DE#G##F###".toCharArray());
+        System.out.println("æ ¹æ®å‰åºéå†åˆ›å»ºäºŒå‰æ ‘: " + tree3.printBinaryTree(tree3.getRoot()));
+        System.out.println("å‰åºéå†tree3ï¼š " + tree.preOrder(tree3.getRoot()));
+        System.out.println("ä¸­åºéå†tree3ï¼š " + tree.inOrder(tree3.getRoot()));
+        System.out.println("ååºéå†tree3ï¼š " + tree.postOrder(tree3.getRoot()));
+        System.out.println("\n----------------------------------------------\n");
 
-		// ÒÔ¹ãÒå±íµÄĞÎÊ½´òÓ¡¶ş²æÊ÷
-		System.out.println("ÒÔ¹ãÒå±íµÄĞÎÊ½´òÓ¡treeÎª £º" + tree.printBinaryTree(tree.getRoot()));
-		System.out.println("ÒÔ¹ãÒå±íµÄĞÎÊ½´òÓ¡tree1Îª £º" + tree1.printBinaryTree(tree1.getRoot()));
-		System.out.println("ÒÔ¹ãÒå±íµÄĞÎÊ½´òÓ¡tree2Îª £º" + tree2.printBinaryTree(tree2.getRoot()));
-		System.out.println("ÒÔ¹ãÒå±íµÄĞÎÊ½´òÓ¡tree3Îª £º" + tree3.printBinaryTree(tree3.getRoot()));
-		System.out.println("\n----------------------------------------------\n");
+        // ä»¥å¹¿ä¹‰è¡¨çš„å½¢å¼æ‰“å°äºŒå‰æ ‘
+        System.out.println("ä»¥å¹¿ä¹‰è¡¨çš„å½¢å¼æ‰“å°treeä¸º ï¼š" + tree.printBinaryTree(tree.getRoot()));
+        System.out.println("ä»¥å¹¿ä¹‰è¡¨çš„å½¢å¼æ‰“å°tree1ä¸º ï¼š" + tree1.printBinaryTree(tree1.getRoot()));
+        System.out.println("ä»¥å¹¿ä¹‰è¡¨çš„å½¢å¼æ‰“å°tree2ä¸º ï¼š" + tree2.printBinaryTree(tree2.getRoot()));
+        System.out.println("ä»¥å¹¿ä¹‰è¡¨çš„å½¢å¼æ‰“å°tree3ä¸º ï¼š" + tree3.printBinaryTree(tree3.getRoot()));
+        System.out.println("\n----------------------------------------------\n");
 
-		// ¸ù¾İtreeµÄÏÈĞò±éÀúºÍÖĞĞò±éÀú½á¹û¹¹½¨Ê÷
-		String pre = tree.preOrder().replace(" ", "");
-		String in = tree.inOrder().replace(" ", "");
-		BinaryTree<Character> tree4 = new BinaryTree<Character>(pre, in, true);
-		System.out.println("¸ù¾İtreeµÄÏÈĞò±éÀúºÍÖĞĞò±éÀú½á¹û¹¹½¨µÄtree4Îª £º"
-				+ tree.printBinaryTree(tree4.getRoot()));
-		System.out.println("treeÓëtree4ÊÇ·ñÏàµÈ£º " + tree.equals(tree4));
-		System.out.println("\n----------------------------------------------\n");
-		
-		// ¸ù¾İtreeµÄÖĞĞò±éÀúºÍºóĞò±éÀú½á¹û¹¹½¨Ê÷
-		String post = tree.postOrder().replace(" ", "");
-		BinaryTree<Character> tree5 = new BinaryTree<Character>(in, post, false);
-		System.out.println("¸ù¾İtreeµÄÖĞĞò±éÀúºÍºóĞò±éÀú½á¹û¹¹½¨µÄtree5Îª £º"
-				+ tree.printBinaryTree(tree5.getRoot()));
-		System.out.println("treeÓëtree5ÊÇ·ñÏàµÈ£º " + tree.equals(tree5));
-		
-	}
+        // æ ¹æ®treeçš„å…ˆåºéå†å’Œä¸­åºéå†ç»“æœæ„å»ºæ ‘
+        String pre = tree.preOrder().replace(" ", "");
+        String in = tree.inOrder().replace(" ", "");
+        BinaryTree<Character> tree4 = new BinaryTree<Character>(pre, in, true);
+        System.out.println("æ ¹æ®treeçš„å…ˆåºéå†å’Œä¸­åºéå†ç»“æœæ„å»ºçš„tree4ä¸º ï¼š"
+                + tree.printBinaryTree(tree4.getRoot()));
+        System.out.println("treeä¸tree4æ˜¯å¦ç›¸ç­‰ï¼š " + tree.equals(tree4));
+        System.out.println("\n----------------------------------------------\n");
+
+        // æ ¹æ®treeçš„ä¸­åºéå†å’Œååºéå†ç»“æœæ„å»ºæ ‘
+        String post = tree.postOrder().replace(" ", "");
+        BinaryTree<Character> tree5 = new BinaryTree<Character>(in, post, false);
+        System.out.println("æ ¹æ®treeçš„ä¸­åºéå†å’Œååºéå†ç»“æœæ„å»ºçš„tree5ä¸º ï¼š"
+                + tree.printBinaryTree(tree5.getRoot()));
+        System.out.println("treeä¸tree5æ˜¯å¦ç›¸ç­‰ï¼š " + tree.equals(tree5));
+
+    }
 }

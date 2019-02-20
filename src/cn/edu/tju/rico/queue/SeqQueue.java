@@ -2,110 +2,113 @@ package cn.edu.tju.rico.queue;
 
 import java.util.Arrays;
 
-  
-/**        
- * Title: »ùÓÚÊı×éµÄ¶ÓÁĞÊµÏÖ     
- * Description: 
- * @author rico       
- * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:23:55    
- */      
+
+/**
+ * Title: åŸºäºæ•°ç»„çš„é˜Ÿåˆ—å®ç°
+ * Description:
+ *
+ * @author rico
+ * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:23:55
+ */
 public class SeqQueue<E> {
 
-	
-	/**  ¶ÓÁĞµÄ´æ´¢½á¹¹   (@author: rico) */      
-	private Object[] queue;         
-	private int size;
-	private int maxSize;    // ×î´óÈİÁ¿
-	
-	public SeqQueue(int maxSize){
-		this.maxSize = maxSize;
-		queue = new Object[maxSize];
-	}
-	
-	  
-	/**     
-	 * @description Ìí¼ÓÔªËØµ½¶ÓÎ²
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:25:32     
-	 * @param data     
-	 */
-	public void put(E data){
-		if(!isFull()){
-			queue[size] = data;
-			size ++;
-		}
-	}
-	
-	  
-	/**     
-	 * @description É¾³ı¶ÓÍ·²¢·µ»Ø¶ÓÍ·ÔªËØµÄÖµ
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:25:47     
-	 * @return     
-	 */
-	public E pop(){
-		if (!isEmpty()) {
-			E temp = (E) queue[0];
-			for (int i = 0; i < size - 1; i++) {
-				queue[i] = queue[i+1];
-			}
-			queue[size-1] = null;
-			size--;
-			return temp;
-		}
-		return null;
-	}
-	
-	  
-	/**     
-	 * @description ·µ»Ø¶ÓÍ·ÔªËØ
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:26:01     
-	 * @return     
-	 */
-	public E peek(){
-		if (!isEmpty()) {
-			return (E) queue[0];
-		}
-		return null;
-	}
-	
-	  
-	/**     
-	 * @description ¶ÓÁĞÊÇ·ñÒÑÂú
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:26:14     
-	 * @return     
-	 */
-	public boolean isFull(){
-		return size == maxSize;
-	}
-	
-	  
-	/**     
-	 * @description ¶ÓÁĞÊÇ·ñÎª¿Õ
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:26:25     
-	 * @return     
-	 */
-	public boolean isEmpty(){
-		return size == 0;
-	}
-	
-	  
-	/**     
-	 * @description ¶ÓÁĞµÄ´óĞ¡
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç8:26:34     
-	 * @return     
-	 */
-	public int size(){
-		return size;
-	}
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return Arrays.toString(queue);
-	}
+    /**
+     * é˜Ÿåˆ—çš„å­˜å‚¨ç»“æ„   (@author: rico)
+     */
+    private Object[] queue;
+    private int size;
+    private int maxSize;    // æœ€å¤§å®¹é‡
+
+    public SeqQueue(int maxSize) {
+        this.maxSize = maxSize;
+        queue = new Object[maxSize];
+    }
+
+
+    /**
+     * @param data
+     * @description æ·»åŠ å…ƒç´ åˆ°é˜Ÿå°¾
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:25:32
+     */
+    public void put(E data) {
+        if (!isFull()) {
+            queue[size] = data;
+            size++;
+        }
+    }
+
+
+    /**
+     * @return
+     * @description åˆ é™¤é˜Ÿå¤´å¹¶è¿”å›é˜Ÿå¤´å…ƒç´ çš„å€¼
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:25:47
+     */
+    public E pop() {
+        if (!isEmpty()) {
+            E temp = (E) queue[0];
+            for (int i = 0; i < size - 1; i++) {
+                queue[i] = queue[i + 1];
+            }
+            queue[size - 1] = null;
+            size--;
+            return temp;
+        }
+        return null;
+    }
+
+
+    /**
+     * @return
+     * @description è¿”å›é˜Ÿå¤´å…ƒç´ 
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:26:01
+     */
+    public E peek() {
+        if (!isEmpty()) {
+            return (E) queue[0];
+        }
+        return null;
+    }
+
+
+    /**
+     * @return
+     * @description é˜Ÿåˆ—æ˜¯å¦å·²æ»¡
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:26:14
+     */
+    public boolean isFull() {
+        return size == maxSize;
+    }
+
+
+    /**
+     * @return
+     * @description é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:26:25
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+
+    /**
+     * @return
+     * @description é˜Ÿåˆ—çš„å¤§å°
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ8:26:34
+     */
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return Arrays.toString(queue);
+    }
 }

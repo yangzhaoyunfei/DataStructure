@@ -1,49 +1,47 @@
 package cn.edu.tju.rico.tree;
 
 /**
- * Title: ½áµãÀà 
- * Description: ¶ş²æÊ÷µÄ½áµã
- * 
+ * Title: ç»“ç‚¹ç±»
+ * Description: äºŒå‰æ ‘çš„ç»“ç‚¹
+ *
  * @author rico
- * @created 2017Äê4ÔÂ6ÈÕ ÏÂÎç9:55:58
+ * @created 2017å¹´4æœˆ6æ—¥ ä¸‹åˆ9:55:58
  */
- public class Node<T> {
+public class Node<T> {
 
-	T data;   // ½áµãÊı¾İ
-	Node<T> left;  // Ö¸Ïò×óº¢×Ó½áµã
-	Node<T> right;  // Ö¸ÏòÓÒº¢×Ó½áµã
-	boolean isFirst;  // ÓÃÓÚ·Çµİ¹éºóĞò±éÀú
-	
-	
-	/**
-	 * ¹¹Ôìº¯Êı
-	 * 
-	 * @description ¹¹ÔìÒ»¸öĞÂ½áµã
-	 * @author rico
-	 * @created 2017Äê4ÔÂ6ÈÕ ÏÂÎç9:56:56
-	 * @param data
-	 *            ĞÂÔªËØÊı¾İ
-	 * @param next
-	 *            ĞÂÔªËØÓëÁ´±í½áºÏ½áµã
-	 */
-	public Node(T data) { 
-		this.data = data;
-	}
+    T data;   // ç»“ç‚¹æ•°æ®
+    Node<T> left;  // æŒ‡å‘å·¦å­©å­ç»“ç‚¹
+    Node<T> right;  // æŒ‡å‘å³å­©å­ç»“ç‚¹
+    boolean isFirst;  // ç”¨äºéé€’å½’ååºéå†
 
-	@Override
-	public String toString() {
-		return data == null ? null : data.toString();
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		if (obj instanceof Node) {
-			Node<T> temp = (Node<T>) obj;
-			if (data.equals(temp.data)) {
-				return true;
-			}
-		}
-		return false;
-	}
+    /**
+     * æ„é€ å‡½æ•°
+     *
+     * @param data æ–°å…ƒç´ æ•°æ®
+     * @param next æ–°å…ƒç´ ä¸é“¾è¡¨ç»“åˆç»“ç‚¹
+     * @description æ„é€ ä¸€ä¸ªæ–°ç»“ç‚¹
+     * @author rico
+     * @created 2017å¹´4æœˆ6æ—¥ ä¸‹åˆ9:56:56
+     */
+    public Node(T data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return data == null ? null : data.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        // TODO Auto-generated method stub
+        if (obj instanceof Node) {
+            Node<T> temp = (Node<T>) obj;
+            if (data.equals(temp.data)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

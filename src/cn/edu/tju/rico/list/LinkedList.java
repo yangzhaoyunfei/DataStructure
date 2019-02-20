@@ -1,351 +1,351 @@
 package cn.edu.tju.rico.list;
 
 /**
- * Title: Á´±íµÄJavaÊµÏÖ 
- * Description: Á´±í½á¹¹°üº¬Á½¸öÒªËØ£º Í·½áµãhead + Á´±í´óĞ¡size£¬²Ù×÷°üÀ¨£º
- * 				Á´±íµÄÔöÉ¾
- * 				Á´±íÊÇ·ñÎª¿Õ
- * 				Á´±íµÄ´óĞ¡
- * 				Á´±íµÄ´òÓ¡Êä³ö
- * 				É¾³ıÁ´±íÖØ¸´½Úµã
- *  			Á´±íµ¹ÊıµÚK¸öÔªËØ
- *  			Á´±íµÄ·´×ª
- *  			Á´±íµÄµ¹ĞòÊä³ö
- *  			Á´±íµÄÖĞ¼ä½Úµã
- *  			Á´±íÊÇ·ñÓĞ»·
- *  			Á´±í½ÚµãµÄÉ¾³ı(²»ÖªµÀÍ·½áµãµÄÇé¿öÏÂ)
- *  			Á´±íÊÇ·ñÏà½»
- *  			Á´±íµÄ½»µã
- * 
+ * Title: é“¾è¡¨çš„Javaå®ç°
+ * Description: é“¾è¡¨ç»“æ„åŒ…å«ä¸¤ä¸ªè¦ç´ ï¼š å¤´ç»“ç‚¹head + é“¾è¡¨å¤§å°sizeï¼Œæ“ä½œåŒ…æ‹¬ï¼š
+ * é“¾è¡¨çš„å¢åˆ 
+ * é“¾è¡¨æ˜¯å¦ä¸ºç©º
+ * é“¾è¡¨çš„å¤§å°
+ * é“¾è¡¨çš„æ‰“å°è¾“å‡º
+ * åˆ é™¤é“¾è¡¨é‡å¤èŠ‚ç‚¹
+ * é“¾è¡¨å€’æ•°ç¬¬Kä¸ªå…ƒç´ 
+ * é“¾è¡¨çš„åè½¬
+ * é“¾è¡¨çš„å€’åºè¾“å‡º
+ * é“¾è¡¨çš„ä¸­é—´èŠ‚ç‚¹
+ * é“¾è¡¨æ˜¯å¦æœ‰ç¯
+ * é“¾è¡¨èŠ‚ç‚¹çš„åˆ é™¤(ä¸çŸ¥é“å¤´ç»“ç‚¹çš„æƒ…å†µä¸‹)
+ * é“¾è¡¨æ˜¯å¦ç›¸äº¤
+ * é“¾è¡¨çš„äº¤ç‚¹
+ *
  * @author rico
  */
 public class LinkedList<E> {
 
-	private Node<E> head; // Á´±í±íÍ·
-	private int size; // Á´±í´óĞ¡
+    private Node<E> head; // é“¾è¡¨è¡¨å¤´
+    private int size; // é“¾è¡¨å¤§å°
 
-	public LinkedList() {
-		head = new Node<E>(null);
-	}
+    public LinkedList() {
+        head = new Node<E>(null);
+    }
 
-	public Node<E> getHead() {
-		return head;
-	}
+    public Node<E> getHead() {
+        return head;
+    }
 
-	/**
-	 * @description ÏòÁ´±íÖĞÖ¸¶¨Î»ÖÃµÄÔªËØ(0 - size),·µ»ØĞÂ½Úµã
-	 * @author rico
-	 * @param data
-	 * @param index
-	 * @throws Exception
-	 */
-	public Node<E> add(E data, int index) throws Exception {
-		if (index > size) {
-			throw new Exception("³¬³ö·¶Î§...");
-		}
+    /**
+     * @param data
+     * @param index
+     * @throws Exception
+     * @description å‘é“¾è¡¨ä¸­æŒ‡å®šä½ç½®çš„å…ƒç´ (0 - size), è¿”å›æ–°èŠ‚ç‚¹
+     * @author rico
+     */
+    public Node<E> add(E data, int index) throws Exception {
+        if (index > size) {
+            throw new Exception("è¶…å‡ºèŒƒå›´...");
+        }
 
-		Node<E> cur = head;
-		for (int i = 0; i < index; i++) {
-			cur = cur.next;
-		}
-		Node<E> node = new Node<E>(data); // ½«ĞÂÔªËØÁ´ÈëÁ´±í
-		cur.next = node;
-		size++;
-		return node;
-	}
+        Node<E> cur = head;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        Node<E> node = new Node<E>(data); // å°†æ–°å…ƒç´ é“¾å…¥é“¾è¡¨
+        cur.next = node;
+        size++;
+        return node;
+    }
 
-	/**
-	 * @description ÏòÁ´±íÄ©Î²Ìí¼ÓÔªËØ,·µ»ØĞÂ½Úµã
-	 * @author rico
-	 * @param data
-	 * @throws Exception
-	 */
-	public Node<E> add(E data) throws Exception {
-		return add(data, size);
-	}
-	
-	/**     
-	 * @description ÏòÁ´±íÎ²²¿Ìí¼ÓĞÂ½Úµã
-	 * @author rico       
-	 * @param node     
-	 */
-	public void add(Node<E> node){
-		Node<E> cur = head;
-		while(cur.next != null){
-			cur = cur.next;
-		}
-		cur.next = node;
-		
-		while(node != null){
-			size ++;
-			node = node.next;
-		}
-	}
+    /**
+     * @param data
+     * @throws Exception
+     * @description å‘é“¾è¡¨æœ«å°¾æ·»åŠ å…ƒç´ , è¿”å›æ–°èŠ‚ç‚¹
+     * @author rico
+     */
+    public Node<E> add(E data) throws Exception {
+        return add(data, size);
+    }
 
-	/**
-	 * @description É¾³ıÁ´±íÖĞÖ¸¶¨Î»ÖÃµÄÔªËØ(0 ~ size-1)
-	 * @author rico
-	 * @param index
-	 * @return
-	 * @throws Exception
-	 */
-	public E remove(int index) throws Exception {
-		if (index > size - 1 || index < 0) {
-			throw new Exception("³¬³ö·¶Î§...");
-		}
+    /**
+     * @param node
+     * @description å‘é“¾è¡¨å°¾éƒ¨æ·»åŠ æ–°èŠ‚ç‚¹
+     * @author rico
+     */
+    public void add(Node<E> node) {
+        Node<E> cur = head;
+        while (cur.next != null) {
+            cur = cur.next;
+        }
+        cur.next = node;
 
-		Node<E> cur = head;
-		for (int i = 0; i < index; i++) {
-			cur = cur.next;
-		}
+        while (node != null) {
+            size++;
+            node = node.next;
+        }
+    }
 
-		Node<E> temp = cur.next;
-		cur.next = temp.next;
-		temp.next = null;
+    /**
+     * @param index
+     * @return
+     * @throws Exception
+     * @description åˆ é™¤é“¾è¡¨ä¸­æŒ‡å®šä½ç½®çš„å…ƒç´ (0 ~ size - 1)
+     * @author rico
+     */
+    public E remove(int index) throws Exception {
+        if (index > size - 1 || index < 0) {
+            throw new Exception("è¶…å‡ºèŒƒå›´...");
+        }
 
-		size--;
-		return temp.data;
-	}
+        Node<E> cur = head;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
 
-	/**
-	 * @description ÏòÁ´±íÄ©Î²É¾³ıÔªËØ
-	 * @author rico
-	 * @return
-	 * @throws Exception
-	 */
-	public E remove() throws Exception {
-		return remove(size - 1);
-	}
+        Node<E> temp = cur.next;
+        cur.next = temp.next;
+        temp.next = null;
 
-	/**
-	 * @description É¾³ıÁ´±íÖĞµÄÖØ¸´ÔªËØ(ÍâÑ­»· + ÄÚÑ­»·)
-	 * @author rico Ê±¼ä¸´ÔÓ¶È£ºO(n^2)
-	 */
-	public void removeDuplicateNodes() {
-		Node<E> cur = head.next;
-		while (cur != null) { // ÍâÑ­»·
-			Node<E> temp = cur;
-			while (temp != null && temp.next != null) { // ÄÚÑ­»·
-				if (cur.data.equals(temp.next.data)) {
-					Node<E> duplicateNode = temp.next;
-					temp.next = duplicateNode.next;
-					duplicateNode.next = null;
-					size --;
-				}
-				temp = temp.next;
-			}
-			cur = cur.next;
-		}
-	}
+        size--;
+        return temp.data;
+    }
 
-	/**
-	 * @description ÕÒ³öµ¥Á´±íÖĞµ¹ÊıµÚK¸öÔªËØ(Ë«Ö¸Õë·¨,Ïà²îK-1²½)
-	 * @author rico
-	 * @param k
-	 * @return Ê±¼ä¸´ÔÓ¶È£ºO(n)
-	 */
-	public Node<E> getEndK(int k) {
-		Node<E> pre = head.next;
-		Node<E> post = head.next;
-		for (int i = 1; i < k; i++) { // preÏÈ×ßk-1²½
-			if (pre != null) {
-				pre = pre.next;
-			}
-		}
-		if (pre != null) {
-			// µ±pre×ßµ½Á´±íÄ©¶ËÊ±£¬postÕıºÃÖ¸Ïòµ¹ÊıµÚK¸ö½Úµã
-			while (pre != null && pre.next != null) {
-				pre = pre.next;
-				post = post.next;
-			}
-			return post;
-		}
-		return null;
-	}
+    /**
+     * @return
+     * @throws Exception
+     * @description å‘é“¾è¡¨æœ«å°¾åˆ é™¤å…ƒç´ 
+     * @author rico
+     */
+    public E remove() throws Exception {
+        return remove(size - 1);
+    }
 
-	/**
-	 * @description ·´×ªÁ´±í
-	 * @author rico
-	 */
-	public void reverseLinkedList() {
-		Node<E> cur = head.next; // Ô­Á´±í
-		Node<E> pre = null; // ·´×ªºóµÄÁ´±í
+    /**
+     * @description åˆ é™¤é“¾è¡¨ä¸­çš„é‡å¤å…ƒç´ (å¤–å¾ªç¯ + å†…å¾ªç¯)
+     * @author rico æ—¶é—´å¤æ‚åº¦ï¼šO(n^2)
+     */
+    public void removeDuplicateNodes() {
+        Node<E> cur = head.next;
+        while (cur != null) { // å¤–å¾ªç¯
+            Node<E> temp = cur;
+            while (temp != null && temp.next != null) { // å†…å¾ªç¯
+                if (cur.data.equals(temp.next.data)) {
+                    Node<E> duplicateNode = temp.next;
+                    temp.next = duplicateNode.next;
+                    duplicateNode.next = null;
+                    size--;
+                }
+                temp = temp.next;
+            }
+            cur = cur.next;
+        }
+    }
 
-		while (cur != null) { // ¶ÔÔ­Á´±íÖĞµÄÃ¿¸ö½Úµã½øĞĞ·´×ª
-			Node<E> next = cur.next; // ¼ÇÂ¼µ±Ç°½ÚµãµÄÏÂÒ»¸ö½Úµã
-			cur.next = pre; // µ±Ç°½ÚµãÖ¸Ïò·´×ªºóµÄÁ´±í
-			pre = cur; // ¸üĞÂ·´×ªºóµÄÁ´±í
-			cur = next; // ¸üĞÂµ±Ç°½Úµã
-		}
-		head.next = pre; // ½«Ô­Á´±íµÄÍ·½áµãÖ¸Ïò·´×ªºóµÄÁ´±í
-	}
+    /**
+     * @param k
+     * @return æ—¶é—´å¤æ‚åº¦ï¼šO(n)
+     * @description æ‰¾å‡ºå•é“¾è¡¨ä¸­å€’æ•°ç¬¬Kä¸ªå…ƒç´ (åŒæŒ‡é’ˆæ³•, ç›¸å·®K - 1æ­¥)
+     * @author rico
+     */
+    public Node<E> getEndK(int k) {
+        Node<E> pre = head.next;
+        Node<E> post = head.next;
+        for (int i = 1; i < k; i++) { // preå…ˆèµ°k-1æ­¥
+            if (pre != null) {
+                pre = pre.next;
+            }
+        }
+        if (pre != null) {
+            // å½“preèµ°åˆ°é“¾è¡¨æœ«ç«¯æ—¶ï¼Œpostæ­£å¥½æŒ‡å‘å€’æ•°ç¬¬Kä¸ªèŠ‚ç‚¹
+            while (pre != null && pre.next != null) {
+                pre = pre.next;
+                post = post.next;
+            }
+            return post;
+        }
+        return null;
+    }
 
-	/**
-	 * @description ÅĞ¶Ïµ¥Á´±íÊÇ·ñÎª¿Õ
-	 * @author rico
-	 * @return
-	 */
-	public boolean isEmpty() {
-		return size == 0;
-	}
+    /**
+     * @description åè½¬é“¾è¡¨
+     * @author rico
+     */
+    public void reverseLinkedList() {
+        Node<E> cur = head.next; // åŸé“¾è¡¨
+        Node<E> pre = null; // åè½¬åçš„é“¾è¡¨
 
-	/**
-	 * @description ´òÓ¡Êä³öµ¥Á´±í
-	 * @author rico
-	 */
-	public void print() {
-		Node<E> cur = head.next;
-		while (cur != null) {
-			System.out.print(cur.data + " ");
-			cur = cur.next;
-		}
-		System.out.println();
-	}
+        while (cur != null) { // å¯¹åŸé“¾è¡¨ä¸­çš„æ¯ä¸ªèŠ‚ç‚¹è¿›è¡Œåè½¬
+            Node<E> next = cur.next; // è®°å½•å½“å‰èŠ‚ç‚¹çš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
+            cur.next = pre; // å½“å‰èŠ‚ç‚¹æŒ‡å‘åè½¬åçš„é“¾è¡¨
+            pre = cur; // æ›´æ–°åè½¬åçš„é“¾è¡¨
+            cur = next; // æ›´æ–°å½“å‰èŠ‚ç‚¹
+        }
+        head.next = pre; // å°†åŸé“¾è¡¨çš„å¤´ç»“ç‚¹æŒ‡å‘åè½¬åçš„é“¾è¡¨
+    }
 
-	/**
-	 * @description ´ÓÎ²µ½Í·Êä³öµ¥Á´±í(µİ¹é·¨)
-	 * @author rico
-	 * @param head
-	 */
-	public void reversePrint(Node<E> head) {
-		if (head.next != null) {
-			reversePrint(head.next); // ²»¶Ï"µİÈ¥"
-			System.out.print(head.next.data + " "); // "¹éÀ´"¿ªÊ¼´òÓ¡
-		}
-	}
+    /**
+     * @return
+     * @description åˆ¤æ–­å•é“¾è¡¨æ˜¯å¦ä¸ºç©º
+     * @author rico
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
 
-	/**
-	 * @description Ñ°ÕÒµ¥Á´±íÖĞµÄÖĞ¼ä½Úµã(Ë«Ö¸Õë·¨)
-	 * @author rico
-	 */
-	public void printMiddleNodes() {
-		Node<E> index1 = head.next; // ÂıÖ¸Õë
-		Node<E> index2 = head.next; // ¿ìÖ¸Õë
-		if (head.next == null) {
-			System.out.println(index1.data);
-		}
-		while (index2 != null && index2.next != null
-				&& index2.next.next != null) {
-			index1 = index1.next;
-			index2 = index2.next.next;
-		}
-		System.out.print(index1.data); // µÚÒ»¸öÖĞ¼ä½Úµã
-		if (index2.next != null) { // µ±Á´±í³¤¶ÈÎªÅ¼ÊıÊ±£¬´òÓ¡µÚ¶ş¸öÖĞ¼ä½Úµã
-			System.out.println(index1.next.data);
-		}
-	}
+    /**
+     * @description æ‰“å°è¾“å‡ºå•é“¾è¡¨
+     * @author rico
+     */
+    public void print() {
+        Node<E> cur = head.next;
+        while (cur != null) {
+            System.out.print(cur.data + " ");
+            cur = cur.next;
+        }
+        System.out.println();
+    }
 
-	/**
-	 * @description ÅĞ¶Ïµ¥Á´±íÊÇ·ñÓĞ»·(Ë«Ö¸Õë·¨)
-	 * @author rico
-	 * @return
-	 */
-	public boolean hasLoop() {
-		Node<E> index1 = head.next; // ÂıÖ¸Õë
-		Node<E> index2 = head.next; // ¿ìÖ¸Õë
-		while (index2 != null && index2.next != null
-				&& index2.next.next != null) {
-			index1 = index1.next;
-			index2 = index2.next.next;
-			if (index1 == index2) {
-				return true;
-			}
-		}
-		return false;
-	}
+    /**
+     * @param head
+     * @description ä»å°¾åˆ°å¤´è¾“å‡ºå•é“¾è¡¨(é€’å½’æ³•)
+     * @author rico
+     */
+    public void reversePrint(Node<E> head) {
+        if (head.next != null) {
+            reversePrint(head.next); // ä¸æ–­"é€’å»"
+            System.out.print(head.next.data + " "); // "å½’æ¥"å¼€å§‹æ‰“å°
+        }
+    }
 
-	/**
-	 * @description ÔÚ²»ÖªµÀÍ·½áµãµÄÇ°ÌáÏÂ£¬É¾³ıÖ¸¶¨½Úµã
-	 * @author rico
-	 * @param node
-	 * @return
-	 */
-	public boolean deleteNodeWithoutHead(Node<E> node) {
-		if (node == null || node.next == null) { // µ±Ö¸¶¨½ÚµãÎª¿Õ»òÕßÎªÎ²½ÚµãÊ±£¬ÎŞ·¨É¾³ı
-			return false;
-		}
+    /**
+     * @description å¯»æ‰¾å•é“¾è¡¨ä¸­çš„ä¸­é—´èŠ‚ç‚¹(åŒæŒ‡é’ˆæ³•)
+     * @author rico
+     */
+    public void printMiddleNodes() {
+        Node<E> index1 = head.next; // æ…¢æŒ‡é’ˆ
+        Node<E> index2 = head.next; // å¿«æŒ‡é’ˆ
+        if (head.next == null) {
+            System.out.println(index1.data);
+        }
+        while (index2 != null && index2.next != null
+                && index2.next.next != null) {
+            index1 = index1.next;
+            index2 = index2.next.next;
+        }
+        System.out.print(index1.data); // ç¬¬ä¸€ä¸ªä¸­é—´èŠ‚ç‚¹
+        if (index2.next != null) { // å½“é“¾è¡¨é•¿åº¦ä¸ºå¶æ•°æ—¶ï¼Œæ‰“å°ç¬¬äºŒä¸ªä¸­é—´èŠ‚ç‚¹
+            System.out.println(index1.next.data);
+        }
+    }
 
-		Node<E> next = node.next;
+    /**
+     * @return
+     * @description åˆ¤æ–­å•é“¾è¡¨æ˜¯å¦æœ‰ç¯(åŒæŒ‡é’ˆæ³•)
+     * @author rico
+     */
+    public boolean hasLoop() {
+        Node<E> index1 = head.next; // æ…¢æŒ‡é’ˆ
+        Node<E> index2 = head.next; // å¿«æŒ‡é’ˆ
+        while (index2 != null && index2.next != null
+                && index2.next.next != null) {
+            index1 = index1.next;
+            index2 = index2.next.next;
+            if (index1 == index2) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-		// ½«ºó¼Ì½ÚµãµÄÄÚÈİ¸´ÖÆµ½µ±Ç°½Úµã
-		node.data = next.data;
-		node.next = next.next;
+    /**
+     * @param node
+     * @return
+     * @description åœ¨ä¸çŸ¥é“å¤´ç»“ç‚¹çš„å‰æä¸‹ï¼Œåˆ é™¤æŒ‡å®šèŠ‚ç‚¹
+     * @author rico
+     */
+    public boolean deleteNodeWithoutHead(Node<E> node) {
+        if (node == null || node.next == null) { // å½“æŒ‡å®šèŠ‚ç‚¹ä¸ºç©ºæˆ–è€…ä¸ºå°¾èŠ‚ç‚¹æ—¶ï¼Œæ— æ³•åˆ é™¤
+            return false;
+        }
 
-		// ½«ºó¼Ì½ÚµãÇå¿Õ
-		next.next = null;
-		next.data = null;
-		return true;
-	}
+        Node<E> next = node.next;
 
-	/**     
-	 * @description ÅĞ¶Ïµ±Ç°Á´±íÓëÄ¿±êÁ´±íÊÇ·ñÏà½»(Ïà½»Óë·ñÈ¡¾öÓÚÎ²½ÚµãÊÇ·ñÏàÍ¬)
-	 * @author rico       
-	 * @param head
-	 * @return     
-	 */
-	public boolean isIntersect(LinkedList<E> list2) {
-		Node<E> cur1 = head.next;   // µ±Ç°Á´±í
-		Node<E> cur2 = list2.getHead().next;  // Ä¿±êÁ´±í
-		
-		// Á½Á´±íÓĞÒ»¸öÎª¿Õ£¬Ôò·µ»Ø false
-		if(cur1 == null || cur2 == null){
-			return false;
-		}
-		
-		// ±éÀúµ½µÚÒ»¸öÁ´±íµÄÎ²½Úµã
-		while(cur1.next != null){
-			cur1 = cur1.next;
-		}
-		
-		// ±éÀúµ½µÚ¶ş¸öÁ´±íµÄÎ²½Úµã
-		while(cur2.next != null){
-			cur2 = cur2.next;
-		}
-			
-		return cur1 == cur2;  // Ïà½»Óë·ñÈ¡¾öÓÚÎ²½ÚµãÊÇ·ñÏàÍ¬
-	}
+        // å°†åç»§èŠ‚ç‚¹çš„å†…å®¹å¤åˆ¶åˆ°å½“å‰èŠ‚ç‚¹
+        node.data = next.data;
+        node.next = next.next;
 
-	/**
-	 * @description ·µ»ØÁ½Á´±íµÄ½»µã(Èô²»Ïà½»£¬·µ»Ønull)
-	 * @author rico
-	 * @param head
-	 * @return
-	 */
-	public Node<E> getIntersectionPoint(LinkedList<E> list2) {
-		Node<E> cur1 = head.next;   // µ±Ç°Á´±í
-		Node<E> cur2 = list2.getHead().next;  // Ä¿±êÁ´±í
-		
-		if(this.isIntersect(list2)){  // ÏÈÅĞ¶ÏÊÇ·ñÏà½»
-			// ÈÃ³¤¶È½Ï³¤µÄÁ´±íÏÈÒÆ¶¯step²½
-			int step = Math.abs(list2.size - this.size);
-			if(list2.size > this.size){
-				while(step > 0){
-					cur2 = cur2.next;
-					step --;
-				}
-			}else if(list2.size < this.size){
-				while(step > 0){
-					cur1 = cur1.next;
-					step --;
-				}
-			}
-			
-			//Á½¸öÖ¸ÕëÍ¬Ê±ÒÆ¶¯£¬Ò»µ©Ö¸ÏòÍ¬Ò»¸ö½Úµã£¬¼´Îª½»µã
-			while(cur1 != cur2){
-				cur1 = cur1.next;
-				cur2 = cur2.next;
-			}
-			return cur1;
-		}
-		return null;
-	}
-	
-	/**     
-	 * @description ·µ»ØÁ´±íµÄ³¤¶È
-	 * @author rico       
-	 * @return     
-	 */
-	public int size(){
-		return size;
-	}
+        // å°†åç»§èŠ‚ç‚¹æ¸…ç©º
+        next.next = null;
+        next.data = null;
+        return true;
+    }
+
+    /**
+     * @param head
+     * @return
+     * @description åˆ¤æ–­å½“å‰é“¾è¡¨ä¸ç›®æ ‡é“¾è¡¨æ˜¯å¦ç›¸äº¤(ç›¸äº¤ä¸å¦å–å†³äºå°¾èŠ‚ç‚¹æ˜¯å¦ç›¸åŒ)
+     * @author rico
+     */
+    public boolean isIntersect(LinkedList<E> list2) {
+        Node<E> cur1 = head.next;   // å½“å‰é“¾è¡¨
+        Node<E> cur2 = list2.getHead().next;  // ç›®æ ‡é“¾è¡¨
+
+        // ä¸¤é“¾è¡¨æœ‰ä¸€ä¸ªä¸ºç©ºï¼Œåˆ™è¿”å› false
+        if (cur1 == null || cur2 == null) {
+            return false;
+        }
+
+        // éå†åˆ°ç¬¬ä¸€ä¸ªé“¾è¡¨çš„å°¾èŠ‚ç‚¹
+        while (cur1.next != null) {
+            cur1 = cur1.next;
+        }
+
+        // éå†åˆ°ç¬¬äºŒä¸ªé“¾è¡¨çš„å°¾èŠ‚ç‚¹
+        while (cur2.next != null) {
+            cur2 = cur2.next;
+        }
+
+        return cur1 == cur2;  // ç›¸äº¤ä¸å¦å–å†³äºå°¾èŠ‚ç‚¹æ˜¯å¦ç›¸åŒ
+    }
+
+    /**
+     * @param head
+     * @return
+     * @description è¿”å›ä¸¤é“¾è¡¨çš„äº¤ç‚¹(è‹¥ä¸ç›¸äº¤ ï¼Œ è¿”å›null)
+     * @author rico
+     */
+    public Node<E> getIntersectionPoint(LinkedList<E> list2) {
+        Node<E> cur1 = head.next;   // å½“å‰é“¾è¡¨
+        Node<E> cur2 = list2.getHead().next;  // ç›®æ ‡é“¾è¡¨
+
+        if (this.isIntersect(list2)) {  // å…ˆåˆ¤æ–­æ˜¯å¦ç›¸äº¤
+            // è®©é•¿åº¦è¾ƒé•¿çš„é“¾è¡¨å…ˆç§»åŠ¨stepæ­¥
+            int step = Math.abs(list2.size - this.size);
+            if (list2.size > this.size) {
+                while (step > 0) {
+                    cur2 = cur2.next;
+                    step--;
+                }
+            } else if (list2.size < this.size) {
+                while (step > 0) {
+                    cur1 = cur1.next;
+                    step--;
+                }
+            }
+
+            //ä¸¤ä¸ªæŒ‡é’ˆåŒæ—¶ç§»åŠ¨ï¼Œä¸€æ—¦æŒ‡å‘åŒä¸€ä¸ªèŠ‚ç‚¹ï¼Œå³ä¸ºäº¤ç‚¹
+            while (cur1 != cur2) {
+                cur1 = cur1.next;
+                cur2 = cur2.next;
+            }
+            return cur1;
+        }
+        return null;
+    }
+
+    /**
+     * @return
+     * @description è¿”å›é“¾è¡¨çš„é•¿åº¦
+     * @author rico
+     */
+    public int size() {
+        return size;
+    }
 }

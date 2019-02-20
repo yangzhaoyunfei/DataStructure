@@ -1,34 +1,32 @@
 package cn.edu.tju.rico.list;
 
 /**
- * Title: ½áµãÀà 
- * Description: Á´±íµÄ»ù±¾ÔªËØ
- * 
+ * Title: ç»“ç‚¹ç±»
+ * Description: é“¾è¡¨çš„åŸºæœ¬å…ƒç´ 
+ *
  * @author rico
- * @created 2017Äê4ÔÂ6ÈÕ ÏÂÎç9:55:58
+ * @created 2017å¹´4æœˆ6æ—¥ ä¸‹åˆ9:55:58
  */
- public class Node<T> {
-	//°ü¿É¼ûĞÔ
-	Node<T> next;   
-	T data;
+public class Node<T> {
+    //åŒ…å¯è§æ€§
+    Node<T> next;
+    T data;
 
-	/**
-	 * ¹¹Ôìº¯Êı
-	 * 
-	 * @description ¹¹ÔìÒ»¸öĞÂ½Úµã
-	 * @author rico
-	 * @created 2017Äê4ÔÂ6ÈÕ ÏÂÎç9:56:56
-	 * @param data
-	 *            ĞÂÔªËØÊı¾İ
-	 * @param next
-	 *            ĞÂÔªËØÓëÁ´±í½áºÏ½Úµã
-	 */
-	public Node(T data) { 
-		this.data = data;
-	}
+    /**
+     * æ„é€ å‡½æ•°
+     *
+     * @param data æ–°å…ƒç´ æ•°æ®
+     * @param next æ–°å…ƒç´ ä¸é“¾è¡¨ç»“åˆèŠ‚ç‚¹
+     * @description æ„é€ ä¸€ä¸ªæ–°èŠ‚ç‚¹
+     * @author rico
+     * @created 2017å¹´4æœˆ6æ—¥ ä¸‹åˆ9:56:56
+     */
+    public Node(T data) {
+        this.data = data;
+    }
 
-	@Override
-	public String toString() {
-		return data.toString();
-	}
+    @Override
+    public String toString() {
+        return data.toString();
+    }
 }

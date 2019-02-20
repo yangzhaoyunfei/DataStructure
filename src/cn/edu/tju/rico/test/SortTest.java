@@ -1,93 +1,85 @@
 package cn.edu.tju.rico.test;
 
-import java.util.Arrays;
+import cn.edu.tju.rico.sort.*;
 
-import cn.edu.tju.rico.sort.BinaryInsertSort;
-import cn.edu.tju.rico.sort.BubbleSort;
-import cn.edu.tju.rico.sort.HeapSort;
-import cn.edu.tju.rico.sort.MergeSort;
-import cn.edu.tju.rico.sort.QuickSort;
-import cn.edu.tju.rico.sort.RadixSort;
-import cn.edu.tju.rico.sort.ShellSort;
-import cn.edu.tju.rico.sort.StraightInsertionSort;
-import cn.edu.tju.rico.sort.StraightSelectSort;
+import java.util.Arrays;
 
 public class SortTest {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		int[] target1 = { 38, 65, 97, 76, 13, 27, 49 };
-		System.out.println("Ö±½ÓÑ¡ÔñÅÅĞò £º ");
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target1));
-		StraightSelectSort.selectSort(target1);
-		System.out.println(Arrays.toString(target1));
+        int[] target1 = {38, 65, 97, 76, 13, 27, 49};
+        System.out.println("ç›´æ¥é€‰æ‹©æ’åº ï¼š ");
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target1));
+        StraightSelectSort.selectSort(target1);
+        System.out.println(Arrays.toString(target1));
 
-		System.out.println("\n----------------------\n");
-		System.out.println("Ö±½Ó²åÈëÅÅĞò £º ");
-		int[] target2 = { 38, 65, 97, 76, 13, 27, 49 };
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target2));
-		StraightInsertionSort.insertSort(target2);
-		System.out.println(Arrays.toString(target2));
+        System.out.println("\n----------------------\n");
+        System.out.println("ç›´æ¥æ’å…¥æ’åº ï¼š ");
+        int[] target2 = {38, 65, 97, 76, 13, 27, 49};
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target2));
+        StraightInsertionSort.insertSort(target2);
+        System.out.println(Arrays.toString(target2));
 
-		System.out.println("\n----------------------\n");
-		System.out.println("Ã°ÅİÅÅĞò £º ");
-		int[] target3 = { 1, 2, 3, 4, 5, 8, 7, 6 };
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target3));
-		BubbleSort.bubbleSort(target3);
+        System.out.println("\n----------------------\n");
+        System.out.println("å†’æ³¡æ’åº ï¼š ");
+        int[] target3 = {1, 2, 3, 4, 5, 8, 7, 6};
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target3));
+        BubbleSort.bubbleSort(target3);
 
-		System.out.println("\n----------------------\n");
-		System.out.println("ÓÅ»¯Ã°ÅİÅÅĞò £º ");
-		int[] target4 = { 1, 2, 3, 4, 5, 8, 7, 6 };
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target4));
-		BubbleSort.optimizeBubbleSort(target4);
+        System.out.println("\n----------------------\n");
+        System.out.println("ä¼˜åŒ–å†’æ³¡æ’åº ï¼š ");
+        int[] target4 = {1, 2, 3, 4, 5, 8, 7, 6};
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target4));
+        BubbleSort.optimizeBubbleSort(target4);
 
-		System.out.println("\n----------------------\n");
-		System.out.println("¹é²¢ÅÅĞò £º ");
-		int[] target5 = { 21, 25, 49, 25, 16, 8, 31, 41 };
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target5));
-		MergeSort.mergeSort(target5, 0, target5.length - 1);
-		System.out.println(Arrays.toString(target5));
+        System.out.println("\n----------------------\n");
+        System.out.println("å½’å¹¶æ’åº ï¼š ");
+        int[] target5 = {21, 25, 49, 25, 16, 8, 31, 41};
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target5));
+        MergeSort.mergeSort(target5, 0, target5.length - 1);
+        System.out.println(Arrays.toString(target5));
 
-		System.out.println("\n----------------------\n");
-		System.out.println("¿ìËÙÅÅĞò £º ");
-		int[] target6 = { 21, 25, 49, 25, 16, 8, 31, 41 };
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target6));
-		QuickSort.quickSort(target6, 0, target6.length - 1);
-		System.out.println(Arrays.toString(target6));
-		
-		System.out.println("\n----------------------\n");
-		System.out.println("Ï£¶ûÅÅĞò £º ");
-		int[] target7 = { 21, 25, 49, 25, 16, 8, 31, 41,1,16 };
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target7));
-		ShellSort.shellSort(target7);
-		System.out.println(Arrays.toString(target7));
-		
-		System.out.println("\n----------------------\n");
-		System.out.println("»ùÊıÅÅĞò £º ");
-		int[] target8 = { 332, 633, 598, 232, 664, 179, 457, 825, 405, 361};
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target8));
-		RadixSort.radixSort(target8,10,3,target8.length);
-		System.out.println(Arrays.toString(target8));
-		
-		System.out.println("\n----------------------\n");
-		System.out.println("»ùÊıÅÅĞò £º ");
-		int[] target9 = { 21, 25, 49, 25, 16, 18, 31, 41 };
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target9));
-		RadixSort.radixSort(target9,10,2,target9.length);
-		System.out.println(Arrays.toString(target9));
-		
-		System.out.println("\n----------------------\n");
-		System.out.println("¶ÑÅÅĞò £º ");
-		int[] target10 = { 21, 25, 49, 25, 16, 18, 31, 41 };
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target10));
-		HeapSort.heapSort(target10);
-		System.out.println(Arrays.toString(target10));
-		
-		System.out.println("\n----------------------\n");
-		System.out.println("ÕÛ°ë²åÈëÅÅĞò £º ");
-		int[] target11 = { 21, 25, 49, 25, 16, 18, 31, 41, 21, 9 };
-		System.out.println("Ô­Êı×é £º " + Arrays.toString(target11));
-		BinaryInsertSort.binaryInsertSort(target11);
-		System.out.println(Arrays.toString(target11));
-	}
+        System.out.println("\n----------------------\n");
+        System.out.println("å¿«é€Ÿæ’åº ï¼š ");
+        int[] target6 = {21, 25, 49, 25, 16, 8, 31, 41};
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target6));
+        QuickSort.quickSort(target6, 0, target6.length - 1);
+        System.out.println(Arrays.toString(target6));
+
+        System.out.println("\n----------------------\n");
+        System.out.println("å¸Œå°”æ’åº ï¼š ");
+        int[] target7 = {21, 25, 49, 25, 16, 8, 31, 41, 1, 16};
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target7));
+        ShellSort.shellSort(target7);
+        System.out.println(Arrays.toString(target7));
+
+        System.out.println("\n----------------------\n");
+        System.out.println("åŸºæ•°æ’åº ï¼š ");
+        int[] target8 = {332, 633, 598, 232, 664, 179, 457, 825, 405, 361};
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target8));
+        RadixSort.radixSort(target8, 10, 3, target8.length);
+        System.out.println(Arrays.toString(target8));
+
+        System.out.println("\n----------------------\n");
+        System.out.println("åŸºæ•°æ’åº ï¼š ");
+        int[] target9 = {21, 25, 49, 25, 16, 18, 31, 41};
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target9));
+        RadixSort.radixSort(target9, 10, 2, target9.length);
+        System.out.println(Arrays.toString(target9));
+
+        System.out.println("\n----------------------\n");
+        System.out.println("å †æ’åº ï¼š ");
+        int[] target10 = {21, 25, 49, 25, 16, 18, 31, 41};
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target10));
+        HeapSort.heapSort(target10);
+        System.out.println(Arrays.toString(target10));
+
+        System.out.println("\n----------------------\n");
+        System.out.println("æŠ˜åŠæ’å…¥æ’åº ï¼š ");
+        int[] target11 = {21, 25, 49, 25, 16, 18, 31, 41, 21, 9};
+        System.out.println("åŸæ•°ç»„ ï¼š " + Arrays.toString(target11));
+        BinaryInsertSort.binaryInsertSort(target11);
+        System.out.println(Arrays.toString(target11));
+    }
 }

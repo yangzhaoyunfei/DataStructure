@@ -2,69 +2,70 @@ package cn.edu.tju.rico.queue;
 
 import cn.edu.tju.rico.stack.LinkedStack;
 
-  
-/**        
- * Title: Ê¹ÓÃÁ½¸öÕ»Ä£ÄâÒ»¸ö¶ÓÁĞ    
- * Description: ÆäÖĞÒ»¸öÕ»×÷´æ´¢¿Õ¼ä£¬ÁíÒ»¸öÕ»×÷ÁÙÊ±»º³åÇø
- * @author rico       
- * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç10:45:11    
- */      
+
+/**
+ * Title: ä½¿ç”¨ä¸¤ä¸ªæ ˆæ¨¡æ‹Ÿä¸€ä¸ªé˜Ÿåˆ—
+ * Description: å…¶ä¸­ä¸€ä¸ªæ ˆä½œå­˜å‚¨ç©ºé—´ï¼Œå¦ä¸€ä¸ªæ ˆä½œä¸´æ—¶ç¼“å†²åŒº
+ *
+ * @author rico
+ * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ10:45:11
+ */
 public class StackQueue<E> {
 
-	private LinkedStack<E> stack1;    // ´æ´¢¿Õ¼ä
-	private LinkedStack<E> stack2;  //ÁÙÊ±»º³åÇø
+    private LinkedStack<E> stack1;    // å­˜å‚¨ç©ºé—´
+    private LinkedStack<E> stack2;  //ä¸´æ—¶ç¼“å†²åŒº
 
-	public StackQueue() {
-		stack1 = new LinkedStack<E>();
-		stack2 = new LinkedStack<E>();
-	}
+    public StackQueue() {
+        stack1 = new LinkedStack<E>();
+        stack2 = new LinkedStack<E>();
+    }
 
-	  
-	/**     
-	 * @description Ìí¼ÓÔªËØµ½¶ÓÎ²¡£ÏÈ¼ì²éstack2ÊÇ·ñÎª¿Õ£º
-	 * 				ÈôÎª¿Õ£¬ÔòÖ±½Ó¶Ôstack1Ö´ĞĞÑ¹Õ»²Ù×÷
-	 * 				·ñÔò£¬ÏÈ½«stack2ÖĞµÄÔªËØµ¹»Østack1£¬ÔÙ¶Ôstack1Ö´ĞĞÑ¹Õ»²Ù×÷
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç10:47:59     
-	 * @param e     
-	 */
-	public void put(E e) {
-		if (!stack2.isEmpty()) {
-			while (stack2.size() > 0) {
-				stack1.push(stack2.pop().getData());
-			}
-		}
-		stack1.push(e);
-	}
 
-	  
-	/**     
-	 * @description É¾³ı¶ÓÍ·²¢·µ»Ø¶ÓÍ·ÔªËØµÄÖµ¡£ÏÈ¼ì²éstack2ÊÇ·ñÎª¿Õ£º
-	 * 				ÈôÎª¿Õ£¬ÏÈ½«stack1ÖĞµÄsize-1¸öÔªËØµ¹»Østack2£¬ÔÙ¶Ôstack1ÖĞÕ»µ×ÔªËØÖ´ĞĞµ¯Õ»²Ù×÷
-	 * 				·ñÔò£¬ÔòÖ±½Ó¶Ôstack2Ö´ĞĞµ¯Õ»²Ù×÷
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ19ÈÕ ÏÂÎç10:48:32     
-	 * @return     
-	 */
-	public E pop() {
-		if (stack2.isEmpty()) {
-			if (!stack1.isEmpty()) {
-				while (stack1.size() > 1) {
-					stack2.push(stack1.pop().getData());
-				}
-				return stack1.pop().getData();
-			}
-			return null;
-		} else {
-			return stack2.pop().getData();
-		}
-	}
+    /**
+     * @param e
+     * @description æ·»åŠ å…ƒç´ åˆ°é˜Ÿå°¾ã€‚å…ˆæ£€æŸ¥stack2æ˜¯å¦ä¸ºç©ºï¼š
+     * è‹¥ä¸ºç©ºï¼Œåˆ™ç›´æ¥å¯¹stack1æ‰§è¡Œå‹æ ˆæ“ä½œ
+     * å¦åˆ™ï¼Œå…ˆå°†stack2ä¸­çš„å…ƒç´ å€’å›stack1ï¼Œå†å¯¹stack1æ‰§è¡Œå‹æ ˆæ“ä½œ
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ10:47:59
+     */
+    public void put(E e) {
+        if (!stack2.isEmpty()) {
+            while (stack2.size() > 0) {
+                stack1.push(stack2.pop().getData());
+            }
+        }
+        stack1.push(e);
+    }
 
-	@Override
-	public String toString() {
-		if (!stack1.isEmpty()) {
-			return new StringBuilder(stack1.toString()).reverse().toString();
-		}
-		return stack2.toString();
-	}
+
+    /**
+     * @return
+     * @description åˆ é™¤é˜Ÿå¤´å¹¶è¿”å›é˜Ÿå¤´å…ƒç´ çš„å€¼ã€‚å…ˆæ£€æŸ¥stack2æ˜¯å¦ä¸ºç©ºï¼š
+     * è‹¥ä¸ºç©ºï¼Œå…ˆå°†stack1ä¸­çš„size-1ä¸ªå…ƒç´ å€’å›stack2ï¼Œå†å¯¹stack1ä¸­æ ˆåº•å…ƒç´ æ‰§è¡Œå¼¹æ ˆæ“ä½œ
+     * å¦åˆ™ï¼Œåˆ™ç›´æ¥å¯¹stack2æ‰§è¡Œå¼¹æ ˆæ“ä½œ
+     * @author rico
+     * @created 2017å¹´5æœˆ19æ—¥ ä¸‹åˆ10:48:32
+     */
+    public E pop() {
+        if (stack2.isEmpty()) {
+            if (!stack1.isEmpty()) {
+                while (stack1.size() > 1) {
+                    stack2.push(stack1.pop().getData());
+                }
+                return stack1.pop().getData();
+            }
+            return null;
+        } else {
+            return stack2.pop().getData();
+        }
+    }
+
+    @Override
+    public String toString() {
+        if (!stack1.isEmpty()) {
+            return new StringBuilder(stack1.toString()).reverse().toString();
+        }
+        return stack2.toString();
+    }
 }

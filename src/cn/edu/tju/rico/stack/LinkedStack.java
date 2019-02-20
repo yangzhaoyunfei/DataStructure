@@ -3,165 +3,167 @@ package cn.edu.tju.rico.stack;
 import java.util.Comparator;
 
 /**
- * Title: ÔöÇ¿×Ô¶¨ÒåÁ´Ê½Õ» [Í¨¹ıÎ¬»¤Ò»¸öÕ»À´±£Ö¤ÓÃO(1)µÄÊ±¼ä¸´ÔÓ¶ÈÇóÕ»ÖĞµÄ×îĞ¡ÔªËØ (¿Õ¼ä»»È¡Ê±¼ä)]
- * Description: Ê¹ÓÃ¶îÍâµÄÕ»½á¹¹´æ´¢Õ»ÖĞµÄ×îĞ¡ÔªËØ
- * 				Èç¹ûµ±Ç°ÈëÕ»µÄÔªËØ±ÈÔ­À´Õ»ÖĞµÄ×îĞ¡Öµ»¹Ğ¡£¬Ôò½«Æä±£´æµ½×îĞ¡ÖµÕ»ÖĞ£»·ñÔò£¬²»×öÈÎºÎ²Ù×÷¡£
- *              Èç¹ûµ±Ç°³öÕ»µÄÔªËØÕıºÃÊÇµ±Ç°Õ»ÖĞµÄ×îĞ¡Öµ£¬ÄÇÃ´½«×îĞ¡ÖµÕ»ÖĞµÄ¸Ã×îĞ¡ÖµÒ²Ò»²¢µ¯³ö£»·ñÔò£¬²»×öÈÎºÎ²Ù×÷¡£
+ * Title: å¢å¼ºè‡ªå®šä¹‰é“¾å¼æ ˆ [é€šè¿‡ç»´æŠ¤ä¸€ä¸ªæ ˆæ¥ä¿è¯ç”¨O(1)çš„æ—¶é—´å¤æ‚åº¦æ±‚æ ˆä¸­çš„æœ€å°å…ƒç´  (ç©ºé—´æ¢å–æ—¶é—´)]
+ * Description: ä½¿ç”¨é¢å¤–çš„æ ˆç»“æ„å­˜å‚¨æ ˆä¸­çš„æœ€å°å…ƒç´ 
+ * å¦‚æœå½“å‰å…¥æ ˆçš„å…ƒç´ æ¯”åŸæ¥æ ˆä¸­çš„æœ€å°å€¼è¿˜å°ï¼Œåˆ™å°†å…¶ä¿å­˜åˆ°æœ€å°å€¼æ ˆä¸­ï¼›å¦åˆ™ï¼Œä¸åšä»»ä½•æ“ä½œã€‚
+ * å¦‚æœå½“å‰å‡ºæ ˆçš„å…ƒç´ æ­£å¥½æ˜¯å½“å‰æ ˆä¸­çš„æœ€å°å€¼ï¼Œé‚£ä¹ˆå°†æœ€å°å€¼æ ˆä¸­çš„è¯¥æœ€å°å€¼ä¹Ÿä¸€å¹¶å¼¹å‡ºï¼›å¦åˆ™ï¼Œä¸åšä»»ä½•æ“ä½œã€‚
+ *
  * @author rico
- * @created 2017Äê4ÔÂ6ÈÕ ÏÂÎç7:52:34
+ * @created 2017å¹´4æœˆ6æ—¥ ä¸‹åˆ7:52:34
  */
 public class LinkedStack<E> {
-	
-	private Node<E> top; // Õ»¶¥ÔªËØ
-	private int size; // Á´Ê½Õ»µÄ´óĞ¡
-	
-	/**  ×îĞ¡ÖµÕ»   (@author: rico) */    
-	private LinkedStack<E> min;
-	
-	// ¹¹Ôìº¯Êı
-	public LinkedStack(){
-	}
-	  
-	/**     
-	 * @description ÅĞ¶ÏÕ»ÊÇ·ñÎª¿Õ
-	 * @author rico       
-	 * @created 2017Äê5ÔÂ14ÈÕ ÉÏÎç10:54:44     
-	 * @return     
-	 */
-	public boolean isEmpty() {
-		return size == 0;
-	}
 
-	/**     
-	 * @description Ñ¹Õ»
-	 * @author rico       
-	 * @param data     
-	 */
-	public void push(E data) {
-		Node<E> node = new Node<E>(data); 
-		// ĞÂ¼ÓÈëµÄÔªËØÖ¸ÏòÕ»¶¥ÔªËØ
-		node.next = top;
-		top = node;
-		size++;
-	}
-	
-	/**     
-	 * @description Ñ¹Õ»²Ù×÷,Ê¹ÓÃ×îĞ¡ÖµÕ»
-	 * @author rico       
-	 * @param data     
-	 */
-	public void push(E data, Comparator<? super E> c) {
-		push(data);
-		if(min == null){
-			min = new LinkedStack<E>();
-		}
-		if(min.peek() == null){
-			min.push(data);
-		}else if(c.compare(this.peek().data, min.peek().data) < 0){
-			min.push(data);
-		}
-	}
+    private Node<E> top; // æ ˆé¡¶å…ƒç´ 
+    private int size; // é“¾å¼æ ˆçš„å¤§å°
 
-	/**     
-	 * @description µ¯³ö²¢É¾³ıÕ»¶¥ÔªËØ
-	 * @author rico       
-	 * @return
-	 * @throws Exception     
-	 */
-	public Node<E> pop(){
-		if (isEmpty()) {
-			return null;
-		}
+    /**
+     * æœ€å°å€¼æ ˆ   (@author: rico)
+     */
+    private LinkedStack<E> min;
 
-		Node<E> node = top;
-		top = top.next;
-		node.next = null;
-		size--;
-		return node;
-	}
-	
-	/**     
-	 * @description µ¯³ö²¢É¾³ıÕ»¶¥ÔªËØ,Ê¹ÓÃ×îĞ¡ÖµÕ»
-	 * @author rico       
-	 * @return
-	 * @throws Exception     
-	 */
-	public Node<E> pop(Comparator<? super E> c){
-		Node<E> temp = this.pop();
-		if(temp != null && min.peek() != null){
-			if(c.compare(temp.data, min.peek().data) == 0){
-				min.pop();
-			}
-		}
-		return temp;
-	}
-	
-	/**     
-	 * @description µ¯³öÕ»¶¥ÔªËØ(²»Ö´ĞĞÉ¾³ı²Ù×÷)
-	 * @author rico       
-	 * @return     
-	 */
-	public Node<E> peek(){
-		if (isEmpty()) {
-			return null;
-		}
-		return top;
-	}
+    // æ„é€ å‡½æ•°
+    public LinkedStack() {
+    }
 
-	/**     
-	 * @description »ñÈ¡µ±Ç°Õ»ÖĞµÄ×îĞ¡Öµ 
-	 * @author rico       
-	 * @return     
-	 */
-	public Node<E> min() {
-		if(min.peek() == null){
-			return null;
-		}else{
-			return min.peek();
-		}
-	}
-	
-	/**     
-	 * @description ´òÓ¡Õ»
-	 * @author rico       
-	 */
-	public void print() {
-		Node<E> index = top;
-		while (index != null) {
-			System.out.print(index.data + " ");
-			index = index.next;
-		}
-		System.out.println();
-	}
-	  
-	
-	
-	/**     
-	 * @description ·µ»ØÕ»µÄ´óĞ¡
-	 * @author rico       
-	 * @return     
-	 */
-	public int size(){
-		return size;
-	}
+    /**
+     * @return
+     * @description åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º
+     * @author rico
+     * @created 2017å¹´5æœˆ14æ—¥ ä¸Šåˆ10:54:44
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
 
-	public LinkedStack<E> getMin() {
-		return min;
-	}
+    /**
+     * @param data
+     * @description å‹æ ˆ
+     * @author rico
+     */
+    public void push(E data) {
+        Node<E> node = new Node<E>(data);
+        // æ–°åŠ å…¥çš„å…ƒç´ æŒ‡å‘æ ˆé¡¶å…ƒç´ 
+        node.next = top;
+        top = node;
+        size++;
+    }
 
-	public void setMin(LinkedStack<E> min) {
-		this.min = min;
-	}
+    /**
+     * @param data
+     * @description å‹æ ˆæ“ä½œ, ä½¿ç”¨æœ€å°å€¼æ ˆ
+     * @author rico
+     */
+    public void push(E data, Comparator<? super E> c) {
+        push(data);
+        if (min == null) {
+            min = new LinkedStack<E>();
+        }
+        if (min.peek() == null) {
+            min.push(data);
+        } else if (c.compare(this.peek().data, min.peek().data) < 0) {
+            min.push(data);
+        }
+    }
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		Node<E> index = top;
-		StringBuilder sb = new StringBuilder();
-		while (index != null) {
-			sb.append(index.data).append(" ");
-			index = index.next;
-		}
-		return sb.toString();
-	}
+    /**
+     * @return
+     * @throws Exception
+     * @description å¼¹å‡ºå¹¶åˆ é™¤æ ˆé¡¶å…ƒç´ 
+     * @author rico
+     */
+    public Node<E> pop() {
+        if (isEmpty()) {
+            return null;
+        }
+
+        Node<E> node = top;
+        top = top.next;
+        node.next = null;
+        size--;
+        return node;
+    }
+
+    /**
+     * @return
+     * @throws Exception
+     * @description å¼¹å‡ºå¹¶åˆ é™¤æ ˆé¡¶å…ƒç´ , ä½¿ç”¨æœ€å°å€¼æ ˆ
+     * @author rico
+     */
+    public Node<E> pop(Comparator<? super E> c) {
+        Node<E> temp = this.pop();
+        if (temp != null && min.peek() != null) {
+            if (c.compare(temp.data, min.peek().data) == 0) {
+                min.pop();
+            }
+        }
+        return temp;
+    }
+
+    /**
+     * @return
+     * @description å¼¹å‡ºæ ˆé¡¶å…ƒç´ (ä¸æ‰§è¡Œåˆ é™¤æ“ä½œ)
+     * @author rico
+     */
+    public Node<E> peek() {
+        if (isEmpty()) {
+            return null;
+        }
+        return top;
+    }
+
+    /**
+     * @return
+     * @description è·å–å½“å‰æ ˆä¸­çš„æœ€å°å€¼
+     * @author rico
+     */
+    public Node<E> min() {
+        if (min.peek() == null) {
+            return null;
+        } else {
+            return min.peek();
+        }
+    }
+
+    /**
+     * @description æ‰“å°æ ˆ
+     * @author rico
+     */
+    public void print() {
+        Node<E> index = top;
+        while (index != null) {
+            System.out.print(index.data + " ");
+            index = index.next;
+        }
+        System.out.println();
+    }
+
+
+    /**
+     * @return
+     * @description è¿”å›æ ˆçš„å¤§å°
+     * @author rico
+     */
+    public int size() {
+        return size;
+    }
+
+    public LinkedStack<E> getMin() {
+        return min;
+    }
+
+    public void setMin(LinkedStack<E> min) {
+        this.min = min;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        Node<E> index = top;
+        StringBuilder sb = new StringBuilder();
+        while (index != null) {
+            sb.append(index.data).append(" ");
+            index = index.next;
+        }
+        return sb.toString();
+    }
 }

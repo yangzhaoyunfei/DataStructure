@@ -2,48 +2,49 @@ package cn.edu.tju.rico.sort;
 
 import java.util.Arrays;
 
-  
-/**        
- * Title:¿ìËÙÅÅĞòµÄ±äĞÎ     
- * Description: ±¾ÖÊÉÏ²»¶Ïµ÷ÓÃ¾­µä¿ìÅÅµÄ»®·ÖËã·¨
- * Ê±¼ä¸´ÔÓ¶È£ºO(n^2)
- * @author rico       
- * @created 2017Äê6ÔÂ2ÈÕ ÏÂÎç9:10:43    
- */      
+
+/**
+ * Title:å¿«é€Ÿæ’åºçš„å˜å½¢
+ * Description: æœ¬è´¨ä¸Šä¸æ–­è°ƒç”¨ç»å…¸å¿«æ’çš„åˆ’åˆ†ç®—æ³•
+ * æ—¶é—´å¤æ‚åº¦ï¼šO(n^2)
+ *
+ * @author rico
+ * @created 2017å¹´6æœˆ2æ—¥ ä¸‹åˆ9:10:43
+ */
 public class QuickSort_PartitionOnly {
-	/**     
-	 * @description ÒÀ´ÎÒÔÊı×éÖĞµÄÃ¿¸öÔªËØÎª»ù×¼µã½øĞĞ»®·Ö£¬
-	 * Ö±µ½±éÀúËùÓĞÔªËØ¶¼
-	 * @author rico       
-	 * @param array     
-	 */
-	public void quicksort(int[] array) {
-		if (array != null && array.length != 0) {
-			for (int i = 0; i < array.length; i++) {
-				// ÒÔÏÂÊÇ¿ìÅÅµÄ»®·ÖËã·¨
-				int base_index = 0; 
-				int base = array[i];
-				base_index = i;
-				for (int j = i+1; j < array.length; j++) {
-					if (array[j] <= base ) {
-						base_index ++;
-						if (base_index != j) {
-							int temp = array[base_index];
-							array[base_index] = array[j];
-							array[j] = temp;
-						}
-					}
-				}
-				array[i] = array[base_index];
-				array[base_index] = base;
-				System.out.println(Arrays.toString(array));
-			}
-		}
-	}
-	
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 //		int[] array = { 1, 2, 3, 2, 2, 2, 5, 4, 2 };
-		int[] array = { 1, 2, 3, 5, 0, 4, 9, 2, 6 };
-		new QuickSort_PartitionOnly().quicksort(array);
-	}
+        int[] array = {1, 2, 3, 5, 0, 4, 9, 2, 6};
+        new QuickSort_PartitionOnly().quicksort(array);
+    }
+
+    /**
+     * @param array
+     * @description ä¾æ¬¡ä»¥æ•°ç»„ä¸­çš„æ¯ä¸ªå…ƒç´ ä¸ºåŸºå‡†ç‚¹è¿›è¡Œåˆ’åˆ†ï¼Œ
+     * ç›´åˆ°éå†æ‰€æœ‰å…ƒç´ éƒ½
+     * @author rico
+     */
+    public void quicksort(int[] array) {
+        if (array != null && array.length != 0) {
+            for (int i = 0; i < array.length; i++) {
+                // ä»¥ä¸‹æ˜¯å¿«æ’çš„åˆ’åˆ†ç®—æ³•
+                int base_index = 0;
+                int base = array[i];
+                base_index = i;
+                for (int j = i + 1; j < array.length; j++) {
+                    if (array[j] <= base) {
+                        base_index++;
+                        if (base_index != j) {
+                            int temp = array[base_index];
+                            array[base_index] = array[j];
+                            array[j] = temp;
+                        }
+                    }
+                }
+                array[i] = array[base_index];
+                array[base_index] = base;
+                System.out.println(Arrays.toString(array));
+            }
+        }
+    }
 }

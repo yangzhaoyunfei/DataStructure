@@ -2,158 +2,156 @@ package cn.edu.tju.rico.BinarySearchTree;
 
 public class BinarySearchTree {
 
-	private TreeNode root;
+    private TreeNode root;
 
-	/**
-	 * @description ¸ù¾İÒÑÖªĞòÁĞ¹¹½¨¶ş²æËÑË÷Ê÷
-	 * @author rico
-	 * @created 2017Äê6ÔÂ3ÈÕ ÏÂÎç6:15:54
-	 * @param input
-	 */
-	public BinarySearchTree(int[] input) {
-		createBinarySearchTree(input);
-	}
+    /**
+     * @param input
+     * @description æ ¹æ®å·²çŸ¥åºåˆ—æ„å»ºäºŒå‰æœç´¢æ ‘
+     * @author rico
+     * @created 2017å¹´6æœˆ3æ—¥ ä¸‹åˆ6:15:54
+     */
+    public BinarySearchTree(int[] input) {
+        createBinarySearchTree(input);
+    }
 
-	/**
-	 * @description ¸ù¾İÒÑÖªĞòÁĞ¹¹½¨¶ş²æËÑË÷Ê÷
-	 * @author rico
-	 * @created 2017Äê6ÔÂ3ÈÕ ÏÂÎç6:15:06
-	 * @param input
-	 */
-	public void createBinarySearchTree(int[] input) {
-		if (input != null) {
-			for (int i = 0; i < input.length; i++) {
-				root = insert(input[i], root);
-			}
-		}
-	}
+    /**
+     * @param input
+     * @description æ ¹æ®å·²çŸ¥åºåˆ—æ„å»ºäºŒå‰æœç´¢æ ‘
+     * @author rico
+     * @created 2017å¹´6æœˆ3æ—¥ ä¸‹åˆ6:15:06
+     */
+    public void createBinarySearchTree(int[] input) {
+        if (input != null) {
+            for (int i = 0; i < input.length; i++) {
+                root = insert(input[i], root);
+            }
+        }
+    }
 
-	/**
-	 * @description ¶ş²æËÑË÷Ê÷µÄËÑË÷Ëã·¨£¬µİ¹éËã·¨
-	 * @author rico
-	 * @created 2017Äê6ÔÂ3ÈÕ ÏÂÎç3:27:43
-	 * @param target
-	 *            Ä¿±êÖµ
-	 * @param root
-	 *            ¶ş²æËÑË÷Ê÷µÄ¸ù½áµã
-	 * @return
-	 */
-	public TreeNode search(int target, TreeNode root) {
-		TreeNode result = null;
-		if (root != null) { // µİ¹éÖÕÖ¹Ìõ¼ş
-			if (target == root.data) { // µİ¹éÖÕÖ¹Ìõ¼ş
-				result = root;
-				return result;
-			} else if (target < root.data) { // Ä¿±êÖµĞ¡ÓÚ¸ù½áµãÖµ£¬´Ó×ó×ÓÊ÷²éÕÒ
-				result = search(target, root.left);
-			} else { // Ä¿±êÖµ´óÓÚ¸ù½áµãÖµ£¬´ÓÓÒ×ÓÊ÷²éÕÒ
-				result = search(target, root.right);
-			}
-		}
-		return result;
-	}
+    /**
+     * @param target ç›®æ ‡å€¼
+     * @param root   äºŒå‰æœç´¢æ ‘çš„æ ¹ç»“ç‚¹
+     * @return
+     * @description äºŒå‰æœç´¢æ ‘çš„æœç´¢ç®—æ³•ï¼Œé€’å½’ç®—æ³•
+     * @author rico
+     * @created 2017å¹´6æœˆ3æ—¥ ä¸‹åˆ3:27:43
+     */
+    public TreeNode search(int target, TreeNode root) {
+        TreeNode result = null;
+        if (root != null) { // é€’å½’ç»ˆæ­¢æ¡ä»¶
+            if (target == root.data) { // é€’å½’ç»ˆæ­¢æ¡ä»¶
+                result = root;
+                return result;
+            } else if (target < root.data) { // ç›®æ ‡å€¼å°äºæ ¹ç»“ç‚¹å€¼ï¼Œä»å·¦å­æ ‘æŸ¥æ‰¾
+                result = search(target, root.left);
+            } else { // ç›®æ ‡å€¼å¤§äºæ ¹ç»“ç‚¹å€¼ï¼Œä»å³å­æ ‘æŸ¥æ‰¾
+                result = search(target, root.right);
+            }
+        }
+        return result;
+    }
 
-	/**
-	 * @description ¶ş²æËÑË÷Ê÷µÄ²åÈë²Ù×÷
-	 * @author rico
-	 * @created 2017Äê6ÔÂ3ÈÕ ÏÂÎç5:55:05
-	 * @param target
-	 * @param node
-	 * @return
-	 */
-	public TreeNode insert(int target, TreeNode node) {
-		if (search(target, node) == null) {
-			if (node == null) {
-				return new TreeNode(target);
-			} else {
-				if (target < node.data) {
-					node.left = insert(target, node.left);
-				} else {
-					node.right = insert(target, node.right);
-				}
-			}
-		}
-		return node;
-	}
+    /**
+     * @param target
+     * @param node
+     * @return
+     * @description äºŒå‰æœç´¢æ ‘çš„æ’å…¥æ“ä½œ
+     * @author rico
+     * @created 2017å¹´6æœˆ3æ—¥ ä¸‹åˆ5:55:05
+     */
+    public TreeNode insert(int target, TreeNode node) {
+        if (search(target, node) == null) {
+            if (node == null) {
+                return new TreeNode(target);
+            } else {
+                if (target < node.data) {
+                    node.left = insert(target, node.left);
+                } else {
+                    node.right = insert(target, node.right);
+                }
+            }
+        }
+        return node;
+    }
 
-	/**
-	 * @description É¾³ıËÑË÷¶ş²æÊ÷µÄÖÆ¶¨½áµã
-	 * @author rico
-	 * @created 2017Äê6ÔÂ3ÈÕ ÏÂÎç8:43:29
-	 * @param target
-	 * @param node
-	 * @return
-	 */
-	public TreeNode remove(int target, TreeNode node) {
-		TreeNode tmp = null;
-		if (node != null) {
-			if (target < node.data) { // ´Ó×ó×ÓÊ÷É¾³ı
-				node.left = remove(target, node.left);
-			} else if (target > node.data) { // ´ÓÓÒ×ÓÊ÷É¾³ı
-				node.right = remove(target, node.right);
-			} else if (node.left != null && node.right != null) { // ÕÒµ½´ıÉ¾³ı½áµã£¬ÇÒÆä×óÓÒ×ÓÊ÷²»Îª¿Õ
-				// ÕÒµ½ÒÔ´ıÉ¾³ı½áµãÓÒ×ÓÊ÷µÄÖĞĞò±éÀúµÚÒ»¸ö½áµã(×îĞ¡½áµã)
-				tmp = node.right;
-				while (tmp.left != null) {
-					tmp = tmp.left;
-				}
+    /**
+     * @param target
+     * @param node
+     * @return
+     * @description åˆ é™¤æœç´¢äºŒå‰æ ‘çš„åˆ¶å®šç»“ç‚¹
+     * @author rico
+     * @created 2017å¹´6æœˆ3æ—¥ ä¸‹åˆ8:43:29
+     */
+    public TreeNode remove(int target, TreeNode node) {
+        TreeNode tmp = null;
+        if (node != null) {
+            if (target < node.data) { // ä»å·¦å­æ ‘åˆ é™¤
+                node.left = remove(target, node.left);
+            } else if (target > node.data) { // ä»å³å­æ ‘åˆ é™¤
+                node.right = remove(target, node.right);
+            } else if (node.left != null && node.right != null) { // æ‰¾åˆ°å¾…åˆ é™¤ç»“ç‚¹ï¼Œä¸”å…¶å·¦å³å­æ ‘ä¸ä¸ºç©º
+                // æ‰¾åˆ°ä»¥å¾…åˆ é™¤ç»“ç‚¹å³å­æ ‘çš„ä¸­åºéå†ç¬¬ä¸€ä¸ªç»“ç‚¹(æœ€å°ç»“ç‚¹)
+                tmp = node.right;
+                while (tmp.left != null) {
+                    tmp = tmp.left;
+                }
 
-				// ÓÃ×îĞ¡½áµã²¹Î»´ıÉ¾³ı½áµã
-				node.data = tmp.data;
+                // ç”¨æœ€å°ç»“ç‚¹è¡¥ä½å¾…åˆ é™¤ç»“ç‚¹
+                node.data = tmp.data;
 
-				// É¾³ı´ıÉ¾³ı½áµãÓÒ×ÓÊ÷ÉÏ²¹Î»½áµã
-				node.right = remove(node.data, node.right);
-			} else {
-				if (node.left == null) {
-					node = node.right;
-				} else {
-					node = node.left;
-				}
-			}
-		}
-		return node;
-	}
+                // åˆ é™¤å¾…åˆ é™¤ç»“ç‚¹å³å­æ ‘ä¸Šè¡¥ä½ç»“ç‚¹
+                node.right = remove(node.data, node.right);
+            } else {
+                if (node.left == null) {
+                    node = node.right;
+                } else {
+                    node = node.left;
+                }
+            }
+        }
+        return node;
+    }
 
-	/**
-	 * @description ÖĞĞò±éÀú¶ş²æËÑË÷Ê÷£¬µİ¹éËã·¨£¬ÉıĞòÅÅĞò
-	 * @author rico
-	 * @created 2017Äê6ÔÂ3ÈÕ ÏÂÎç3:52:54
-	 * @param root
-	 */
-	public void inOrder(TreeNode node) {
-		if (node != null) {
-			inOrder(node.left);
-			System.out.print(root.data + " ");
-			inOrder(node.right);
-		}
-	}
+    /**
+     * @param root
+     * @description ä¸­åºéå†äºŒå‰æœç´¢æ ‘ï¼Œé€’å½’ç®—æ³•ï¼Œå‡åºæ’åº
+     * @author rico
+     * @created 2017å¹´6æœˆ3æ—¥ ä¸‹åˆ3:52:54
+     */
+    public void inOrder(TreeNode node) {
+        if (node != null) {
+            inOrder(node.left);
+            System.out.print(root.data + " ");
+            inOrder(node.right);
+        }
+    }
 
-	/**
-	 * @description ´òÓ¡¶ş²æËÑË÷Ê÷
-	 * @author rico
-	 * @created 2017Äê6ÔÂ3ÈÕ ÏÂÎç6:08:42
-	 * @param node
-	 */
-	public void printTree(TreeNode node) {
-		if (node != null) {
-			System.out.print(node.data);
-			if (node.left != null || node.right != null) {
-				System.out.print("(");
-				printTree(node.left);
-				System.out.print(",");
-				printTree(node.right);
-				System.out.print(")");
-			}
-		}
-	}
+    /**
+     * @param node
+     * @description æ‰“å°äºŒå‰æœç´¢æ ‘
+     * @author rico
+     * @created 2017å¹´6æœˆ3æ—¥ ä¸‹åˆ6:08:42
+     */
+    public void printTree(TreeNode node) {
+        if (node != null) {
+            System.out.print(node.data);
+            if (node.left != null || node.right != null) {
+                System.out.print("(");
+                printTree(node.left);
+                System.out.print(",");
+                printTree(node.right);
+                System.out.print(")");
+            }
+        }
+    }
 
-	/**
-	 * @description ·ÃÎÊ¶ş²æËÑË÷Ê÷µÄ¸ù½áµã
-	 * @author rico
-	 * @created 2017Äê6ÔÂ3ÈÕ ÏÂÎç3:54:49
-	 * @return
-	 */
-	public TreeNode getRoot() {
-		return root;
-	}
+    /**
+     * @return
+     * @description è®¿é—®äºŒå‰æœç´¢æ ‘çš„æ ¹ç»“ç‚¹
+     * @author rico
+     * @created 2017å¹´6æœˆ3æ—¥ ä¸‹åˆ3:54:49
+     */
+    public TreeNode getRoot() {
+        return root;
+    }
 }

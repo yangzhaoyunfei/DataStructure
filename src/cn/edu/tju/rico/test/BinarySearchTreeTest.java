@@ -3,33 +3,33 @@ package cn.edu.tju.rico.test;
 import cn.edu.tju.rico.BinarySearchTree.BinarySearchTree;
 
 public class BinarySearchTreeTest {
-	public static void main(String[] args) {
-		int[] input = {53,78,65,17,87,9,81,45,23};
-		BinarySearchTree tree = new BinarySearchTree(input);
-		
-		System.out.println("中序遍历二叉搜索树：");
-		tree.inOrder(tree.getRoot());
-		System.out.println();
-		System.out.println("\n------------------------\n");
-		System.out.println("打印二叉搜索树：");
-		tree.printTree(tree.getRoot());
-		System.out.println();
-		System.out.println("\n------------------------\n");
-		
-		System.out.println("二叉搜索树搜索目标值：");
-		System.out.println(tree.search(23, tree.getRoot()));
-		System.out.println("\n------------------------\n");
-		
-		System.out.println("向二叉搜索树插入目标值：");
-		tree.insert(10, tree.getRoot());
-		tree.printTree(tree.getRoot());
-		System.out.println();
-		System.out.println("\n------------------------\n");
-		
-		System.out.println("向二叉搜索树删除目标值：");
-		tree.remove(78, tree.getRoot());
-		tree.printTree(tree.getRoot());
-		System.out.println();
-		System.out.println("\n------------------------\n");
-	}
+    public static void main(String[] args) {
+        int[] input = {53, 78, 65, 17, 87, 9, 81, 45, 23};
+        BinarySearchTree tree = new BinarySearchTree(input);
+
+        System.out.println("涓簭閬嶅巻浜屽弶鎼滅储鏍戯細");
+        tree.inOrder(tree.getRoot());
+        System.out.println();
+        System.out.println("\n------------------------\n");
+        System.out.println("鎵撳嵃浜屽弶鎼滅储鏍戯細");
+        tree.printTree(tree.getRoot());
+        System.out.println();
+        System.out.println("\n------------------------\n");
+
+        System.out.println("浜屽弶鎼滅储鏍戞悳绱㈢洰鏍囧�硷細");
+        System.out.println(tree.search(23, tree.getRoot()));
+        System.out.println("\n------------------------\n");
+
+        System.out.println("鍚戜簩鍙夋悳绱㈡爲鎻掑叆鐩爣鍊硷細");
+        tree.insert(10, tree.getRoot());
+        tree.printTree(tree.getRoot());
+        System.out.println();
+        System.out.println("\n------------------------\n");
+
+        System.out.println("鍚戜簩鍙夋悳绱㈡爲鍒犻櫎鐩爣鍊硷細");
+        tree.remove(78, tree.getRoot());
+        tree.printTree(tree.getRoot());
+        System.out.println();
+        System.out.println("\n------------------------\n");
+    }
 }
