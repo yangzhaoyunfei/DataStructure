@@ -34,10 +34,14 @@ public class MergeSort {
 
         if (right > left) {           // 递归终止条件
             int mid = (left + right) / 2;
-            mergeSort(target, left, mid);   // 归并排序第一个子序列
+            mergeSort(target, left, mid);   // 归并排序第一个子序列，逻辑上被递归分解成长度为1的子序列
             mergeSort(target, mid + 1, right);   // 归并排序第二个子序列
             return merge(target, left, mid, right);  // 合并子序列成原序列
         }
+        /**
+         * 整个运行过程就是：第一个子序列被递归逻辑分解为长度为1的子序列，然后递归返回，开始递归逻辑分解第二个子序列，
+         * 分解完后，递归返回，开始从第二个子序列的尾部两个长度为1的子序列开始合并，再然后是第一个子序列子序列开始合并排序。
+         */
         return target;
     }
 
@@ -57,28 +61,28 @@ public class MergeSort {
         // 需要一个与原待排序数组一样大的辅助数组空间
         int[] temp = Arrays.copyOf(target, target.length);
 
-        // s1,s2是检查指针，index 是存放指针
-        int s1 = left;
-        int s2 = mid + 1;
+        // index 是辅助空间的存放指针
+        int i1 = left;//第一个序列起始位置
+        int i2 = mid + 1;//第二个序列起始位置
         int index = left;
 
         // 两个表都未检查完，两两比较
-        while (s1 <= mid && s2 <= right) {
-            if (temp[s1] <= temp[s2]) {   // 稳定性
-                target[index++] = temp[s1++];
+        while (i1 <= mid && i2 <= right) {
+            if (temp[i1] <= temp[i2]) {   // =号保证稳定性
+                target[index++] = temp[i1++];
             } else {
-                target[index++] = temp[s2++];
+                target[index++] = temp[i2++];
             }
         }
 
-        //若第一个表未检查完，复制
-        while (s1 <= mid) {
-            target[index++] = temp[s1++];
+        //若第一个表未检查完，复制到辅助空间尾部，与下方只有一个会成立
+        while (i1 <= mid) {
+            target[index++] = temp[i1++];
         }
 
-        //若第二个表未检查完，复制
-        while (s2 <= right) {
-            target[index++] = temp[s2++];
+        //若第二个表未检查完，复制到辅助空间尾部
+        while (i2 <= right) {
+            target[index++] = temp[i2++];
         }
         return target;
     }
